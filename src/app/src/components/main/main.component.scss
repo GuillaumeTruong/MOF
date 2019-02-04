@@ -1,0 +1,42 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.header{
+    height: 60px;
+    width: 100%;
+    background: rosybrown;
+    z-index:10;
+}
+
+// .footer{
+//     height: 40px;
+//     width: 100%;
+//     background: red;
+// }
+
+.body{
+    height: calc(100% - 60px);
+    width: 100%;
+    background: blue;
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+}
+
+.left-panel{
+    background: cyan;
+}
+
+.center-panel{
+    background: greenyellow;
+}
+
+.right-panel{
+    background: orange;
+}

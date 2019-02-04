@@ -1,0 +1,63 @@
+@import '~@angular/material/theming';
+
+.recap {
+    background-color: #FEFEFE;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overview-name{
+    margin: 10px;
+    font-size: 2em;
+}
+
+.overview-card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.overview-card{
+    @include mat-elevation(6);
+    margin: 10px;
+    padding: 10px;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFF;
+}
+
+.card-info{
+    .pastille{
+        font-weight: bold;
+        background-color: #FD1F1F;
+        color: #FFF;
+        border-radius: 50%; 
+        height: 30px;
+        width: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .message{
+        margin-top: 10px;
+        color: #00265A;
+        font-weight: bold;
+        font-size: 20px;
+    }
+}
+
+.overview-icon {
+    height: 50px!important;
+    width: 50px!important;
+    color: #00265A;
+}
