@@ -42,6 +42,7 @@ import { MainComponent } from './src/components/main/main.component';
 import { WorkOrderPanelComponent } from './src/components/work-order-panel/work-order-panel.component';
 import { AircraftPanelComponent } from './src/components/aircraft-panel/aircraft-panel.component';
 import { RecapComponent } from './src/components/recap/recap.component';
+import { HeaderComponent } from './src/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { RecapComponent } from './src/components/recap/recap.component';
     MainComponent,
     WorkOrderPanelComponent,
     AircraftPanelComponent,
-    RecapComponent
+    RecapComponent,
+    HeaderComponent
   ],
   imports: [
     AngularSplitModule.forRoot(),
