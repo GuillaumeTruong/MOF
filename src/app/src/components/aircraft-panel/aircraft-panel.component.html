@@ -1,3 +1,47 @@
-<p>
-  aircraft-panel works!
-</p>
+<div class="aircraft-panel">
+  <div class="aircraft-panel-header">
+    <span>
+      Aircraft list
+    </span>
+  </div>
+  <div class="aircraft-panel-list">
+    <div class="list-manager">
+
+    </div>
+    <div class="aircraft-list">
+      <div class="aircraft-family" *ngFor="let aircraftFamily of aircraftList">
+        <div class="aircraft-family-header">
+          <div class="onglet">
+            {{aircraftFamily.familyName}}
+          </div>
+        </div>
+        <div class="aircraft-family-list">
+          <div class="aircraft-element" *ngFor="let aircraftElement of aircraftFamily.aircraftList">
+            <div class="aircraft-element-state">
+              <i class="material-icons" *ngIf="isAircraftTakeOff(aircraftElement)">
+                flight_takeoff
+              </i>
+              <i class="material-icons" *ngIf="isAircraftTaxiIn(aircraftElement)">
+                flight_land
+              </i>
+              <i class="material-icons" *ngIf="isAircraftFlight(aircraftElement)">
+                flight
+              </i>
+              <i class="material-icons" *ngIf="isAircraftReadyForMaintenance(aircraftElement)">
+                build
+              </i>
+            </div>
+            <div class="aircraft-element-name">
+              {{ aircraftElement.name }}
+            </div>
+            <div class="aircraft-element-woInProgress">
+              <i class="material-icons" *ngIf="aircraftElement.woInProgress">
+                sync
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

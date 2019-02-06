@@ -1,0 +1,86 @@
+$borderRadius: 5px;
+
+.aircraft-panel {
+
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 30px calc(100% - 45px);
+    grid-gap: 5px;
+    background: #DDD;
+
+    &-header {
+        background: #00265A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 0 0 $borderRadius $borderRadius;
+    }
+
+    &-list {
+        padding: 5px 10px;
+        height: 100%;
+
+        .list-manager {
+            border-radius: $borderRadius;
+            background: white;
+            padding: 5px;
+        }
+
+        .aircraft-list {
+            overflow: auto;
+            margin-top: 10px;
+            height: calc(100% - 15px);
+            
+            
+            .aircraft-family {
+                overflow: hidden;
+                border-radius: $borderRadius;
+                background: white;
+                margin-bottom: 10px;
+                
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+
+                &-header {
+                    padding: 5px 40px;
+                    font-size: 1.2em;
+                    width: 60px;
+                    background: #00265A;
+                    color: white;
+                    font-weight: lighter;
+                }
+
+                &-list {
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+
+                    .aircraft-element{
+                        padding: 5px 10px;
+                        display: grid;
+                        grid-template-columns: 30px 1fr 30px;
+                        grid-gap: 10px;
+                        font-size: 20px;
+
+                        &-state {
+                            color: #00265A;
+                        }
+
+                        &-name {
+                            color: #00265A;
+                            font-weight: lighter;
+                        }
+
+                        &-woInProgress {
+                            color: #00265A;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}

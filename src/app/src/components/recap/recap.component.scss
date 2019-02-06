@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 
 .recap {
-    background-color: #FEFEFE;
+    background-color: #EFEFEF;
     height: 100%;
     width: 100%;
     display: flex;
@@ -15,7 +15,7 @@
     font-size: 2em;
 }
 
-.overview-card-container {
+.overview-card-container-line {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -24,10 +24,10 @@
 
 .overview-card{
     @include mat-elevation(6);
-    margin: 10px;
+    margin: 20px;
     padding: 10px;
-    height: 100px;
-    width: 200px;
+    height: 120px;
+    width: 300px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,7 +37,7 @@
 
 .card-info{
     .pastille{
-        font-weight: bold;
+        font-weight: 400;
         background-color: #FD1F1F;
         color: #FFF;
         border-radius: 50%; 
@@ -51,13 +51,13 @@
     .message{
         margin-top: 10px;
         color: #00265A;
-        font-weight: bold;
+        font-weight: 400;
         font-size: 20px;
     }
 }
 
-.overview-icon {
-    height: 50px!important;
-    width: 50px!important;
+.material-icons {
+    font-size: 50px;
+    margin-right: 20px;
     color: #00265A;
 }
