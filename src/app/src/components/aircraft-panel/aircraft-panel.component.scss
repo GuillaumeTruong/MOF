@@ -1,3 +1,5 @@
+@import '../../Css/scrollbar.css';
+
 $borderRadius: 5px;
 
 .aircraft-panel {
@@ -5,7 +7,7 @@ $borderRadius: 5px;
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 30px calc(100% - 45px);
+    grid-template-rows: 30px calc(100% - 40px - 50px);
     grid-gap: 5px;
     background: #DDD;
 
@@ -20,7 +22,7 @@ $borderRadius: 5px;
 
     &-list {
         padding: 5px 10px;
-        height: 100%;
+        height: calc(100% - 10px);
 
         .list-manager {
             border-radius: $borderRadius;
@@ -32,6 +34,7 @@ $borderRadius: 5px;
             overflow: auto;
             margin-top: 10px;
             height: calc(100% - 15px);
+            padding-right: 5px;
             
             
             .aircraft-family {
@@ -81,6 +84,36 @@ $borderRadius: 5px;
 
             }
         }
+    }
+
+    &-search-bar{
+        padding: 5px;
+        height: 40px;
+        background: white;
+        display: grid;
+        width: calc(100% - 10px);
+        grid-template-columns: 30px calc(100% - 130px) 80px;
+        grid-gap: 5px;
+
+        .search-prefix {
+            color: #555;
+            place-self: center;
+        }
+
+        .search-input {
+            height: 40px;
+            font-size: 15px;
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 0;
+        }
+
+        .search-suffix {
+            color: #555;
+            place-self: center;
+        }
+
     }
 
 }
