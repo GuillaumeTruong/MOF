@@ -4,19 +4,60 @@
       Aircraft list
     </span>
   </div>
-  <div class="aircraft-panel-list">
+  <div class="aircraft-panel-list" [ngClass]="{'filters-open': filterOpen && !sorterOpen, 'sorter-open': sorterOpen && !filterOpen, 'filters-sorter-open': filterOpen && sorterOpen}">
     <div class="list-manager">
-
+      <div class="list-filter">
+        <div class="filter-button" (click)="switchFilterOpen()">
+          <i class="material-icons" *ngIf="!filterOpen">
+            expand_more
+          </i>
+          <i class="material-icons" *ngIf="filterOpen">
+            expand_less
+          </i>
+          Filters : {{ nbFilter }}
+        </div>
+        <div class="logo">
+          <img class="img-logo" src="../../../../assets/École_nationale_de_l'aviation_civile_(logo).svg.png"/>
+        </div>
+        <div class="filter-list" *ngIf="filterOpen">
+          <mat-checkbox class="filter-readyfm" [(ngModel)]="filterList.ReadyForMaintenance">
+            Reday for Maintenance
+          </mat-checkbox>
+          <mat-checkbox class="filter-flight" [(ngModel)]="filterList.Flight">
+            Flight
+          </mat-checkbox>
+          <mat-checkbox class="filter-taxiin" [(ngModel)]="filterList.Taxiin">
+            Taxi-in
+          </mat-checkbox>
+          <mat-checkbox class="filter-online" [(ngModel)]="filterList.Online">
+            Online
+          </mat-checkbox>
+          <mat-checkbox class="filter-woinprogress" [(ngModel)]="filterList.WOInProgress">
+            WO in Progress
+          </mat-checkbox>
+        </div>
+      </div>
+      <div class="list-sorter">
+        <div class="sorter-button" (click)="switchSorterOpen()">
+          <i class="material-icons" *ngIf="!sorterOpen">
+            expand_more
+          </i>
+          <i class="material-icons" *ngIf="sorterOpen">
+            expand_less
+          </i>
+          Sort By: {{ sorter }}
+        </div>
+      </div>
     </div>
     <div class="aircraft-list">
       <div class="aircraft-family" *ngFor="let aircraftFamily of aircraftList">
         <div class="aircraft-family-header">
           <div class="onglet">
-            {{aircraftFamily.familyName}}
+            {{ aircraftFamily.familyName }}
           </div>
         </div>
         <div class="aircraft-family-list">
-          <div class="aircraft-element" *ngFor="let aircraftElement of aircraftFamily.aircraftList">
+          <div class="aircraft-element" *ngFor="let aircraftElement of aircraftFamily.aircraftList | searchFilterPipe:searchInputValue | filtersPipe:filterList">
             <div class="aircraft-element-state">
               <i class="material-icons" *ngIf="isAircraftTakeOff(aircraftElement)">
                 flight_takeoff
@@ -46,9 +87,9 @@
   </div>
   <div class="aircraft-panel-search-bar">
     <mat-icon class="search-prefix">search</mat-icon>
-    <input class="search-input" type="tel" placeholder="Search">
+    <input class="search-input" type="tel" placeholder="Search" (keydown)="searchAircraft()" [(ngModel)]="searchInputValue">
     <div class="search-suffix">
-      <span>eg: F-LJKB</span>
+      <span>eg: LJKB</span>
     </div>
   </div>
 </div>

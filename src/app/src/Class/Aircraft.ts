@@ -3,7 +3,7 @@ export class Aircraft {
     name: String;
     family: String;
     state: AircraftState;
-    woInProgress: Boolean;
+    woInProgress: boolean;
 }
 
 export enum AircraftState {

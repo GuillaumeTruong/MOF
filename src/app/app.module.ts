@@ -13,6 +13,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 // import {MatSliderModule} from '@angular/material/slider';
 // import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 // import {MatMenuModule} from '@angular/material/menu';
@@ -44,6 +45,10 @@ import { AircraftPanelComponent } from './src/components/aircraft-panel/aircraft
 import { RecapComponent } from './src/components/recap/recap.component';
 import { HeaderComponent } from './src/components/header/header.component';
 
+import { SearchFilterPipe } from './src/components/aircraft-panel/SearchFilterPipe';
+import { FiltersPipe } from './src/components/aircraft-panel/FiltersPipe';
+import { Pipe, PipeTransform } from '@angular/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +56,9 @@ import { HeaderComponent } from './src/components/header/header.component';
     WorkOrderPanelComponent,
     AircraftPanelComponent,
     RecapComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchFilterPipe,
+    FiltersPipe
   ],
   imports: [
     AngularSplitModule.forRoot(),
@@ -65,6 +72,7 @@ import { HeaderComponent } from './src/components/header/header.component';
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
+    FormsModule,
     // MatSliderModule,
     // MatSlideToggleModule,
     // MatMenuModule,

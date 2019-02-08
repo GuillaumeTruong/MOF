@@ -22,12 +22,93 @@ $borderRadius: 5px;
 
     &-list {
         padding: 5px 10px;
-        height: calc(100% - 10px);
+        height: calc(100% - 78px);
+
+        &.filters-open {
+            height: calc(100% - 170px);
+        }
+        
+        &.sorter-open {
+            height: calc(100% - 78px);
+        }
+        
+        &.filters-sorter-open {
+            height: calc(100% - 170px);
+        }
 
         .list-manager {
             border-radius: $borderRadius;
             background: white;
-            padding: 5px;
+            padding: 10px;
+
+            .list-filter {
+                display: grid;
+                grid-template-areas:
+                "button logo"
+                "list list";
+
+                .filter-button {
+                    grid-area: button;
+                    align-self: center;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .logo {
+                    grid-area: logo;
+                    justify-self: end;
+                    align-self: center;
+
+                    .img-logo {
+                        height: 30px;
+                    }
+                }
+
+                .filter-list {
+                    padding-left: 20px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    grid-area: list;
+                    display: grid;
+                    grid-row-gap: 5px;
+                    grid-template-areas:
+                    "rfm rfm"
+                    "flight taxiin"
+                    "online woinprogress";
+
+                    .filter- {
+
+                        &readyfm {
+                            grid-area: rfm;
+                        }
+
+                        &flight {
+                            grid-area: flight;
+                        }
+
+                        &taxiin{
+                            grid-area: taxiin;
+                        }
+
+                        &online{
+                            grid-area: online;
+                        }
+
+                        &woinprogress{
+                            grid-area: woinprogress;
+                        }
+
+                    }
+                }
+            }
+
+            .list-sorter {
+
+                .sorter-button{
+                    display: flex;
+                    align-items: center;
+                }
+            }
         }
 
         .aircraft-list {
