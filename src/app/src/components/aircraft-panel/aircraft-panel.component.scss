@@ -138,7 +138,7 @@ $borderRadius: 5px;
                 }
 
                 &-list {
-                    margin-top: 10px;
+                    margin-top: 5px;
                     margin-bottom: 5px;
 
                     .aircraft-element{
@@ -147,9 +147,13 @@ $borderRadius: 5px;
                         grid-template-columns: 30px 1fr 30px;
                         grid-gap: 10px;
                         font-size: 20px;
+                        align-items: center;
 
                         &-state {
                             color: #00265A;
+                            align-self: center;
+                            display: flex;
+                            align-items: center;
                         }
 
                         &-name {
@@ -159,6 +163,9 @@ $borderRadius: 5px;
 
                         &-woInProgress {
                             color: #00265A;
+                            align-self: center;
+                            display: flex;
+                            align-items: center;
                         }
                     }
                 }
