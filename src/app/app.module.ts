@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AngularSplitModule } from 'angular-split'
+import { AngularSplitModule } from 'angular-split';
 
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -40,7 +40,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './src/components/main/main.component';
-import { WorkOrderPanelComponent } from './src/components/work-order-panel/work-order-panel.component';
 import { AircraftPanelComponent } from './src/components/aircraft-panel/aircraft-panel.component';
 import { RecapComponent } from './src/components/recap/recap.component';
 import { HeaderComponent } from './src/components/header/header.component';
@@ -48,17 +47,22 @@ import { HeaderComponent } from './src/components/header/header.component';
 import { SearchFilterPipe } from './src/components/aircraft-panel/SearchFilterPipe';
 import { FiltersPipe } from './src/components/aircraft-panel/FiltersPipe';
 import { Pipe, PipeTransform } from '@angular/core';
+import { DownloadPanelComponent } from './src/components/download-panel/download-panel.component';
+import { WorkorderPanelComponent } from './src/components/workorder-panel/workorder-panel.component';
+import { WorkorderDetailsComponent } from './src/components/workorder-details/workorder-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    WorkOrderPanelComponent,
     AircraftPanelComponent,
     RecapComponent,
     HeaderComponent,
     SearchFilterPipe,
-    FiltersPipe
+    FiltersPipe,
+    DownloadPanelComponent,
+    WorkorderPanelComponent,
+    WorkorderDetailsComponent
   ],
   imports: [
     AngularSplitModule.forRoot(),
