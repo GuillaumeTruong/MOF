@@ -1,4 +1,6 @@
 @import '../../Css/scrollbar.css';
+@import '../../Css/color.scss';
+@import '~@angular/material/theming';
 
 $borderRadius: 5px;
 
@@ -7,21 +9,36 @@ $borderRadius: 5px;
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 30px calc(100% - 40px - 50px);
-    grid-gap: 5px;
-    background: #DDD;
+    grid-template-rows: 40px calc(100% - 40px - 50px);
+    // grid-gap: 5px;
+    background: #FFF;
 
     &-header {
-        background: #00265A;
-        display: flex;
+        color: $bleu-airbus;
+        display: grid;
+        grid-template-columns: 100px 1fr 100px;
         align-items: center;
-        justify-content: center;
-        color: white;
-        border-radius: 0 0 $borderRadius $borderRadius;
+        justify-items: center;
+        background: white;
+        padding: 0 10px;
+        border-bottom: 1px solid #DDD;
+        z-index: 10;
+        // @include mat-elevation(2);
+
+        .logo {
+            .img-logo {
+                height: 30px;
+            }
+        }
+
+        .text {
+        }
+
+        .icon-side {
+        }
     }
 
     &-list {
-        padding: 5px 10px;
         height: calc(100% - 78px);
 
         &.filters-open {
@@ -37,65 +54,43 @@ $borderRadius: 5px;
         }
 
         .list-manager {
-            border-radius: $borderRadius;
             background: white;
             padding: 10px;
+            margin-bottom: 10px;
+            @include mat-elevation(2);
 
             .list-filter {
-                display: grid;
-                grid-template-areas:
-                "button logo"
-                "list list";
+                padding-bottom: 5px;
+                border-bottom: 1px solid #DDD;
+                margin-bottom: 5px;
 
                 .filter-button {
-                    grid-area: button;
                     align-self: center;
                     display: flex;
                     align-items: center;
                 }
 
-                .logo {
-                    grid-area: logo;
-                    justify-self: end;
-                    align-self: center;
-
-                    .img-logo {
-                        height: 30px;
-                    }
-                }
-
                 .filter-list {
-                    padding-left: 20px;
-                    padding-top: 5px;
-                    padding-bottom: 5px;
-                    grid-area: list;
-                    display: grid;
-                    grid-row-gap: 5px;
-                    grid-template-areas:
-                    "rfm rfm"
-                    "flight taxiin"
-                    "online woinprogress";
+                    margin-left: 12px;
+                    padding-left: 14px;
+                    border-left: 1px solid #CCC;
+                    border-left-style: dashed;
+                    display: flex;
+                    flex-direction: column;
 
                     .filter- {
 
-                        &readyfm {
-                            grid-area: rfm;
+                        &state {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            height: 50px;
                         }
 
-                        &flight {
-                            grid-area: flight;
+                        &online {
                         }
 
-                        &taxiin{
-                            grid-area: taxiin;
-                        }
-
-                        &online{
-                            grid-area: online;
-                        }
-
-                        &woinprogress{
-                            grid-area: woinprogress;
+                        &woinprogress {
                         }
 
                     }
@@ -103,11 +98,12 @@ $borderRadius: 5px;
             }
 
             .list-sorter {
-
-                .sorter-button{
-                    display: flex;
-                    align-items: center;
-                }
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                padding-left: 6px;
+                padding-right: 6px;
             }
         }
 
@@ -116,12 +112,13 @@ $borderRadius: 5px;
             margin-top: 10px;
             height: calc(100% - 15px);
             padding-right: 5px;
+            margin: 0 5px 0 10px;
             
             
             .aircraft-family {
                 overflow: hidden;
-                border-radius: $borderRadius;
-                background: white;
+                // border-radius: $borderRadius;
+                background: #FDFDFD;
                 margin-bottom: 10px;
                 
                 &:last-child {
@@ -129,11 +126,10 @@ $borderRadius: 5px;
                 }
 
                 &-header {
-                    padding: 5px 40px;
-                    font-size: 1.2em;
-                    width: 60px;
-                    background: #00265A;
-                    color: white;
+                    padding: 5px;
+                    font-size: 1.4em;
+                    background: #EDEDED;
+                    color: $bleu-airbus;
                     font-weight: lighter;
                 }
 
@@ -144,25 +140,38 @@ $borderRadius: 5px;
                     .aircraft-element{
                         padding: 5px 10px;
                         display: grid;
-                        grid-template-columns: 30px 1fr 30px;
+                        grid-template-columns: 30px 1fr 30px 30px;
                         grid-gap: 10px;
                         font-size: 20px;
                         align-items: center;
 
                         &-state {
-                            color: #00265A;
+                            color: $bleu-airbus;
                             align-self: center;
                             display: flex;
                             align-items: center;
                         }
 
                         &-name {
-                            color: #00265A;
+                            color: $bleu-airbus;
                             font-weight: lighter;
                         }
 
+                        &-online {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            
+                            i {
+                                background: $vert-online;
+                                height: 10px;
+                                width: 10px;
+                                border-radius: 50%;
+                            }
+                        }
+
                         &-woInProgress {
-                            color: #00265A;
+                            color: $bleu-airbus;
                             align-self: center;
                             display: flex;
                             align-items: center;
@@ -175,6 +184,7 @@ $borderRadius: 5px;
     }
 
     &-search-bar{
+        box-shadow: 0px -3px 1px -2px rgba(0, 0, 0, 0.2), 0px -2px 2px 0px rgba(0, 0, 0, 0.14), 0px -1px 5px 0px rgba(0, 0, 0, 0.12);
         padding: 5px;
         height: 40px;
         background: white;
@@ -182,6 +192,7 @@ $borderRadius: 5px;
         width: calc(100% - 10px);
         grid-template-columns: 30px calc(100% - 130px) 80px;
         grid-gap: 5px;
+        z-index: 10;
 
         .search-prefix {
             color: #555;

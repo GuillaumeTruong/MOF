@@ -1,7 +1,13 @@
 <div class="aircraft-panel">
   <div class="aircraft-panel-header">
-    <span>
-      Aircraft list
+    <div class="logo">
+      <img class="img-logo" src="../../../../assets/École_nationale_de_l'aviation_civile_(logo).svg.png"/>
+    </div>
+    <span class="text">
+      Aircrafts
+    </span>
+    <span class="icon">
+      
     </span>
   </div>
   <div class="aircraft-panel-list" [ngClass]="{'filters-open': filterOpen && !sorterOpen, 'sorter-open': sorterOpen && !filterOpen, 'filters-sorter-open': filterOpen && sorterOpen}">
@@ -16,19 +22,21 @@
           </i>
           Filters : {{ nbFilter }}
         </div>
-        <div class="logo">
-          <img class="img-logo" src="../../../../assets/École_nationale_de_l'aviation_civile_(logo).svg.png"/>
-        </div>
         <div class="filter-list" *ngIf="filterOpen">
-          <mat-checkbox class="filter-readyfm" [(ngModel)]="filterList.ReadyForMaintenance">
-            Reday for Maintenance
-          </mat-checkbox>
-          <mat-checkbox class="filter-flight" [(ngModel)]="filterList.Flight">
-            Flight
-          </mat-checkbox>
-          <mat-checkbox class="filter-taxiin" [(ngModel)]="filterList.Taxiin">
-            Taxi-in
-          </mat-checkbox>
+          <div class="filter-state">
+            <span>
+              State :
+            </span>
+            <mat-form-field>
+              <mat-select [(value)]="selected">
+                <mat-option value="All">All</mat-option>
+                <mat-option value="ReadyForMaintenance">Ready for Maintenance</mat-option>
+                <mat-option value="Cruise">Cruise</mat-option>
+                <mat-option value="Parking">Parking</mat-option>
+                <mat-option value="Arrival">Arrival</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
           <mat-checkbox class="filter-online" [(ngModel)]="filterList.Online">
             Online
           </mat-checkbox>
@@ -38,15 +46,16 @@
         </div>
       </div>
       <div class="list-sorter">
-        <div class="sorter-button" (click)="switchSorterOpen()">
-          <i class="material-icons" *ngIf="!sorterOpen">
-            expand_more
-          </i>
-          <i class="material-icons" *ngIf="sorterOpen">
-            expand_less
-          </i>
-          Sort By: {{ sorter }}
-        </div>
+          <span>
+            Sort by : 
+          </span>
+          <mat-form-field>
+            <mat-select [(value)]="sorter">
+              <mat-option value="Family">Family</mat-option>
+              <mat-option value="WorkOrder">Work Order</mat-option>
+              <mat-option value="State">State</mat-option>
+            </mat-select>
+          </mat-form-field>
       </div>
     </div>
     <div class="aircraft-list">
@@ -59,13 +68,13 @@
         <div class="aircraft-family-list">
           <div class="aircraft-element" *ngFor="let aircraftElement of aircraftFamily.aircraftList | searchFilterPipe:searchInputValue | filtersPipe:filterList">
             <div class="aircraft-element-state">
-              <i class="material-icons" *ngIf="isAircraftTakeOff(aircraftElement)">
+              <i class="material-icons" *ngIf="isAircraftParking(aircraftElement)">
                 flight_takeoff
               </i>
-              <i class="material-icons" *ngIf="isAircraftTaxiIn(aircraftElement)">
+              <i class="material-icons" *ngIf="isAircraftArrival(aircraftElement)">
                 flight_land
               </i>
-              <i class="material-icons" *ngIf="isAircraftFlight(aircraftElement)">
+              <i class="material-icons" *ngIf="isAircraftCruise(aircraftElement)">
                 flight
               </i>
               <i class="material-icons" *ngIf="isAircraftReadyForMaintenance(aircraftElement)">
@@ -74,6 +83,9 @@
             </div>
             <div class="aircraft-element-name">
               {{ aircraftElement.name }}
+            </div>
+            <div class="aircraft-element-online">
+              <i *ngIf="aircraftElement.online"></i>
             </div>
             <div class="aircraft-element-woInProgress">
               <i class="material-icons" *ngIf="aircraftElement.woInProgress">

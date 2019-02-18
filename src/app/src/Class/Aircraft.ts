@@ -4,11 +4,12 @@ export class Aircraft {
     family: String;
     state: AircraftState;
     woInProgress: boolean;
+    online: boolean;
 }
 
 export enum AircraftState {
-    Flight,
-    TakeOff,
     ReadyForMaintenance,
-    TaxiIn
+    Cruise,
+    Parking,
+    Arrival
 }

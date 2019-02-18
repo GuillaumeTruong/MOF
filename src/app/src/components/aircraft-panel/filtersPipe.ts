@@ -12,6 +12,7 @@ export class FiltersPipe implements PipeTransform {
         }
         return items.filter(item => {
             let result = true;
+            /*
             if (filter.ReadyForMaintenance) {
                 result = result && (item.state === AircraftState.ReadyForMaintenance);
             }
@@ -20,7 +21,7 @@ export class FiltersPipe implements PipeTransform {
             }
             if (filter.Taxiin) {
                 result = result && (item.state === AircraftState.TaxiIn);
-            }
+            }*/
             if (filter.Online) {
             }
             if (filter.WOInProgress) {
