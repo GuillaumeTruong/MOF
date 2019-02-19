@@ -51,6 +51,8 @@ import { DownloadPanelComponent } from './src/components/download-panel/download
 import { WorkorderPanelComponent } from './src/components/workorder-panel/workorder-panel.component';
 import { WorkorderDetailsComponent } from './src/components/workorder-details/workorder-details.component';
 
+import { AircraftService } from './src/services/aircraft-service.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +104,9 @@ import { WorkorderDetailsComponent } from './src/components/workorder-details/wo
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AircraftService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

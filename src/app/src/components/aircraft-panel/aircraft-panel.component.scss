@@ -39,19 +39,19 @@ $borderRadius: 5px;
     }
 
     &-list {
-        height: calc(100% - 78px);
+        height: calc(100% - 95px);
 
         &.filters-open {
-            height: calc(100% - 170px);
+            height: calc(100% - 193px);
         }
         
-        &.sorter-open {
-            height: calc(100% - 78px);
-        }
+        // &.sorter-open {
+        //     height: calc(100% - 78px);
+        // }
         
-        &.filters-sorter-open {
-            height: calc(100% - 170px);
-        }
+        // &.filters-sorter-open {
+        //     height: calc(100% - 170px);
+        // }
 
         .list-manager {
             background: white;
@@ -115,7 +115,7 @@ $borderRadius: 5px;
             margin: 0 5px 0 10px;
             
             
-            .aircraft-family {
+            .aircraft-sorted {
                 overflow: hidden;
                 // border-radius: $borderRadius;
                 background: #FDFDFD;
@@ -161,7 +161,7 @@ $borderRadius: 5px;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            
+
                             i {
                                 background: $vert-online;
                                 height: 10px;

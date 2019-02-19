@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Aircraft, AircraftState } from '../../Class/Aircraft';
+import { Aircraft } from '../../Class/Aircraft';
 import { AircraftFamily } from '../../Class/AircraftFamily';
+
+import { AircraftService } from '../../services/aircraft-service.service';
 
 @Component({
   selector: 'app-aircraft-panel',
@@ -9,93 +11,83 @@ import { AircraftFamily } from '../../Class/AircraftFamily';
 })
 export class AircraftPanelComponent implements OnInit {
 
-  aircraftList: AircraftFamily[] = [
-    {
-      familyName: 'A319',
-      aircraftList: [
-        { id: 1, name: 'BAAA', family: 'A319', state: AircraftState.Arrival, woInProgress: false, online: false },
-        { id: 2, name: 'DAAA', family: 'A319', state: AircraftState.Cruise, woInProgress: true, online: false },
-        { id: 3, name: 'SAAA', family: 'A319', state: AircraftState.Cruise, woInProgress: false, online: false },
-        { id: 4, name: 'RAAA', family: 'A319', state: AircraftState.ReadyForMaintenance, woInProgress: false, online: true }
-      ]
-    },
-    {
-      familyName: 'A320',
-      aircraftList: [
-        { id: 5, name: 'AAAA', family: 'A320', state: AircraftState.Cruise, woInProgress: true, online: true },
-        { id: 6, name: 'ZAAA', family: 'A320', state: AircraftState.Arrival, woInProgress: false, online: true },
-        { id: 7, name: 'EAAA', family: 'A320', state: AircraftState.Cruise, woInProgress: false, online: false },
-        { id: 8, name: 'TAAA', family: 'A320', state: AircraftState.Cruise, woInProgress: true, online: false },
-        { id: 9, name: 'YAAA', family: 'A320', state: AircraftState.Parking, woInProgress: true, online: true }
-      ]
-    },
-    {
-      familyName: 'A321',
-      aircraftList: [
-        { id: 10, name: 'ASAA', family: 'A321', state: AircraftState.Arrival, woInProgress: true, online: true },
-        { id: 11, name: 'AACA', family: 'A321', state: AircraftState.ReadyForMaintenance, woInProgress: true, online: true },
-        { id: 12, name: 'AARA', family: 'A321', state: AircraftState.Cruise, woInProgress: false, online: true },
-        { id: 13, name: 'AAXA', family: 'A321', state: AircraftState.Cruise, woInProgress: false, online: false },
-        { id: 14, name: 'AAQA', family: 'A321', state: AircraftState.ReadyForMaintenance, woInProgress: true, online: true },
-        { id: 15, name: 'AMOA', family: 'A321', state: AircraftState.Cruise, woInProgress: false, online: false },
-        { id: 16, name: 'AAGA', family: 'A321', state: AircraftState.Arrival, woInProgress: false, online: false }
-      ]
-    },
-    {
-      familyName: 'A350',
-      aircraftList: [
-        { id: 17, name: 'AAMA', family: 'A350', state: AircraftState.ReadyForMaintenance, woInProgress: true, online: true },
-        { id: 18, name: 'AAAA', family: 'A350', state: AircraftState.Cruise, woInProgress: false, online: false }
-      ]
-    },
-    {
-      familyName: 'A380',
-      aircraftList: [
-        { id: 19, name: 'AHAA', family: 'A380', state: AircraftState.Parking, woInProgress: false, online: false },
-        { id: 20, name: 'CDAA', family: 'A380', state: AircraftState.Cruise, woInProgress: false, online: false },
-        { id: 21, name: 'POAA', family: 'A380', state: AircraftState.ReadyForMaintenance, woInProgress: true, online: true }
-      ]
-    }
-  ];
-
   searchInputValue: String = '';
   filterOpen: Boolean = false;
   nbFilter: Number = 0;
   sorter: String = 'Family';
   filterList: any = {
-    ReadyForMaintenance: false,
-    Cruise: false,
-    Arrival: false,
+    State: 'All',
     Online: false,
     WOInProgress: false,
   };
 
-  constructor() { }
+  aircraftList: any;
+  aircraftListSorted: any;
+
+  constructor( private aircraftService: AircraftService ) {
+    aircraftService.getAircraftByFamily();
+  }
 
   ngOnInit() {
+    this.aircraftService.cast.subscribe(aircraftList => this.onAircraftListChange(aircraftList));
+  }
+
+
+  onAircraftListChange(aircraftList) {
+    switch (this.sorter) {
+      case 'Family': {
+        this.aircraftListSorted = this.aircraftService.getAircraftByFamily();
+        break;
+      }
+      case 'WorkOrder': {
+        break;
+      }
+      case 'State': {
+        this.aircraftListSorted = this.aircraftService.getAircraftByState();
+        break;
+      }
+    }
   }
 
   isAircraftArrival(aircraftElement): Boolean {
-    return aircraftElement.state === AircraftState.Arrival;
+    return aircraftElement.state === 'Arrival';
   }
 
   isAircraftCruise(aircraftElement): Boolean {
-    return aircraftElement.state === AircraftState.Cruise;
+    return aircraftElement.state === 'Cruise';
   }
 
   isAircraftReadyForMaintenance(aircraftElement): Boolean {
-    return aircraftElement.state === AircraftState.ReadyForMaintenance;
+    return aircraftElement.state === 'Ready For Maintenance';
   }
 
   isAircraftParking(aircraftElement): Boolean {
-    return aircraftElement.state === AircraftState.Parking;
+    return aircraftElement.state === 'Parking';
   }
 
-  searchAircraft(): void {
-    console.log(this.searchInputValue);
+  isAircraftWoInProgress(aircraftElement): Boolean {
+    return aircraftElement.woInProgress !== 'None';
   }
 
   switchFilterOpen(): void {
     this.filterOpen = !this.filterOpen;
+    console.log(this.aircraftListSorted);
+  }
+
+  sorterChange(event): void {
+    switch (this.sorter) {
+      case 'Family': {
+        this.aircraftListSorted = this.aircraftService.getAircraftByFamily();
+        break;
+      }
+      case 'WorkOrder': {
+        this.aircraftListSorted = this.aircraftService.getAircraftByWO();
+        break;
+      }
+      case 'State': {
+        this.aircraftListSorted = this.aircraftService.getAircraftByState();
+        break;
+      }
+    }
   }
 }

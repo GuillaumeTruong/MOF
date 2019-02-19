@@ -7,10 +7,9 @@
       Aircrafts
     </span>
     <span class="icon">
-      
     </span>
   </div>
-  <div class="aircraft-panel-list" [ngClass]="{'filters-open': filterOpen && !sorterOpen, 'sorter-open': sorterOpen && !filterOpen, 'filters-sorter-open': filterOpen && sorterOpen}">
+  <div class="aircraft-panel-list" [ngClass]="{'filters-open': filterOpen}">
     <div class="list-manager">
       <div class="list-filter">
         <div class="filter-button" (click)="switchFilterOpen()">
@@ -28,9 +27,9 @@
               State :
             </span>
             <mat-form-field>
-              <mat-select [(value)]="selected">
+              <mat-select [(value)]="filterList.State">
                 <mat-option value="All">All</mat-option>
-                <mat-option value="ReadyForMaintenance">Ready for Maintenance</mat-option>
+                <mat-option value="Ready For Maintenance">Ready for Maintenance</mat-option>
                 <mat-option value="Cruise">Cruise</mat-option>
                 <mat-option value="Parking">Parking</mat-option>
                 <mat-option value="Arrival">Arrival</mat-option>
@@ -50,7 +49,7 @@
             Sort by : 
           </span>
           <mat-form-field>
-            <mat-select [(value)]="sorter">
+            <mat-select [(value)]="sorter" (selectionChange)="sorterChange($event)">
               <mat-option value="Family">Family</mat-option>
               <mat-option value="WorkOrder">Work Order</mat-option>
               <mat-option value="State">State</mat-option>
@@ -59,14 +58,14 @@
       </div>
     </div>
     <div class="aircraft-list">
-      <div class="aircraft-family" *ngFor="let aircraftFamily of aircraftList">
-        <div class="aircraft-family-header">
+      <div class="aircraft-sorted" *ngFor="let aircraftSorted of aircraftListSorted">
+        <div class="aircraft-sorted-header">
           <div class="onglet">
-            {{ aircraftFamily.familyName }}
+            {{ aircraftSorted.sortedName }}
           </div>
         </div>
-        <div class="aircraft-family-list">
-          <div class="aircraft-element" *ngFor="let aircraftElement of aircraftFamily.aircraftList | searchFilterPipe:searchInputValue | filtersPipe:filterList">
+        <div class="aircraft-sorted-list">
+          <div class="aircraft-element" *ngFor="let aircraftElement of aircraftSorted.aircraftList | searchFilterPipe:searchInputValue | filtersPipe:filterList">
             <div class="aircraft-element-state">
               <i class="material-icons" *ngIf="isAircraftParking(aircraftElement)">
                 flight_takeoff
@@ -88,7 +87,7 @@
               <i *ngIf="aircraftElement.online"></i>
             </div>
             <div class="aircraft-element-woInProgress">
-              <i class="material-icons" *ngIf="aircraftElement.woInProgress">
+              <i class="material-icons" *ngIf="isAircraftWoInProgress(aircraftElement)">
                 sync
               </i>
             </div>
@@ -99,7 +98,7 @@
   </div>
   <div class="aircraft-panel-search-bar">
     <mat-icon class="search-prefix">search</mat-icon>
-    <input class="search-input" type="tel" placeholder="Search" (keydown)="searchAircraft()" [(ngModel)]="searchInputValue">
+    <input class="search-input" type="tel" placeholder="Search" [(ngModel)]="searchInputValue">
     <div class="search-suffix">
       <span>eg: LJKB</span>
     </div>

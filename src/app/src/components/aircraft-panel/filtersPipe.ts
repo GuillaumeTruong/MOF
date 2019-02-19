@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Aircraft, AircraftState } from '../../Class/Aircraft';
+import { Aircraft } from '../../Class/Aircraft';
 
 @Pipe({
     name: 'filtersPipe',
@@ -12,21 +12,15 @@ export class FiltersPipe implements PipeTransform {
         }
         return items.filter(item => {
             let result = true;
-            /*
-            if (filter.ReadyForMaintenance) {
-                result = result && (item.state === AircraftState.ReadyForMaintenance);
-            }
-            if (filter.Flight) {
-                result = result && (item.state === AircraftState.Flight);
-            }
-            if (filter.Taxiin) {
-                result = result && (item.state === AircraftState.TaxiIn);
-            }*/
+            result = result && (filter.State === 'All' || item.state === filter.State);
+
             if (filter.Online) {
+                result = result && item.online;
             }
             if (filter.WOInProgress) {
-                result = result && (item.woInProgress);
+                result = result && (item.woInProgress !== 'None');
             }
+
             return result;
     });
     }
