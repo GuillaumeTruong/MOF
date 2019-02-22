@@ -5,7 +5,7 @@ import { AngularSplitModule } from 'angular-split';
 
 // Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCheckboxModule} from '@angular/material';
+import {MatCheckboxModule, MatDividerModule, MatListModule, MatTabsModule, MatGridListModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -46,12 +46,12 @@ import { HeaderComponent } from './src/components/header/header.component';
 
 import { SearchFilterPipe } from './src/components/aircraft-panel/SearchFilterPipe';
 import { FiltersPipe } from './src/components/aircraft-panel/FiltersPipe';
-import { Pipe, PipeTransform } from '@angular/core';
 import { DownloadPanelComponent } from './src/components/download-panel/download-panel.component';
 import { WorkorderPanelComponent } from './src/components/workorder-panel/workorder-panel.component';
 import { WorkorderDetailsComponent } from './src/components/workorder-details/workorder-details.component';
 
 import { AircraftService } from './src/services/aircraft-service.service';
+import { ProgressCardComponent } from './src/components/progress-card/progress-card.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +63,10 @@ import { AircraftService } from './src/services/aircraft-service.service';
     SearchFilterPipe,
     FiltersPipe,
     DownloadPanelComponent,
+    ProgressCardComponent,
     WorkorderPanelComponent,
-    WorkorderDetailsComponent
+    WorkorderDetailsComponent,
+    ProgressCardComponent
   ],
   imports: [
     AngularSplitModule.forRoot(),
@@ -84,11 +86,12 @@ import { AircraftService } from './src/services/aircraft-service.service';
     // MatMenuModule,
     // MatSidenavModule,
     // MatToolbarModule,
-    // MatListModule,
-    // MatGridListModule,
+    MatListModule,
+    MatGridListModule,
     MatCardModule,
     // MatStepperModule,
-    // MatTabsModule,
+    MatTabsModule,
+    MatDividerModule,
     MatExpansionModule,
     MatButtonToggleModule,
     MatChipsModule,
