@@ -1,0 +1,17 @@
+<mat-grid-list cols="12" rowHeight="100px">
+  <mat-grid-tile [colspan]="3">
+    <span class="name">
+      {{importProgress.acName}}<br>
+      {{importProgress.partNumber}}
+    </span>
+  </mat-grid-tile>
+  <mat-grid-tile class='progress' [colspan]="6">
+    <mat-progress-bar value="{{importProgress.progress / importProgress.fileSize * 100}}"></mat-progress-bar><br>
+    <p>{{importProgress.progress}} / {{importProgress.fileSize}} Mo</p><p class="timeImport">{{importProgress.time}}</p>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3">
+    <span class="connexion">
+      {{importProgress.connexion}}
+    </span>
+  </mat-grid-tile>
+</mat-grid-list>

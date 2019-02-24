@@ -1,22 +1,10 @@
-<!--<p>panel</p>-->
 <mat-tab-group>
   <mat-tab label="Imports">
-    <mat-list role="list">
+    <mat-list *ngFor="let i of imports" role="list">
       <mat-list-item>
-        <app-progress-card></app-progress-card>
+        <app-progress-card [importProgress]="i"></app-progress-card>
       </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>
-        <app-progress-card></app-progress-card>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <app-progress-card></app-progress-card>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <app-progress-card></app-progress-card>
-      </mat-list-item>
     </mat-list>
   </mat-tab>
 

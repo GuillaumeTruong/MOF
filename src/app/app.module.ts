@@ -52,6 +52,7 @@ import { WorkorderDetailsComponent } from './src/components/workorder-details/wo
 
 import { AircraftService } from './src/services/aircraft-service.service';
 import { ProgressCardComponent } from './src/components/progress-card/progress-card.component';
+import {ImportsService} from './src/services/imports.service';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { ProgressCardComponent } from './src/components/progress-card/progress-c
     AppRoutingModule
   ],
   providers: [
-    AircraftService
+    AircraftService,
+    ImportsService
   ],
   bootstrap: [AppComponent]
 })

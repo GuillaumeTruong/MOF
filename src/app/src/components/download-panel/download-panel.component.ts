@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ImportsService} from '../../services/imports.service';
+import {ImportProgress} from '../../Class/ImportProgress';
 
 @Component({
   selector: 'app-download-panel',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadPanelComponent implements OnInit {
 
-  constructor() { }
+  imports: ImportProgress[];
+
+  constructor(private importsService: ImportsService) { }
 
   ngOnInit() {
+    this.imports = this.importsService.getImport();
   }
 
 }
