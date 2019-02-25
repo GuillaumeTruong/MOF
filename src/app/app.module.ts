@@ -17,26 +17,24 @@ import { FormsModule } from '@angular/forms';
 // import {MatSliderModule} from '@angular/material/slider';
 // import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 // import {MatMenuModule} from '@angular/material/menu';
-// import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSidenavModule} from '@angular/material/sidenav';
 // import {MatToolbarModule} from '@angular/material/toolbar';
-// import {MatListModule} from '@angular/material/list';
 // import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 // import {MatStepperModule} from '@angular/material/stepper';
-// import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-// import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { MatRippleModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './src/components/main/main.component';
@@ -51,8 +49,12 @@ import { WorkorderPanelComponent } from './src/components/workorder-panel/workor
 import { WorkorderDetailsComponent } from './src/components/workorder-details/workorder-details.component';
 
 import { AircraftService } from './src/services/aircraft-service.service';
+import { ImportsService} from './src/services/imports.service';
+
+import { WorkOrderCardComponent } from './src/components/workorder-card/workorder-card.component';
+import { WorkordersService } from './src/services/workorders.service';
 import { ProgressCardComponent } from './src/components/progress-card/progress-card.component';
-import {ImportsService} from './src/services/imports.service';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +69,7 @@ import {ImportsService} from './src/services/imports.service';
     ProgressCardComponent,
     WorkorderPanelComponent,
     WorkorderDetailsComponent,
-    ProgressCardComponent
+    WorkOrderCardComponent
   ],
   imports: [
     AngularSplitModule.forRoot(),
@@ -85,7 +87,8 @@ import {ImportsService} from './src/services/imports.service';
     // MatSliderModule,
     // MatSlideToggleModule,
     // MatMenuModule,
-    // MatSidenavModule,
+    MatRippleModule,
+    MatSidenavModule,
     // MatToolbarModule,
     MatListModule,
     MatGridListModule,
@@ -99,7 +102,7 @@ import {ImportsService} from './src/services/imports.service';
     MatIconModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    // MatDialogModule,
+    MatDialogModule,
     MatTooltipModule,
     MatSnackBarModule,
     MatTableModule,
@@ -110,8 +113,10 @@ import {ImportsService} from './src/services/imports.service';
   ],
   providers: [
     AircraftService,
-    ImportsService
+    ImportsService,
+    WorkordersService
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
