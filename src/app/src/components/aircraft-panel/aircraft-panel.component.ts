@@ -90,4 +90,17 @@ export class AircraftPanelComponent implements OnInit {
       }
     }
   }
+
+  isListExpanded(sortedheader): boolean {
+    if (sortedheader.expanded === undefined) {
+      sortedheader.expanded = true;
+    }
+    return sortedheader.expanded;
+  }
+
+  switchListExpand(sortedheader): void {
+    if (sortedheader.expanded !== undefined && sortedheader.expanded !== null) {
+      sortedheader.expanded = !sortedheader.expanded;
+    }
+  }
 }
