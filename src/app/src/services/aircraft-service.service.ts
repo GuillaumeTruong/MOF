@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject  } from 'rxjs';
 import data from '../data/Aircraft.json';
-import { Aircraft } from '../Class/Aircraft';
 
 @Injectable({
   providedIn: 'root'
