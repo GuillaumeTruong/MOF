@@ -1,43 +1,48 @@
 @import '../../Css/scrollbar.css';
 @import '../../Css/color.scss';
 
-.mat-tab-group {
-  height: 100%;;
-}
+:host {
 
-.mat-divider {
-   border-color: rgba(255,255,255,0.20);
-   border-width: 2px;
-}
+  .mat-tab-group {
+    height: 100%;;
+  }
 
-::ng-deep .mat-tab-header {
-  border-bottom: 2px solid rgba(255,255,255,0.20);
-}
+  .mat-divider {
+    border-color: rgba(255,255,255,0.20);
+    border-width: 2px;
+  }
 
-::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
-  background-color: rgba(255, 255, 255, 0.2);
-  height: 3px;
-}
+  ::ng-deep .mat-tab-header {
+    border-bottom: 2px solid rgba(255,255,255,0.20);
+  }
 
-::ng-deep .mat-tab-label {
-  color: white;
-  opacity: 1 !important;
-}
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 3px;
+  }
 
-.labelName {
-  padding-right: 10px;
-}
+  ::ng-deep .mat-tab-label {
+    color: white;
+    opacity: 1 !important;
+  }
 
-.errorNB {
-  background-color: $rouge-error;
-  border-radius: 5px;
-  display: inline-block;
-  padding: 3px 5px;
-}
+  .labelName {
+    padding-right: 10px;
+  }
 
-.warningNB {
-  background-color: $orange-warning;
-  border-radius: 5px;
-  display: inline-block;
-  padding: 3px 5px;
+  .errorNB {
+    background-color: $rouge-error;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 3px 5px;
+  }
+
+  .warningNB {
+    background-color: $orange-warning;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 3px 5px;
+  }
+
+
 }

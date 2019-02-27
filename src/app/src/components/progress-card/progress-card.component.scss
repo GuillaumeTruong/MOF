@@ -1,100 +1,101 @@
 @import '../../Css/color.scss';
 
 :host {
-  width: 100%
-}
+  width: 100%;
 
-button {
-  padding-top: 2px;
-  padding-bottom: 0px;
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 5px;
-  border-color: rgba(255, 255, 255, 0);
-  border-style: solid;
-}
-
-button:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-button:focus {
-  outline: none !important;
-}
-
-button:active {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.material-icons {
-  color:white;
-  font-size: large;
-}
-
-.name {
-  position: absolute;
-  left: 5px;
-  font-size: large;
-  color: white;
-}
-
-.connexion {
-  position: absolute;
-  right: 5px;
-}
-
-.timeProgress {
-  position: absolute;
-  right: 0px;
-}
-
-.text {
-  color: white;
-  font-size: small;
-}
-
-.PN {
-  position: absolute;
-  left: 5px;
-}
-
-.progress {
-  position: absolute;
-  left: 0px;
-}
-
-.blueDot {
-  fill: $bleu-progress;
-}
-
-.greenDot {
-  fill: $vert-online;
-}
-
-.orangeDot {
-  fill: $orange-warning;
-}
-
-.redDot {
-  fill: $rouge-error;
-}
-
-.barProgress {
-  ::ng-deep .mat-progress-bar-fill::after {
-    background-color: $bleu-progress;
+  button {
+    padding-top: 2px;
+    padding-bottom: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    border-color: rgba(255, 255, 255, 0);
+    border-style: solid;
   }
-}
-.barOver {
-  ::ng-deep .mat-progress-bar-fill::after {
-    background-color: $vert-online;
+
+  button:hover {
+    border-color: rgba(255, 255, 255, 0.2);
   }
-}
-.barWarning {
-  ::ng-deep .mat-progress-bar-fill::after {
-    background-color: $orange-warning;
+
+  button:focus {
+    outline: none !important;
   }
-}
-.barError {
-  ::ng-deep .mat-progress-bar-fill::after {
-    background-color: $rouge-error;
+
+  button:active {
+    background-color: rgba(255, 255, 255, 0.2);
   }
+
+  .material-icons {
+    color: white;
+    font-size: large;
+  }
+
+  .name {
+    position: absolute;
+    left: 5px;
+    font-size: large;
+    color: white;
+  }
+
+  .connexion {
+    position: absolute;
+    right: 5px;
+  }
+
+  .timeProgress {
+    position: absolute;
+    right: 0px;
+  }
+
+  .text {
+    color: white;
+    font-size: small;
+  }
+
+  .PN {
+    position: absolute;
+    left: 5px;
+  }
+
+  .progress {
+    position: absolute;
+    left: 0px;
+  }
+
+  .blueDot {
+    fill: $bleu-progress;
+  }
+
+  .greenDot {
+    fill: $vert-online;
+  }
+
+  .orangeDot {
+    fill: $orange-warning;
+  }
+
+  .redDot {
+    fill: $rouge-error;
+  }
+
+  .barProgress {
+    ::ng-deep .mat-progress-bar-fill::after {
+      background-color: $bleu-progress;
+    }
+  }
+  .barOver {
+    ::ng-deep .mat-progress-bar-fill::after {
+      background-color: $vert-online;
+    }
+  }
+  .barWarning {
+    ::ng-deep .mat-progress-bar-fill::after {
+      background-color: $orange-warning;
+    }
+  }
+  .barError {
+    ::ng-deep .mat-progress-bar-fill::after {
+      background-color: $rouge-error;
+    }
+  }
+
 }
