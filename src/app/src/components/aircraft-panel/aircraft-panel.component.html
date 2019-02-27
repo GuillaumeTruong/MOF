@@ -59,12 +59,20 @@
     </div>
     <div class="aircraft-list">
       <div class="aircraft-sorted" *ngFor="let aircraftSorted of aircraftListSorted">
-        <div class="aircraft-sorted-header">
+        <div #sortedheader class="aircraft-sorted-header">
           <div class="onglet">
             {{ aircraftSorted.sortedName }}
           </div>
+          <div class="collapse-button" (click)="switchListExpand(sortedheader)">
+            <i class="material-icons" *ngIf="!isListExpanded(sortedheader)">
+              expand_more
+            </i>
+            <i class="material-icons" *ngIf="isListExpanded(sortedheader)">
+              expand_less
+            </i>
+          </div>
         </div>
-        <div class="aircraft-sorted-list">
+        <div class="aircraft-sorted-list" *ngIf="isListExpanded(sortedheader)">
           <div class="aircraft-element" *ngFor="let aircraftElement of aircraftSorted.aircraftList | searchFilterPipe:searchInputValue | filtersPipe:filterList">
             <div class="aircraft-element-state">
               <i class="material-icons" *ngIf="isAircraftParking(aircraftElement)">

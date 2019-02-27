@@ -68,6 +68,7 @@ $borderRadius: 5px;
                     align-self: center;
                     display: flex;
                     align-items: center;
+                    cursor: pointer;
                 }
 
                 .filter-list {
@@ -131,6 +132,17 @@ $borderRadius: 5px;
                     background: #EDEDED;
                     color: $bleu-airbus;
                     font-weight: lighter;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .collapse-button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                    }
                 }
 
                 &-list {

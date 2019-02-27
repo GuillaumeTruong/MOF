@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {WorkOrders} from '../../Class/WorkOrders';
+import {WorkordersService} from '../../services/workorders.service';
 
 @Component({
   selector: 'app-workorder-panel',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkorderPanelComponent implements OnInit {
 
-  constructor() { }
+  workorders: WorkOrders[];
+
+  constructor(private workordersService: WorkordersService) { }
 
   ngOnInit() {
+    this.workorders = this.workordersService.getWorkorders();
   }
-
 }
