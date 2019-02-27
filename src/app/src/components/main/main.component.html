@@ -3,9 +3,9 @@
     <app-header></app-header>
   </div>
   <div class="body">
-    <div class="left-panel">
-      <app-workorder-panel></app-workorder-panel>
-    </div>
+    <mat-sidenav mode="side" opened class="left-panel">
+        <app-workorder-panel></app-workorder-panel>
+    </mat-sidenav>
     <div class="center-panel">
       <as-split direction="vertical">
         <as-split-area size="70">
@@ -16,9 +16,9 @@
         </as-split-area>
     </as-split>
     </div>
-    <div class="right-panel">
+    <mat-sidenav mode="side" opened class="left-panel">
       <app-aircraft-panel></app-aircraft-panel>
-    </div>
+    </mat-sidenav>
   </div>
   <!-- <div class="footer"></div> -->
 </div>
