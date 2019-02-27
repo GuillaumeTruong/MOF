@@ -1,0 +1,8 @@
+{
+    "WorkorderList" : [
+        { "id": "1", "name": "BAAA", "deadline": "16 Mar 2019 00:12:00 GMT", "oldPN": "XXXXXXXXX", "newPN": "XXXXXXXXX", "fin": "XXX", "aircraftList": [
+            { "id": "1", "currentStep": "Import", "downloadDate": "12 Mar 2019 00:12:00 GMT", "fileSize": 300, "progress": 37, "time": 934, "connexion": "4G", "status": 0 },
+            { "id": "2", "currentStep": "Prepare", "downloadDate": null, "fileSize": null, "progress": null, "time": null, "connexion": null, "status": 0 }
+        ] }
+    ]
+}
