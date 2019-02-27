@@ -1,17 +1,151 @@
-<mat-grid-list cols="12" rowHeight="100px">
-  <mat-grid-tile [colspan]="3">
-    <span class="name">
-      {{importProgress.acName}}<br>
-      {{importProgress.partNumber}}
-    </span>
+<mat-grid-list cols="48" rowHeight="15">
+
+  <!-- Boutons play, pause, etc (1, 1-2) -->
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <button>
+      <!-- conditions -->
+      <div *ngIf="importProgress.status == 0 then pauseIcon else elseButton1"></div>
+      <ng-template #elseButton1>
+        <div *ngIf="importProgress.status == 1 then deleteIcon else elseButton2"></div>
+      </ng-template>
+      <ng-template #elseButton2>
+        <div *ngIf="importProgress.status == 2 then playIcon else elseButton3"></div>
+      </ng-template>
+      <ng-template #elseButton3>
+        <div *ngIf="importProgress.status == 3 then pauseIcon else contactIcon"></div>
+      </ng-template>
+      <!-- contenu -->
+      <ng-template #pauseIcon>
+          <i class="material-icons">
+            pause
+          </i>
+      </ng-template>
+      <ng-template #playIcon>
+        <i class="material-icons">
+          play_arrow
+        </i>
+      </ng-template>
+      <ng-template #deleteIcon>
+        <i class="material-icons">
+          close
+        </i>
+      </ng-template>
+      <ng-template #contactIcon>
+        <i class="material-icons">
+          phone
+        </i>
+      </ng-template>
+    </button>
   </mat-grid-tile>
-  <mat-grid-tile class='progress' [colspan]="6">
-    <mat-progress-bar value="{{importProgress.progress / importProgress.fileSize * 100}}"></mat-progress-bar><br>
-    <p>{{importProgress.progress}} / {{importProgress.fileSize}} Mo</p><p class="timeImport">{{importProgress.time}}</p>
+
+  <!-- Immat de l'avion (2-7, 1) -->
+  <mat-grid-tile [colspan]="12">
+    <div class="name">
+      {{importProgress.acName}}
+    </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="3">
-    <span class="connexion">
-      {{importProgress.connexion}}
-    </span>
+
+  <!-- Progress bar (8-18, 1) -->
+  <mat-grid-tile [colspan]="23">
+    <mat-progress-bar value="{{importProgress.progress / importProgress.fileSize * 100}}"
+                      [mode]="importProgress.status == 0 ? 'buffer' : 'default'"
+                      [ngClass]="{'barProgress': importProgress.status == 0,
+                                  'barOver': importProgress.status == 1,
+                                  'barWarning': importProgress.status == 2 || importProgress.status == 3,
+                                  'barError': importProgress.status == 4}">
+    </mat-progress-bar>
+  </mat-grid-tile>
+
+  <!-- Status de connexion (19-24, 1-2) -->
+  <mat-grid-tile [colspan]="12" [rowspan]="2">
+    <!-- conditions -->
+    <div *ngIf="importProgress.status == 0 then progressConnexion else elseConnexion1"></div>
+    <ng-template #elseConnexion1>
+      <div *ngIf="importProgress.status == 1 then finishedConnexion else elseConnexion2"></div>
+    </ng-template>
+    <ng-template #elseConnexion2>
+      <div *ngIf="importProgress.status == 2 then pausedConnexion else elseConnexion3"></div>
+    </ng-template>
+    <ng-template #elseConnexion3>
+      <div *ngIf="importProgress.status == 3 then waitingConnexion else errorConnexion"></div>
+    </ng-template>
+    <!-- contenu -->
+    <ng-template #progressConnexion>
+      <div class="connexion text">
+        <svg width="10px" height="10px">
+          <circle r="5" cx="5" cy="5" class="blueDot" />
+        </svg>
+        Connected : {{importProgress.connexion}}
+      </div>
+    </ng-template>
+    <ng-template #finishedConnexion>
+      <div class="connexion text">
+        <svg width="10px" height="10px">
+          <circle r="5" cx="5" cy="5" class="greenDot" />
+        </svg>
+        Finished
+      </div>
+    </ng-template>
+    <ng-template #pausedConnexion>
+      <div class="connexion text">
+        <svg width="10px" height="10px">
+          <circle r="5" cx="5" cy="5" class="orangeDot" />
+        </svg>
+        Paused
+      </div>
+    </ng-template>
+    <ng-template #waitingConnexion>
+      <div class="connexion text">
+        <svg width="10px" height="10px">
+          <circle r="5" cx="5" cy="5" class="orangeDot" />
+        </svg>
+        Waiting for connexion
+      </div>
+    </ng-template>
+    <ng-template #errorConnexion>
+      <div class="connexion text">
+        <svg width="10px" height="10px">
+          <circle r="5" cx="5" cy="5" class="redDot" />
+        </svg>
+        ERROR !!!
+      </div>
+    </ng-template>
+  </mat-grid-tile>
+
+  <!-- Part Number (2-7, 2) -->
+  <mat-grid-tile [colspan]="12">
+    <div class="PN text">
+      PN: {{importProgress.partNumber}}
+    </div>
+  </mat-grid-tile>
+
+  <!-- Text d'avancement en Mo (8-11, 2) -->
+  <mat-grid-tile [colspan]="8">
+    <div class="progress text">
+    {{importProgress.progress}} / {{importProgress.fileSize}} Mo
+    </div>
+  </mat-grid-tile>
+
+  <!-- Temps restant (12-18, 2) -->
+  <mat-grid-tile [colspan]="15">
+    <div *ngIf="importProgress.status == 0 then thenTime1 else elseTime1"></div>
+    <ng-template #thenTime1>
+      <div class="timeProgress text">
+        Remaining time : {{importProgress.time / 60 < 1 ? importProgress.time + 's' : divEucl(importProgress.time, 60) + 'min'}}
+      </div>
+    </ng-template>
+    <ng-template #elseTime1>
+      <div *ngIf="importProgress.status == 1 then thenTime2 else elseTime2"></div>
+      <ng-template #thenTime2>
+        <div class="timeProgress text">
+          Finished
+        </div>
+      </ng-template>
+      <ng-template #elseTime2>
+        <div class="timeProgress text">
+          Remaining time : ...
+        </div>
+      </ng-template>
+    </ng-template>
   </mat-grid-tile>
 </mat-grid-list>

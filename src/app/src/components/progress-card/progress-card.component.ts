@@ -14,6 +14,9 @@ export class ProgressCardComponent implements OnInit {
 
   constructor() {}
 
+  divEucl(a: number, b: number) {
+    return Math.trunc(a / b);
+  }
 
   ngOnInit() {}
 

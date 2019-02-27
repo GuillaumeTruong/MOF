@@ -3,12 +3,12 @@
     { "acId": 1, "acName": "F-HPJJ", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 37, "time": 934, "status": 0, "connexion": "4G" },
     { "acId": 2, "acName": "F-HPJK", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 42, "time": 887, "status": 0, "connexion": "4G" },
     { "acId": 3, "acName": "F-HPJL", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 289, "time": 54, "status": 2, "connexion": "4G" },
-    { "acId": 4, "acName": "F-HPJM", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 123, "time": 591, "status": 0, "connexion": "4G" },
+    { "acId": 4, "acName": "F-HPJM", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 123, "time": 591, "status": 3, "connexion": "4G" },
     { "acId": 5, "acName": "F-HPJN", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 300, "time": 0, "status": 1, "connexion": "4G" },
     { "acId": 6, "acName": "F-HPJO", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 219, "time": 126, "status": 0, "connexion": "4G" },
-    { "acId": 7, "acName": "F-HPJP", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 184, "time": 389, "status": 3, "connexion": "4G" },
+    { "acId": 7, "acName": "F-HPJP", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 184, "time": 389, "status": 4, "connexion": "4G" },
     { "acId": 8, "acName": "F-HPJQ", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 87, "time": 679, "status": 0, "connexion": "SAT" },
     { "acId": 9, "acName": "F-HPJR", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 220, "time": 118, "status": 0, "connexion": "4G" },
-    { "acId": 10, "acName": "F-HPJS", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 164, "time": 497, "status": 0, "connexion": "WIFI" }
+    { "acId": 10, "acName": "F-HPJS", "partNumber": "PKB5D4762938451", "fileSize": 300, "progress": 276, "time": 37, "status": 0, "connexion": "WIFI" }
   ]
 }

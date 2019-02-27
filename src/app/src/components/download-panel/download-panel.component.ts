@@ -13,6 +13,44 @@ export class DownloadPanelComponent implements OnInit {
 
   constructor(private importsService: ImportsService) { }
 
+  importsContainWarning(): boolean {
+    for (const a of this.imports) {
+      if (a.status === 2 || a.status === 3) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  importsContainError(): boolean {
+    for (const a of this.imports) {
+      if (a.status === 4) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  getNbWarning(): number {
+    let res = 0;
+    for (const a of this.imports) {
+      if (a.status === 2 || a.status === 3) {
+        res++;
+      }
+    }
+    return res;
+  }
+
+  getNbError(): number {
+    let res = 0;
+    for (const a of this.imports) {
+      if (a.status === 4) {
+        res++;
+      }
+    }
+    return res;
+  }
+
   ngOnInit() {
     this.imports = this.importsService.getImport();
   }

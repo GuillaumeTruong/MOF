@@ -1,5 +1,26 @@
 <mat-tab-group>
-  <mat-tab label="Imports">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="importsLabel">
+        <a class="labelName">Imports</a>
+        <div *ngIf="importsContainError(); then dotError else dotElse"></div>
+        <ng-template #dotElse>
+          <div *ngIf="importsContainWarning(); then dotWarning"></div>
+        </ng-template>
+
+        <ng-template #dotError>
+          <p class="errorNB">
+            {{getNbError() + getNbWarning()}}
+          </p>
+        </ng-template>
+        <ng-template #dotWarning>
+          <p class="warningNB">
+            {{getNbWarning()}}
+          </p>
+        </ng-template>
+
+      </div>
+    </ng-template>
     <mat-list *ngFor="let i of imports" role="list">
       <mat-list-item>
         <app-progress-card [importProgress]="i"></app-progress-card>
