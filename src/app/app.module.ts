@@ -16,7 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 // import {MatSliderModule} from '@angular/material/slider';
 // import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-// import {MatMenuModule} from '@angular/material/menu';
+import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 // import {MatToolbarModule} from '@angular/material/toolbar';
 // import {MatGridListModule} from '@angular/material/grid-list';
@@ -86,7 +86,7 @@ import { ProgressCardComponent } from './src/components/progress-card/progress-c
     FormsModule,
     // MatSliderModule,
     // MatSlideToggleModule,
-    // MatMenuModule,
+    MatMenuModule,
     MatRippleModule,
     MatSidenavModule,
     // MatToolbarModule,
