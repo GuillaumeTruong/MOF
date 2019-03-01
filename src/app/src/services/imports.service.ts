@@ -31,7 +31,8 @@ export class ImportsService {
         progress: i.progress,
         time: i.time,
         status: i.status,
-        connexion: i.connexion
+        connexion: i.connexion,
+        WO: i.WO
       };
       imports.push(tmpImport);
     }

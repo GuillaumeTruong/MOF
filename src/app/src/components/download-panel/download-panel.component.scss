@@ -1,10 +1,11 @@
 @import '../../Css/scrollbar.css';
 @import '../../Css/color.scss';
 
+
 :host {
 
   .mat-tab-group {
-    height: 100%;;
+    height: calc(100% - 52px);
   }
 
   .mat-divider {
@@ -44,5 +45,81 @@
     padding: 3px 5px;
   }
 
+  .mat-grid-list {
+    background: #26374C;
+  }
+
+  .download-footer {
+
+    ::ng-deep .mat-grid-tile.filter-button .mat-figure {
+      justify-content: left;
+    }
+
+    .download-panel-search-bar {
+      display: grid;
+      width: calc(100% - 10px);
+      margin-left: 10px;
+      height: 30px;
+      grid-template-columns: 30px calc(100% - 130px) 80px;
+      grid-gap: 5px;
+      z-index: 10;
+      border: solid 2px rgba(255, 255, 255, 0.2);
+      align-content: center;
+
+      .search-prefix {
+        color: white;
+        place-self: center;
+      }
+
+      .search-input {
+        height: 40px;
+        font-size: 15px;
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 0;
+        background: none;
+        color: white;
+      }
+
+      ::placeholder {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .search-suffix {
+        color: rgba(255, 255, 255, 0.75);
+        place-self: center;
+      }
+
+    }
+
+    button {
+      color: white;
+      font-size: 18px;
+      padding: 5px 10px;
+      align-content: center;
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 5px;
+      border-color: rgba(255, 255, 255, 0);
+      border-style: solid;
+    }
+
+    button.selected {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    button:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    button:focus {
+      outline: none !important;
+    }
+
+    button:active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+  }
 
 }

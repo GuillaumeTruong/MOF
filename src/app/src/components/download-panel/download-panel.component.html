@@ -21,7 +21,7 @@
 
       </div>
     </ng-template>
-    <mat-list *ngFor="let i of imports" role="list">
+    <mat-list *ngFor="let i of imports | filterPipeImports:filter | filtersPipeImports:filters" role="list">
       <mat-list-item>
         <app-progress-card [importProgress]="i"></app-progress-card>
       </mat-list-item>
@@ -33,3 +33,34 @@
     Uploads
   </mat-tab>
 </mat-tab-group>
+
+<mat-grid-list cols="16" rowHeight="50" class="download-footer">
+  <mat-grid-tile [colspan]="4">
+    <div class="download-panel-search-bar">
+      <mat-icon class="search-prefix">search</mat-icon>
+      <input class="search-input" type="tel" placeholder="Search" (keyup.enter)="submitFilter($event)">
+      <div class="search-suffix">
+        <span>eg: PN:...</span>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" class="filter-button">
+    <button>
+      Filters: {{filters.length}}
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" class="filter-button">
+    <button [ngClass]="{'selected': filter === 'All'}" (click)="setFilter('All')">
+      All
+    </button>
+    <button [ngClass]="{'selected': filter === 'Error'}" (click)="setFilter('Error')">
+      Error
+    </button>
+    <button [ngClass]="{'selected': filter === 'Warning'}" (click)="setFilter('Warning')">
+      Warning
+    </button>
+    <button [ngClass]="{'selected': filter === 'Finished'}" (click)="setFilter('Finished')">
+      Finished
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

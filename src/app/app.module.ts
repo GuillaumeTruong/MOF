@@ -54,6 +54,8 @@ import { ImportsService} from './src/services/imports.service';
 import { WorkOrderCardComponent } from './src/components/workorder-card/workorder-card.component';
 import { WorkordersService } from './src/services/workorders.service';
 import { ProgressCardComponent } from './src/components/progress-card/progress-card.component';
+import {FilterPipeImports} from './src/components/download-panel/filterPipeImports';
+import {FiltersPipeImports} from './src/components/download-panel/filtersPipeImports';
 import { TimeManagementService } from './src/services/time-management.service';
 
 
@@ -66,6 +68,8 @@ import { TimeManagementService } from './src/services/time-management.service';
     HeaderComponent,
     SearchFilterPipe,
     FiltersPipe,
+    FilterPipeImports,
+    FiltersPipeImports,
     DownloadPanelComponent,
     ProgressCardComponent,
     WorkorderPanelComponent,

@@ -7,4 +7,5 @@ export class ImportProgress {
   time: number;
   status: number;
   connexion: string;
+  WO: string;
 }

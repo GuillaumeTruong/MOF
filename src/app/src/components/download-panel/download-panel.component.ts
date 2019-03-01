@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ImportsService} from '../../services/imports.service';
 import {ImportProgress} from '../../Class/ImportProgress';
+import {getTemplateUrl} from 'codelyzer/util/ngQuery';
 
 @Component({
   selector: 'app-download-panel',
@@ -10,6 +11,8 @@ import {ImportProgress} from '../../Class/ImportProgress';
 export class DownloadPanelComponent implements OnInit {
 
   imports: ImportProgress[];
+  filters: string[] = [];
+  filter = 'All';
 
   constructor(private importsService: ImportsService) { }
 
@@ -20,6 +23,10 @@ export class DownloadPanelComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  setFilter(f: string): void {
+    this.filter = f;
   }
 
   importsContainError(): boolean {
@@ -49,6 +56,11 @@ export class DownloadPanelComponent implements OnInit {
       }
     }
     return res;
+  }
+
+  submitFilter(evt) {
+    this.filters.push((<HTMLInputElement>evt.target).value);
+    (<HTMLInputElement>evt.target).value = '';
   }
 
   ngOnInit() {
