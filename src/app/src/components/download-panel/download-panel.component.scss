@@ -4,8 +4,31 @@
 
 :host {
 
+  ::ng-deep .mat-tab-body {
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      /* border-radius: 3px; */
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #26374C;
+      /* border-radius: 3px; */
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #324864;
+    }
+  }
+
   .mat-tab-group {
-    height: calc(100% - 52px);
+    height: calc(100% - 50px);
   }
 
   .mat-divider {
@@ -95,7 +118,7 @@
 
     button {
       color: white;
-      font-size: 18px;
+      font-size: 16px;
       padding: 5px 10px;
       align-content: center;
       background-color: rgba(0, 0, 0, 0);

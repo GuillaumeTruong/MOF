@@ -34,8 +34,8 @@
   </mat-tab>
 </mat-tab-group>
 
-<mat-grid-list cols="16" rowHeight="50" class="download-footer">
-  <mat-grid-tile [colspan]="4">
+<mat-grid-list cols="32" rowHeight="50" class="download-footer">
+  <mat-grid-tile [colspan]="8">
     <div class="download-panel-search-bar">
       <mat-icon class="search-prefix">search</mat-icon>
       <input class="search-input" type="tel" placeholder="Search" (keyup.enter)="submitFilter($event)">
@@ -44,12 +44,12 @@
       </div>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" class="filter-button">
+  <mat-grid-tile [colspan]="3" class="filter-button">
     <button>
       Filters: {{filters.length}}
     </button>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="3" class="filter-button">
+  <mat-grid-tile [colspan]="9" class="filter-button">
     <button [ngClass]="{'selected': filter === 'All'}" (click)="setFilter('All')">
       All
     </button>

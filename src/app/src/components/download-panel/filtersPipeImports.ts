@@ -21,7 +21,6 @@ export class FiltersPipeImports implements PipeTransform {
           if (item.partNumber.match(new RegExp(parts[0], 'gi')) == null &&
               item.acName.match(new RegExp(parts[0], 'gi')) == null &&
               item.WO.match(new RegExp(parts[0], 'gi')) == null) {
-            console.log('false');
             res = false;
           }
         }
