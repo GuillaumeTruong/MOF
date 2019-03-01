@@ -54,6 +54,7 @@ import { ImportsService} from './src/services/imports.service';
 import { WorkOrderCardComponent } from './src/components/workorder-card/workorder-card.component';
 import { WorkordersService } from './src/services/workorders.service';
 import { ProgressCardComponent } from './src/components/progress-card/progress-card.component';
+import { TimeManagementService } from './src/services/time-management.service';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { ProgressCardComponent } from './src/components/progress-card/progress-c
   providers: [
     AircraftService,
     ImportsService,
-    WorkordersService
+    WorkordersService,
+    TimeManagementService
   ],
   bootstrap: [AppComponent]
 })

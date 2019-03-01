@@ -4,7 +4,7 @@
       <img class="img-logo" src="../../../../assets/École_nationale_de_l'aviation_civile_(logo).svg.png"/>
     </div>
     <span class="text">
-      Aircrafts
+      Aircraft
     </span>
     <span class="icon">
     </span>
@@ -59,11 +59,11 @@
     </div>
     <div class="aircraft-list">
       <div class="aircraft-sorted" *ngFor="let aircraftSorted of aircraftListSorted">
-        <div #sortedheader class="aircraft-sorted-header">
+        <div #sortedheader class="aircraft-sorted-header" (click)="switchListExpand(sortedheader)">
           <div class="onglet">
             {{ aircraftSorted.sortedName }}
           </div>
-          <div class="collapse-button" (click)="switchListExpand(sortedheader)">
+          <div class="collapse-button">
             <i class="material-icons" *ngIf="!isListExpanded(sortedheader)">
               expand_more
             </i>

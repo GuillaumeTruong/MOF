@@ -40,6 +40,7 @@ export class AircraftPanelComponent implements OnInit {
         break;
       }
       case 'WorkOrder': {
+        this.aircraftListSorted = this.aircraftService.getAircraftByWO();
         break;
       }
       case 'State': {
@@ -66,7 +67,7 @@ export class AircraftPanelComponent implements OnInit {
   }
 
   isAircraftWoInProgress(aircraftElement): Boolean {
-    return aircraftElement.woInProgress !== 'None';
+    return aircraftElement.woInProgress.length > 0;
   }
 
   switchFilterOpen(): void {

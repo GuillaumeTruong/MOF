@@ -1,8 +1,43 @@
 {
-    "WorkorderList" : [
-        { "id": "1", "name": "BAAA", "deadline": "16 Mar 2019 00:12:00 GMT", "oldPN": "XXXXXXXXX", "newPN": "XXXXXXXXX", "fin": "XXX", "aircraftList": [
-            { "id": "1", "currentStep": "Import", "downloadDate": "12 Mar 2019 00:12:00 GMT", "fileSize": 300, "progress": 37, "time": 934, "connexion": "4G", "status": 0 },
-            { "id": "2", "currentStep": "Prepare", "downloadDate": null, "fileSize": null, "progress": null, "time": null, "connexion": null, "status": 0 }
-        ] }
+    "WorkorderList": [
+        {
+            "woNumber": "BAAA",
+            "deadline": "16 Mar 2019 00:12:00 GMT",
+            "pn": [
+                {
+                    "oldPN": "XXXXXXXXX",
+                    "newPN": "XXXXXXXXX",
+                    "fileSize": 300,
+                    "uploadTime": 0,
+                    "finSW": "XXX",
+                    "fdSW": "XXX",
+                    "finHW": "XXX",
+                    "fdHW": "XXX",
+                    "type": 0
+                }
+            ],
+            "aircraftList": [
+                {
+                    "name": "XXXXX",
+                    "currentStep": "Import",
+                    "uploadDate": "12 Mar 2019 00:12:00 GMT",
+                    "uploadEnd": "12 Mar 2019 00:12:00 GMT",
+                    "progress": 37,
+                    "time": 934,
+                    "connexion": "4G",
+                    "status": 0
+                },
+                {
+                    "name": "XXXXX",
+                    "currentStep": "Prepare",
+                    "uploadDate": null,
+                    "uploadEnd": null,
+                    "progress": null,
+                    "time": null,
+                    "connexion": null,
+                    "status": 0
+                }
+            ]
+        }
     ]
 }

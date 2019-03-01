@@ -18,7 +18,7 @@ export class FiltersPipe implements PipeTransform {
                 result = result && item.online;
             }
             if (filter.WOInProgress) {
-                result = result && (item.woInProgress !== 'None');
+                result = result && (item.woInProgress.length > 0);
             }
 
             return result;
