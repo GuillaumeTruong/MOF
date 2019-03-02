@@ -15,12 +15,15 @@ export class AircraftService {
   time = 0;
 
   constructor(private timeManagementService: TimeManagementService) {
+    this.timeManagementService.cast.subscribe(time => this.timeChange(time));
     this.editAircraftList(<any>data);
-    console.log('Aircraft List from json');
-    console.log(this.aircraftList);
     this.setList();
     // this.setStateAircraft();
-    this.timeManagementService.cast.subscribe(time => this.timeChange(time));
+    this.setNextFlightIndex();
+    this.setStateAircraft();
+    this.setOnlineAircraft();
+    console.log('Aircraft List init');
+    console.log(this.aircraftList);
   }
 
   editAircraftList( newAircraftList ) {
@@ -29,6 +32,9 @@ export class AircraftService {
 
   timeChange(time: number): void {
     this.time = time;
+    this.setNextFlightIndex();
+    this.setStateAircraft();
+    this.setOnlineAircraft();
   }
 
   setList(): any {
@@ -67,7 +73,7 @@ export class AircraftService {
           maintenancesList: [],
           flightsList: aircraftInfo.flightsList,
           configuration: [],
-          nextFlightIndex: 0
+          nextOrCurrentFlightIndex: 0
         };
         aircraftListTmp.push(aicraftTmp);
       }
@@ -82,20 +88,55 @@ export class AircraftService {
   // TODO
   setNextFlightIndex(): void {
     for (const aircraft of (this.aircraftList.value.AircraftList)) {
-      for (const flight of aircraft.flightsList) {
-        if (this.time < flight.timeArr) {
-          date
-        }
+      let index = 0;
+      while (aircraft.flightsList.length > index && this.time > aircraft.flightsList[index].timeArr) {
+        index++;
       }
+      aircraft.nextOrCurrentFlightIndex = index;
     }
   }
 
   // TODO
   setStateAircraft(): any {
     for (const aircraft of (this.aircraftList.value.AircraftList)) {
-      aircraft.state = 'Ready For Maintenance';
-
+      if ( aircraft.nextOrCurrentFlightIndex > 0 ) {
+        aircraft.state = this.stateFromTime(aircraft.flightsList[aircraft.nextOrCurrentFlightIndex - 1].timeArr , aircraft.flightsList[aircraft.nextOrCurrentFlightIndex].timeDep);
+      } else {
+        aircraft.state = this.stateFromTime(-1, aircraft.flightsList[aircraft.nextOrCurrentFlightIndex].timeDep);
+      }
     }
+  }
+
+  stateFromTime(ArrDate, depDate: number): string {
+    if ( ArrDate != -1 ) {
+      // arrivé depuis moins de 10 minutes
+      if ( this.time < ArrDate + 600000 ) {
+        return 'Arrival';
+      }
+      // départ dans plus de 10 minutes
+      if ( this.time <= depDate - 600000 ) {
+        return 'Ready For Maintenance';
+      }
+      if ( this.time < depDate ) {
+        return 'Parking';
+      }
+      if ( this.time >= depDate ) {
+        return 'Cruise';
+      }
+    } else {
+
+      if ( this.time < depDate - 600000 ) {
+        return 'Ready For Maintenance';
+      }
+      // départ dans plus de 10 minutes
+      if ( this.time < depDate ) {
+        return 'Parking';
+      }
+      if ( this.time >= depDate ) {
+        return 'Cruise';
+      }
+    }
+    return 'None'
   }
 
   // TODO
@@ -108,7 +149,11 @@ export class AircraftService {
   // TODO
   setOnlineAircraft(): any {
     for (const aircraft of (this.aircraftList.value.AircraftList)) {
-      aircraft.online = true;
+      if(aircraft.state === 'Cruise' && Math.floor(Math.random() * Math.floor(100)) > 10) {
+        aircraft.online = false;
+      } else {
+        aircraft.online = true;
+      }
     }
   }
 
