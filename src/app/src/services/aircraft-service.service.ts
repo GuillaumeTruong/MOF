@@ -12,6 +12,7 @@ export class AircraftService {
   private aircraftList = new BehaviorSubject<any>({});
 
   cast = this.aircraftList.asObservable();
+  time = 0;
 
   constructor(private timeManagementService: TimeManagementService) {
     this.editAircraftList(<any>data);
@@ -27,6 +28,7 @@ export class AircraftService {
   }
 
   timeChange(time: number): void {
+    this.time = time;
   }
 
   setList(): any {
@@ -64,7 +66,8 @@ export class AircraftService {
           online: true,
           maintenancesList: [],
           flightsList: aircraftInfo.flightsList,
-          configuration: []
+          configuration: [],
+          nextFlightIndex: 0
         };
         aircraftListTmp.push(aicraftTmp);
       }
@@ -77,9 +80,21 @@ export class AircraftService {
   }
 
   // TODO
+  setNextFlightIndex(): void {
+    for (const aircraft of (this.aircraftList.value.AircraftList)) {
+      for (const flight of aircraft.flightsList) {
+        if (this.time < flight.timeArr) {
+          date
+        }
+      }
+    }
+  }
+
+  // TODO
   setStateAircraft(): any {
     for (const aircraft of (this.aircraftList.value.AircraftList)) {
       aircraft.state = 'Ready For Maintenance';
+
     }
   }
 

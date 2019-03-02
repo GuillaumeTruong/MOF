@@ -128,7 +128,7 @@ $borderRadius: 5px;
 
                 &-header {
                     padding: 5px;
-                    font-size: 1.4em;
+                    font-size: 1.2em;
                     background: #EDEDED;
                     color: $bleu-airbus;
                     font-weight: lighter;
@@ -155,7 +155,7 @@ $borderRadius: 5px;
                         display: grid;
                         grid-template-columns: 30px 1fr 30px 30px;
                         grid-gap: 10px;
-                        font-size: 20px;
+                        font-size: 17px;
                         align-items: center;
 
                         &-state {
@@ -163,6 +163,10 @@ $borderRadius: 5px;
                             align-self: center;
                             display: flex;
                             align-items: center;
+
+                            .material-icons {
+                                font-size: 20px;
+                            }
                         }
 
                         &-name {
