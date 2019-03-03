@@ -2,7 +2,7 @@
     "WorkorderList": [
         {
             "woNumber": "BAAA",
-            "deadline": "16 Mar 2019 00:12:00 GMT",
+            "deadline": 1547337600000,
             "pn": [
                 {
                     "oldPN": "XXXXXXXXX",
@@ -20,8 +20,8 @@
                 {
                     "name": "XXXXX",
                     "currentStep": "Import",
-                    "uploadDate": "12 Mar 2019 00:12:00 GMT",
-                    "uploadEnd": "12 Mar 2019 00:12:00 GMT",
+                    "uploadDate": 1546927200000,
+                    "uploadEnd": 1546929000000,
                     "progress": 37,
                     "time": 934,
                     "connexion": "4G",
@@ -41,7 +41,7 @@
         },
         {
             "woNumber": "BABA",
-            "deadline": "17 Mar 2019 00:12:00 GMT",
+            "deadline": 1547424000000,
             "pn": [
                 {
                     "oldPN": "XXXXXXXXX",
@@ -59,8 +59,8 @@
                 {
                     "name": "XXXXX",
                     "currentStep": "Import",
-                    "uploadDate": "12 Mar 2019 00:12:00 GMT",
-                    "uploadEnd": "12 Mar 2019 00:12:00 GMT",
+                    "uploadDate": 1546927200000,
+                    "uploadEnd": 1546929000000,
                     "progress": 37,
                     "time": 934,
                     "connexion": "4G",

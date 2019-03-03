@@ -10,6 +10,8 @@ import { WorkorderService } from '../../services/workorder.service';
 export class WorkorderDetailsComponent implements OnInit {
 
   workOrder;
+  deadline: string;
+  stepper: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +31,8 @@ export class WorkorderDetailsComponent implements OnInit {
     this.workOrder = this.workorderService.findWoByNumber(wonumber);
     console.log('workorder open');
     console.log(this.workOrder);
+    this.deadline = this.workorderService.deadLineToString( this.workOrder );
+
   }
 
 }
