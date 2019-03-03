@@ -48,7 +48,7 @@ export class WorkorderService {
     result = result + ', ';
     result = (hour <= 12) ? result + hour : result + (hour - 12);
     if (minute > 0) {
-      result = (minute < 10) ? result + '0' + minute : result + minute;
+      result = (minute < 10) ? result + ':0' + minute : result + ':' + minute;
     }
     result = (hour <= 12) ? result + 'am' : result + 'pm';
 
