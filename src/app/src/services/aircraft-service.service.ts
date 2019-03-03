@@ -13,6 +13,7 @@ export class AircraftService {
 
   cast = this.aircraftList.asObservable();
   time = 0;
+  isInit = false;
 
   constructor(private timeManagementService: TimeManagementService) {
     this.timeManagementService.cast.subscribe(time => this.timeChange(time));
@@ -24,6 +25,7 @@ export class AircraftService {
     this.setOnlineAircraft();
     console.log('Aircraft List init');
     console.log(this.aircraftList);
+    this.isInit = true;
   }
 
   editAircraftList( newAircraftList ) {
@@ -32,9 +34,12 @@ export class AircraftService {
 
   timeChange(time: number): void {
     this.time = time;
-    this.setNextFlightIndex();
-    this.setStateAircraft();
-    this.setOnlineAircraft();
+    if (this.isInit) {
+      this.setNextFlightIndex();
+      this.setStateAircraft();
+      this.setOnlineAircraft();
+      this.aircraftList.next(this.aircraftList.value);
+    }
   }
 
   setList(): any {

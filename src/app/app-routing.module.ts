@@ -7,7 +7,7 @@ import { RecapComponent } from './src/components/recap/recap.component';
 const routes: Routes = [
   { path: '', redirectTo: '/overview', pathMatch: 'full' },
   { path: 'overview', component: RecapComponent },
-  { path: 'workorder', component: WorkorderDetailsComponent }
+  { path: 'workorder/:wonumber', component: WorkorderDetailsComponent }
 ];
 
 @NgModule({

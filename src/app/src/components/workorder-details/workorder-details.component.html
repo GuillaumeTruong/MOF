@@ -1,3 +1,65 @@
-<p>
-  workorder-details works!
-</p>
+<div class="wo-detail-container">
+  <div class="wo-name">
+    <span>
+      WO {{ workOrder.woNumber }}
+    </span>
+  </div>
+  <div class="wo-info">
+    <span class="deadline">
+      Deadline: {{ deadline }}
+    </span>
+    <span class="aircraft-number">
+      {{ workOrder.aircraftList.length }} A/C
+    </span>
+  </div>
+  <div class="wo-stepper">
+    <div class="step-container complete">
+      <div class="label">
+        <span>Prepare</span>
+      </div>
+      <div class="step">
+        <span class="balise">
+        </span>
+      </div>
+    </div>
+    <div class="step-container complete">
+      <div class="label">
+        <span>Import</span>
+      </div>
+      <div class="step tocomplete">
+        <span class="balise">
+        </span>
+      </div>
+    </div>
+    <div class="step-container">
+      <div class="label">
+        <span>Upload</span>
+      </div>
+      <div class="step tocomplete">
+        <span class="balise">
+        </span>
+      </div>
+    </div>
+    <div class="step-container">
+      <div class="label">
+        <span>Verify</span>
+      </div>
+      <div class="step tocomplete">
+        <span class="balise">
+        </span>
+      </div>
+    </div>
+    <div class="step-container">
+      <div class="label">
+        <span>Validate</span>
+      </div>
+      <div class="step tocomplete">
+        <span class="balise">
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="wo-body">
+
+  </div>
+</div>
