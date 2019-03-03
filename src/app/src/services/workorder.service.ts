@@ -20,4 +20,12 @@ export class WorkorderService {
   editAircraftList( newWoList ) {
     this.woList.next(newWoList);
   }
+
+  findWoByNumber( woNumber ): any {
+    for (const wo of (this.woList.value.WorkorderList)) {
+      if (wo.woNumber === woNumber) {
+        return wo;
+      }
+    }
+  }
 }

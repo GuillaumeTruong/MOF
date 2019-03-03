@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { WorkorderService } from '../../services/workorder.service';
 
 @Component({
   selector: 'app-workorder-details',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkorderDetailsComponent implements OnInit {
 
-  constructor() { }
+  workOrder;
+
+  constructor(
+    private route: ActivatedRoute,
+    private workorderService: WorkorderService
+  ) { }
 
   ngOnInit() {
+    this.workorderService.cast.subscribe(workorderList => this.onWorkorderListChange(workorderList));
+  }
+
+  onWorkorderListChange (workorderList): void {
+    this.getWo();
+  }
+
+  getWo(): void {
+    const wonumber = this.route.snapshot.paramMap.get('wonumber');
+    this.workOrder = this.workorderService.findWoByNumber(wonumber);
+    console.log('workorder open');
+    console.log(this.workOrder);
   }
 
 }
