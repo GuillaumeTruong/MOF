@@ -12,6 +12,27 @@ export class WorkorderDetailsComponent implements OnInit {
   workOrder;
   deadline: string;
   stepper: number;
+  stepList = [{
+    name: 'Prepare',
+    completed: false
+  },
+  {
+    name: 'Import',
+    completed: false
+  },
+  {
+    name: 'Upload',
+    completed: false
+  },
+  {
+    name: 'Verify',
+    completed: false
+  },
+  {
+    name: 'Validate',
+    completed: false
+  }];
+  selectedStep = 'Prepare';
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +54,14 @@ export class WorkorderDetailsComponent implements OnInit {
     console.log(this.workOrder);
     this.deadline = this.workorderService.deadLineToString( this.workOrder );
 
+  }
+
+  setSelectedStep(step) {
+    this.selectedStep = step;
+  }
+
+  isSelectedStepPrepare() {
+    return this.selectedStep === 'Prepare';
   }
 
 }

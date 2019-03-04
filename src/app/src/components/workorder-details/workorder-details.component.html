@@ -9,57 +9,252 @@
       Deadline: {{ deadline }}
     </span>
     <span class="aircraft-number">
-      {{ workOrder.aircraftList.length }} A/C
+      {{ workOrder.aircraftList.length }}
+      <i class="material-icons">
+        flight
+      </i>
     </span>
   </div>
+
   <div class="wo-stepper">
-    <div class="step-container complete">
-      <div class="label">
-        <span>Prepare</span>
+
+      <div class="step-container" *ngFor="let step of stepList; let i = index"
+        [ngClass]="{'complete': step.completed, 'selected': step.name === selectedStep}"
+        (click)="setSelectedStep(step.name)">
+        <div class="label">
+          <span>{{ step.name }}</span>
+        </div>
+        <div class="step" [ngClass]="{'tocomplete': i !== stepList.length - 1 }">
+          <span class="balise">
+          </span>
+        </div>
       </div>
-      <div class="step">
-        <span class="balise">
-        </span>
-      </div>
-    </div>
-    <div class="step-container complete">
-      <div class="label">
-        <span>Import</span>
-      </div>
-      <div class="step tocomplete">
-        <span class="balise">
-        </span>
-      </div>
-    </div>
-    <div class="step-container">
-      <div class="label">
-        <span>Upload</span>
-      </div>
-      <div class="step tocomplete">
-        <span class="balise">
-        </span>
-      </div>
-    </div>
-    <div class="step-container">
-      <div class="label">
-        <span>Verify</span>
-      </div>
-      <div class="step tocomplete">
-        <span class="balise">
-        </span>
-      </div>
-    </div>
-    <div class="step-container">
-      <div class="label">
-        <span>Validate</span>
-      </div>
-      <div class="step tocomplete">
-        <span class="balise">
-        </span>
-      </div>
-    </div>
+
   </div>
-  <div class="wo-body">
+
+  <div class="wo-body" [ngSwitch]="selectedStep">
+
+    <div class="prepare-body step-container" *ngSwitchCase="'Prepare'">
+      <div class="step-header">
+        Current configuration check
+      </div>
+      
+      <div class="step-body">
+        <div class="pn-container" *ngFor="let pn of workOrder.pn">
+          <div class="information-container">
+            <div class="information">
+              <span class="title">Pre-mod PN</span>
+              <span class="content">{{ pn.oldPN }}</span>
+            </div>
+            <div class="information">
+              <span class="title">SW FD</span>
+              <span class="content">{{ pn.fdSW }}</span>
+            </div>
+            <div class="information">
+              <span class="title">HW FD</span>
+              <span class="content">{{ pn.fdHW }}</span>
+            </div>
+            <div class="information">
+              <span class="title">Post-Mod PN</span>
+              <span class="content">{{ pn.newPN }}</span>
+            </div>
+            <div class="information">
+              <span class="title">SW FIN</span>
+              <span class="content">{{ pn.finSW }}</span>
+            </div>
+            <div class="information">
+              <span class="title">HW FIN</span>
+              <span class="content">{{ pn.finHW }}</span>
+            </div>
+          </div>
+
+          <mat-expansion-panel class="detail-panel" hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                <div class="aircraft-label">
+                  <i class="material-icons" *ngIf="!panelOpenState">
+                    expand_more
+                  </i>
+                  <i class="material-icons" *ngIf="panelOpenState">
+                    expand_less
+                  </i>
+                  <span>See all aircraft</span>
+                </div>
+
+                <div class="premod-label">
+                  Pre-mod PN
+                </div>
+                
+                <button mat-raised-button color="primary" (click)="$event.stopPropagation()">Auto check all</button>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="aircraft-list">
+              <div class="aircraft-item" *ngFor="let aircraft of workOrder.aircraftList">
+                
+                <div class="aircraft-name">
+                  {{ aircraft.name }}
+                </div>
+
+                <div class="aircraft-pn">
+                  <span class="pn">PN</span>
+                  <span>{{ aircraft.name }}</span>
+                </div>
+
+                <mat-checkbox class="aircraft-check"></mat-checkbox>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+      </div>
+        
+      <div class="step-footer">
+        <button mat-raised-button color="primary">Next</button>
+        <button mat-raised-button color="primary">Report Error</button>
+      </div>
+    </div>
+    
+    <div class="import-body step-container" *ngSwitchCase="'Import'">
+      <div class="step-header">
+        Import files
+      </div>
+
+      <div class="step-body">
+        <div class="see-all">
+          <span>See all Wo imports</span>
+        </div>
+        <div class="pn-container">
+          <div class="pn-items" *ngFor="let pn of workOrder.pn">
+            <div class="pn">
+              {{ pn.newPN }}
+            </div>
+            <div class="validation">
+              <i class="puce"></i>
+              <span>Conf Validated</span>
+            </div>
+            <div>
+              <button mat-raised-button color="primary">Choose Load</button>
+            </div>
+            <div>
+              <button mat-raised-button color="primary">Import</button>
+            </div>
+            <i class="material-icons">
+                visibility
+            </i>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-footer">
+        <button mat-raised-button color="primary">Next</button>
+      </div>
+    </div>
+      
+    <div class="upload-body step-container" *ngSwitchCase="'Upload'">
+      <div class="step-header">
+        Plan upload
+      </div>
+  
+      <div class="step-body">
+
+      </div>
+
+      <div class="step-footer">
+        <button mat-raised-button color="primary">Next</button>
+        <button mat-raised-button color="primary">Upload all</button>
+      </div>
+    </div>
+      
+    <div class="verify-body step-container" *ngSwitchCase="'Verify'">
+      <div class="step-header">
+        New configuration check
+      </div>
+  
+      <div class="step-body">
+          <div class="pn-container" *ngFor="let pn of workOrder.pn">
+            <div class="information-container">
+              <div class="information">
+                <span class="title">Pre-mod PN</span>
+                <span class="content">{{ pn.oldPN }}</span>
+              </div>
+              <div class="information">
+                <span class="title">SW FD</span>
+                <span class="content">{{ pn.fdSW }}</span>
+              </div>
+              <div class="information">
+                <span class="title">HW FD</span>
+                <span class="content">{{ pn.fdHW }}</span>
+              </div>
+              <div class="information">
+                <span class="title">Post-Mod PN</span>
+                <span class="content">{{ pn.newPN }}</span>
+              </div>
+              <div class="information">
+                <span class="title">SW FIN</span>
+                <span class="content">{{ pn.finSW }}</span>
+              </div>
+              <div class="information">
+                <span class="title">HW FIN</span>
+                <span class="content">{{ pn.finHW }}</span>
+              </div>
+            </div>
+  
+            <mat-expansion-panel class="detail-panel" hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-description>
+                  <div class="aircraft-label">
+                    <i class="material-icons" *ngIf="!panelOpenState">
+                      expand_more
+                    </i>
+                    <i class="material-icons" *ngIf="panelOpenState">
+                      expand_less
+                    </i>
+                    <span>See all aircraft</span>
+                  </div>
+  
+                  <div class="premod-label">
+                    Pre-mod PN
+                  </div>
+                  
+                  <button mat-raised-button color="primary" (click)="$event.stopPropagation()">Auto check all</button>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="aircraft-list">
+                <div class="aircraft-item" *ngFor="let aircraft of workOrder.aircraftList">
+                  
+                  <div class="aircraft-name">
+                    {{ aircraft.name }}
+                  </div>
+  
+                  <div class="aircraft-pn">
+                    <span class="pn">PN</span>
+                    <span>{{ aircraft.name }}</span>
+                  </div>
+  
+                  <mat-checkbox class="aircraft-check"></mat-checkbox>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </div>
+        </div>
+
+      <div class="step-footer">
+        <button mat-raised-button color="primary">Next</button>
+      </div>
+    </div>
+      
+    <div class="validate-body step-container" *ngSwitchCase="'Validate'">
+      <div class="step-header">
+        Validate {{ workOrder.name }}
+      </div>
+  
+      <div class="step-body">
+
+      </div>
+
+      <div class="step-footer">
+        <button mat-raised-button color="primary">Validate</button>
+      </div>
+    </div>
 
   </div>
 </div>

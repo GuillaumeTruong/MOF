@@ -46,11 +46,14 @@ export class WorkorderService {
     result = result + '/';
     result = result + year.slice(-2);
     result = result + ', ';
-    result = (hour <= 12) ? result + hour : result + (hour - 12);
-    if (minute > 0) {
-      result = (minute < 10) ? result + ':0' + minute : result + ':' + minute;
-    }
-    result = (hour <= 12) ? result + 'am' : result + 'pm';
+    // result = (hour <= 12) ? result + hour : result + (hour - 12);
+    // if (minute > 0) {
+    //   result = (minute < 10) ? result + ':0' + minute : result + ':' + minute;
+    // }
+    // result = result + hour;
+    result = (hour < 10) ? result + '0' + hour : result + hour;
+    result = (minute < 10) ? result + ':0' + minute : result + ':' + minute;
+    // result = (hour <= 12) ? result + 'am' : result + 'pm';
 
     return result;
   }

@@ -14,6 +14,17 @@
                     "finHW": "XXX",
                     "fdHW": "XXX",
                     "type": 0
+                },
+                {
+                    "oldPN": "XXXXXXXXX",
+                    "newPN": "XXXXXXXXX",
+                    "fileSize": 300,
+                    "uploadTime": 0,
+                    "finSW": "XXX",
+                    "fdSW": "XXX",
+                    "finHW": "XXX",
+                    "fdHW": "XXX",
+                    "type": 0
                 }
             ],
             "aircraftList": [
