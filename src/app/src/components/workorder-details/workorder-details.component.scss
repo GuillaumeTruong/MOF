@@ -46,6 +46,7 @@
         align-items: flex-end;
         justify-content: center;
         flex-direction: column;
+        font-size: 1.1rem;
 
         .aircraft-number {
             display: flex;
@@ -72,7 +73,7 @@
                 align-items: center;
                 justify-content: center;
                 color: #AEAEAE;
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .step {
@@ -174,7 +175,7 @@
 
         .step-header {
             color: $bleu-airbus;
-            font-size: 1em;
+            font-size: 1.1rem;
             font-weight: lighter;
         }
 
@@ -388,6 +389,10 @@
                         width: 100%;
                         top: -30px;
                         position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
 
                         .datepicker-label{
                             color: $bleu-airbus;
@@ -401,6 +406,7 @@
                             display: grid;
                             grid-template-rows: 30px 1fr;
                             background-color: #f1f1f1;
+                            max-width: 400px;
 
                             &-header {
                                 display: flex;
