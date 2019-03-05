@@ -37,6 +37,10 @@ export class AircraftService {
     this.aircraftList.next(newAircraftList);
   }
 
+  getAircraftList(): any {
+    return this.aircraftList.value;
+  }
+
   timeChange(time: number): void {
     this.time = time;
     if (this.isInit) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd, Event } from '@angular/router';
 import { WorkorderService } from '../../services/workorder.service';
 import { TimeManagementService } from '../../services/time-management.service';
 
@@ -37,90 +37,90 @@ export class WorkorderDetailsComponent implements OnInit {
 
   monthList: any[] = [
     {
-      month: "January",
+      month: 'January',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false
       ]
-    },{
-      month: "February",
+    }, {
+      month: 'February',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false
       ]
-    },{
-      month: "March",
+    }, {
+      month: 'March',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false
       ]
-    },{
-      month: "April",
+    }, {
+      month: 'April',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false
       ]
-    },{
-      month: "May",
+    }, {
+      month: 'May',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false
       ]
-    },{
-      month: "June",
+    }, {
+      month: 'June',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false
       ]
-    },{
-      month: "July",
+    }, {
+      month: 'July',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false
       ]
-    },{
-      month: "August",
+    }, {
+      month: 'August',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false
       ]
-    },{
-      month: "September",
+    }, {
+      month: 'September',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false
       ]
-    },{
-      month: "October",
+    }, {
+      month: 'October',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false
       ]
-    },{
-      month: "November",
+    }, {
+      month: 'November',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false
       ]
-    },{
-      month: "December",
+    }, {
+      month: 'December',
       daySelected: [
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
@@ -134,15 +134,28 @@ export class WorkorderDetailsComponent implements OnInit {
 
   currentTime: number;
 
+  isMouseDown = false;
+  firstDaySelected;
+  lastDaySelected;
+
   constructor(
     private route: ActivatedRoute,
     private workorderService: WorkorderService,
-    private timeManagementService:TimeManagementService
-  ) { }
+    private timeManagementService: TimeManagementService,
+    private router: Router
+  ) {
+    this.getWo();
+  }
 
   ngOnInit() {
     this.workorderService.cast.subscribe(workorderList => this.onWorkorderListChange(workorderList));
     this.timeManagementService.cast.subscribe(time => this.timeChange(time));
+    this.router.events.subscribe( (event: Event) => {
+        if (event instanceof NavigationEnd) {
+          this.getWo();
+        }
+    });
+    this.getWo();
     this.initDayList();
   }
 
@@ -191,9 +204,9 @@ export class WorkorderDetailsComponent implements OnInit {
 
   initDayList(): void {
     for (let i = 0; i < this.monthList.length; i++) {
-      let tmp = [];
+      const tmp = [];
       let nb = 1;
-      for (let day of this.monthList[i].daySelected) {
+      for (const day of this.monthList[i].daySelected) {
         tmp.push({ day : nb, selected: false });
         nb++;
       }
@@ -257,16 +270,12 @@ export class WorkorderDetailsComponent implements OnInit {
 
   selectDay (dayselected): void {
     for (let i = 0; i < this.monthList.length; i++) {
-      for (let day of this.monthList[i].daySelected) {
+      for (const day of this.monthList[i].daySelected) {
         day.selected = false;
       }
     }
     dayselected.selected = true;
   }
-
-  isMouseDown = false;
-  firstDaySelected;
-  lastDaySelected;
 
   mouseDownHandler(dayselected): void {
     this.isMouseDown = true;
@@ -280,14 +289,14 @@ export class WorkorderDetailsComponent implements OnInit {
   }
 
   mouseEnterHandler(dayselected): void {
-    if(this.isMouseDown) {
+    if (this.isMouseDown) {
       this.lastDaySelected = dayselected;
       this.setSeclectedArea();
     }
   }
 
   setSeclectedArea(): void {
-    for (let d of this.monthList[this.selectedMonthIndex].daySelected) {
+    for (const d of this.monthList[this.selectedMonthIndex].daySelected) {
       if (d.day >= this.firstDaySelected.day && d.day <= this.lastDaySelected.day ) {
         d.selected = true;
       } else {
