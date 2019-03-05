@@ -12,12 +12,12 @@ export class WorkorderService {
   cast = this.woList.asObservable();
 
   constructor() {
-    this.editAircraftList(<any>data);
+    this.editWorkOrderList(<any>data);
     console.log('WO List from json');
     console.log(this.woList);
   }
 
-  editAircraftList( newWoList ) {
+  editWorkOrderList( newWoList ) {
     this.woList.next(newWoList);
   }
 
@@ -27,6 +27,7 @@ export class WorkorderService {
         return wo;
       }
     }
+    return null;
   }
 
   deadLineToString( workOrder ): string {

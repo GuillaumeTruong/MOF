@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject  } from 'rxjs';
 import { TimeManagementService } from './time-management.service';
 import data from '../data/AircraftDataBase.json';
+import confDB from '../data/configurationDB.json';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,12 @@ export class AircraftService {
   time = 0;
   isInit = false;
 
+  configurationDB;
+
   constructor(private timeManagementService: TimeManagementService) {
     this.timeManagementService.cast.subscribe(time => this.timeChange(time));
+    this.configurationDB = <any>confDB;
+    console.log(this.configurationDB);
     this.editAircraftList(<any>data);
     this.setList();
     // this.setStateAircraft();
@@ -49,20 +54,40 @@ export class AircraftService {
         const aircraftInfo = this.aircraftList.value.AircraftList[aircraft];
 
         let familyName = '';
+        let configuration;
         switch (aircraftInfo.acType) {
-          case 'A318':
-          case 'A319':
-          case 'A320':
-          case 'A321': {
+          case 'A318': {
+            configuration = this.configurationDB.configurations[0].configuration;
             familyName = 'A320';
             break;
           }
-          case 'A330-200':
+          case 'A319': {
+            configuration = this.configurationDB.configurations[1].configuration;
+            familyName = 'A320';
+            break;
+          }
+          case 'A320': {
+            configuration = this.configurationDB.configurations[2].configuration;
+            familyName = 'A320';
+            break;
+          }
+          case 'A321': {
+            configuration = this.configurationDB.configurations[3].configuration;
+            familyName = 'A320';
+            break;
+          }
+          case 'A330-200': {
+            configuration = this.configurationDB.configurations[4].configuration;
+            familyName = 'A330 / A340';
+            break;
+          }
           case 'A340-300': {
+            configuration = this.configurationDB.configurations[5].configuration;
             familyName = 'A330 / A340';
             break;
           }
           case 'A380-800': {
+            configuration = this.configurationDB.configurations[6].configuration;
             familyName = 'A380';
             break;
           }
@@ -77,7 +102,7 @@ export class AircraftService {
           online: true,
           maintenancesList: [],
           flightsList: aircraftInfo.flightsList,
-          configuration: [],
+          configuration: configuration,
           nextOrCurrentFlightIndex: 0
         };
         aircraftListTmp.push(aicraftTmp);
@@ -105,7 +130,8 @@ export class AircraftService {
   setStateAircraft(): any {
     for (const aircraft of (this.aircraftList.value.AircraftList)) {
       if ( aircraft.nextOrCurrentFlightIndex > 0 ) {
-        aircraft.state = this.stateFromTime(aircraft.flightsList[aircraft.nextOrCurrentFlightIndex - 1].timeArr , aircraft.flightsList[aircraft.nextOrCurrentFlightIndex].timeDep);
+        aircraft.state = this.stateFromTime(aircraft.flightsList[aircraft.nextOrCurrentFlightIndex - 1].timeArr,
+          aircraft.flightsList[aircraft.nextOrCurrentFlightIndex].timeDep);
       } else {
         aircraft.state = this.stateFromTime(-1, aircraft.flightsList[aircraft.nextOrCurrentFlightIndex].timeDep);
       }
@@ -113,7 +139,7 @@ export class AircraftService {
   }
 
   stateFromTime(ArrDate, depDate: number): string {
-    if ( ArrDate != -1 ) {
+    if ( ArrDate !== -1 ) {
       // arrivé depuis moins de 10 minutes
       if ( this.time < ArrDate + 600000 ) {
         return 'Arrival';
@@ -141,7 +167,7 @@ export class AircraftService {
         return 'Cruise';
       }
     }
-    return 'None'
+    return 'None';
   }
 
   // TODO
@@ -154,7 +180,7 @@ export class AircraftService {
   // TODO
   setOnlineAircraft(): any {
     for (const aircraft of (this.aircraftList.value.AircraftList)) {
-      if(aircraft.state === 'Cruise' && Math.floor(Math.random() * Math.floor(100)) > 10) {
+      if (aircraft.state === 'Cruise' && Math.floor(Math.random() * Math.floor(100)) > 10) {
         aircraft.online = false;
       } else {
         aircraft.online = true;
