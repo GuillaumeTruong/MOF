@@ -22,6 +22,10 @@ export class TimeManagementService {
     this.time.next(newTime);
   }
 
+  getTime(): number {
+    return this.time.value;
+  }
+
   startTimer(): void {
     this.interval = setInterval(() => {
       this.editTime(this.time.value + this.timerInterval);

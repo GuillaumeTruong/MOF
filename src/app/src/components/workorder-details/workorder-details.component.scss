@@ -337,7 +337,157 @@
         }
 
         .upload-body {
+            .step-body {
+                display: flex;
+                flex-direction: column;
 
+                .upper-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    //height: 200px;
+                    grid-column-gap: 20px;
+                    
+
+                    .display-note-container {
+                        width: 100%;
+                        // height: 100%;
+
+                        .display-note-field {
+                            width: 100%;
+                            // height: 100%;
+                        }
+                    }
+
+                    .note-container {
+                        width: 100%;
+                        // height: 100%;
+
+                        .note-field {
+                            width: 100%;
+                            // height: 100%;
+                        }
+                    }
+
+                    // ::ng-deep .mat-form-field-wrapper {
+                    //     height: calc(100% - 1.25em);
+                    //     .mat-form-field-flex {
+                    //         height: 100%;
+                    //         .mat-form-field-infix {
+                    //             height: calc(100% - 0.4375em - 0.84375em);
+                    //             textarea {
+                    //             height: 100%;
+
+                    //             }
+                    //         }
+                    //     }
+                    // }
+
+                    .datepicker-container {
+                        width: 100%;
+                        top: -30px;
+                        position: relative;
+
+                        .datepicker-label{
+                            color: $bleu-airbus;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding-bottom: 5px;
+                        }
+
+                        .datepicker{
+                            display: grid;
+                            grid-template-rows: 30px 1fr;
+                            background-color: #f1f1f1;
+
+                            &-header {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding: 0px 5px;
+                                color: white;
+                                background-color: $bleu-airbus;
+
+                                .left-arrow, .right-arrow {
+                                    cursor: pointer;
+                                    -webkit-touch-callout: none; /* iOS Safari */
+                                    -webkit-user-select: none; /* Safari */
+                                    -khtml-user-select: none; /* Konqueror HTML */
+                                    -moz-user-select: none; /* Firefox */
+                                    -ms-user-select: none; /* Internet Explorer/Edge */
+                                    user-select: none; /* Non-prefixed version, currently
+                                                                supported by Chrome and Opera */
+                                }
+                            }
+
+                            &-body {
+                                padding: 4px;
+
+                                .day-list {
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                                    color: $bleu-airbus;
+                                    align-items: center;
+                                    justify-items: center;
+                                    padding-bottom: 2px;
+                                }
+
+                                .number-list {
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                                    color: $bleu-airbus;
+                                    align-items: center;
+                                    justify-items: center;
+
+                                    .number-container {
+                                        
+                                        .number {
+                                            color: $bleu-airbus;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            height: 30px;
+                                            width: 30px;
+                                            cursor: pointer;
+                                            margin: 2px;-webkit-touch-callout: none; /* iOS Safari */
+                                            -webkit-user-select: none; /* Safari */
+                                            -khtml-user-select: none; /* Konqueror HTML */
+                                            -moz-user-select: none; /* Firefox */
+                                            -ms-user-select: none; /* Internet Explorer/Edge */
+                                            user-select: none; /* Non-prefixed version, currently
+                                                                        supported by Chrome and Opera */
+                                        
+
+                                            &.selected {
+                                                color: white;
+                                                background-color: $bleu-airbus;
+                                            }
+
+                                            &.old {
+                                                color: #777;
+                                            }
+
+                                            &.current {
+                                                background-color: $bleu-progress;
+                                            }
+
+                                            &.late {
+                                                color: $rouge-error;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .planning-container {
+                    .planning{
+
+                    }
+                }
+            }
         }
 
         .verify-body {
