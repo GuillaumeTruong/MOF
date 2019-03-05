@@ -291,4 +291,12 @@ export class AircraftService {
     return aircraftByWO;
   }
 
+  findAircraftByName(name: string): any {
+    for (const aircraft of (this.aircraftList.value.AircraftList)) {
+      if (aircraft.name === name) {
+        return aircraft;
+      }
+    }
+  }
+
 }
