@@ -13,7 +13,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 // import {MatSliderModule} from '@angular/material/slider';
 // import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatMenuModule} from '@angular/material/menu';
@@ -44,7 +44,7 @@ import { HeaderComponent } from './src/components/header/header.component';
 
 import { SearchFilterPipe } from './src/components/aircraft-panel/SearchFilterPipe';
 import { FiltersPipe } from './src/components/aircraft-panel/FiltersPipe';
-import { DownloadPanelComponent } from './src/components/download-panel/download-panel.component';
+import {DownloadPanelComponent, FilterDownloadDialogComponent} from './src/components/download-panel/download-panel.component';
 import { WorkorderPanelComponent } from './src/components/workorder-panel/workorder-panel.component';
 import { WorkorderDetailsComponent } from './src/components/workorder-details/workorder-details.component';
 
@@ -57,6 +57,9 @@ import { ProgressCardComponent } from './src/components/progress-card/progress-c
 import {FilterPipeImports} from './src/components/download-panel/filterPipeImports';
 import {FiltersPipeImports} from './src/components/download-panel/filtersPipeImports';
 import { TimeManagementService } from './src/services/time-management.service';
+import {SortPipeImports} from './src/components/download-panel/sortPipeImports';
+import { UploadCardComponent } from './src/components/upload-card/upload-card.component';
+import {UploadsService} from './src/services/uploads.service';
 
 
 @NgModule({
@@ -70,11 +73,14 @@ import { TimeManagementService } from './src/services/time-management.service';
     FiltersPipe,
     FilterPipeImports,
     FiltersPipeImports,
+    SortPipeImports,
     DownloadPanelComponent,
     ProgressCardComponent,
     WorkorderPanelComponent,
     WorkorderDetailsComponent,
-    WorkOrderCardComponent
+    FilterDownloadDialogComponent,
+    WorkOrderCardComponent,
+    UploadCardComponent
   ],
   imports: [
     AngularSplitModule.forRoot(),
@@ -89,6 +95,7 @@ import { TimeManagementService } from './src/services/time-management.service';
     MatRadioModule,
     MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     // MatSliderModule,
     // MatSlideToggleModule,
     MatMenuModule,
@@ -120,9 +127,13 @@ import { TimeManagementService } from './src/services/time-management.service';
     AircraftService,
     ImportsService,
     WorkordersService,
-    TimeManagementService
+    TimeManagementService,
+    UploadsService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    FilterDownloadDialogComponent
+  ]
 })
 
 export class AppModule { }

@@ -1,0 +1,132 @@
+<mat-grid-list cols="48" rowHeight="15">
+
+  <!-- Boutons play, pause, etc (1, 1-2) -->
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <!-- conditions -->
+    <div *ngIf="uploadProgress.status == 0 || uploadProgress.status == 3 then settingIcon else elseButton1"></div>
+    <ng-template #elseButton1>
+      <div *ngIf="uploadProgress.status == 1 then uploadIcon else elseButton2"></div>
+    </ng-template>
+    <ng-template #elseButton2>
+      <div *ngIf="uploadProgress.status == 2 then deleteIcon else contactIcon"></div>
+    </ng-template>
+    <!-- contenu -->
+    <ng-template #settingIcon>
+      <button>
+        <i class="material-icons">
+          settings
+        </i>
+      </button>
+    </ng-template>
+    <ng-template #uploadIcon>
+      <i class="material-icons">
+        save_alt
+      </i>
+    </ng-template>
+    <ng-template #deleteIcon>
+      <button>
+        <i class="material-icons">
+          close
+        </i>
+      </button>
+    </ng-template>
+    <ng-template #contactIcon>
+      <button>
+        <i class="material-icons">
+          phone
+        </i>
+      </button>
+    </ng-template>
+  </mat-grid-tile>
+
+  <!-- Immat de l'avion (2-9, 1-2) -->
+  <mat-grid-tile [colspan]="8" [rowspan]="2">
+    <div class="name">
+      {{uploadProgress.acName}}
+    </div>
+  </mat-grid-tile>
+
+  <!-- WO (10-17, 1-2) -->
+  <mat-grid-tile [colspan]="8" [rowspan]="2">
+    <div class="text atLeft">
+      WO : {{uploadProgress.WO}}
+    </div>
+  </mat-grid-tile>
+
+  <!-- dot (18, 1-2) -->
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <svg width="10px" height="10px">
+      <circle r="5" cx="5" cy="5" [ngClass]="{'whiteDot': uploadProgress.status === 0,
+                                              'blueDot': uploadProgress.status === 1,
+                                              'greenDot': uploadProgress.status === 2,
+                                              'orangeDot': uploadProgress.status === 3,
+                                              'redDot': uploadProgress.status === 4}" />
+    </svg>
+  </mat-grid-tile>
+
+  <!-- import (19-28, 1) -->
+  <mat-grid-tile [colspan]="10" >
+    <div class="text atLeft">
+      Import: {{getLabelImport()}}
+    </div>
+  </mat-grid-tile>
+
+  <!-- Progress bar (29-48, 1) -->
+  <mat-grid-tile [colspan]="20">
+    <mat-progress-bar value="{{uploadProgress.progress}}"
+                      [mode]="uploadProgress.status == 1 ? 'buffer' : 'default'"
+                      [ngClass]="{'barProgress': uploadProgress.status == 1,
+                                  'barOver': uploadProgress.status == 2,
+                                  'barWarning': uploadProgress.status == 3,
+                                  'barError': uploadProgress.status == 4}">
+    </mat-progress-bar>
+  </mat-grid-tile>
+
+
+  <!-- Upload (19-28, 2) -->
+  <mat-grid-tile [colspan]="10">
+    <div class="text atLeft">
+      Upload: {{getLabelUpload()}}
+    </div>
+  </mat-grid-tile>
+
+  <!-- Temps restant (29-40, 2) -->
+  <mat-grid-tile [colspan]="12">
+    <div *ngIf="uploadProgress.status === 0 || uploadProgress.status === 3 then estimatedTime else elseTime1"></div>
+    <ng-template #elseTime1>
+      <div *ngIf="uploadProgress.status === 1 then remainingTime else elseTime2"></div>
+    </ng-template>
+    <ng-template #elseTime2>
+      <div *ngIf="uploadProgress.status === 2 then finishedTime else errorTime"></div>
+    </ng-template>
+
+    <ng-template #estimatedTime>
+      <div class="text atLeft">
+        Estimated time: {{formatSecond(uploadProgress.time)}}
+      </div>
+    </ng-template>
+    <ng-template #remainingTime>
+      <div class="text atLeft">
+        Remaining time: {{formatSecond(uploadProgress.time)}}
+      </div>
+    </ng-template>
+    <ng-template #finishedTime>
+      <div class="text atLeft">
+        Finished
+      </div>
+    </ng-template>
+    <ng-template #errorTime>
+      <div class="text atLeft">
+        Remaining time: ...
+      </div>
+    </ng-template>
+  </mat-grid-tile>
+
+  <!-- Text d'avancement en Mo (8-11, 2) -->
+  <mat-grid-tile [colspan]="8">
+    <div class="text atRight">
+      {{uploadProgress.progress}}%
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>

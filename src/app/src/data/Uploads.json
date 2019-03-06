@@ -1,0 +1,16 @@
+{
+  "UploadList" : [
+    { "acId": 1, "acName": "F-HPJJ", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 934, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 2, "acName": "F-HPJK", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 887, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 3, "acName": "F-HPJL", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 54, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 4, "acName": "F-HPJM", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 591, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 5, "acName": "F-HPJN", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 0, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 6, "acName": "F-HPJO", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 126, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 7, "acName": "F-HPJP", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 389, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 8, "acName": "F-HPJQ", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 679, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 9, "acName": "F-HPJR", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 118, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 10, "acName": "F-HPJS", "partNumbers": ["PKB5D4762938451"], "FINs": ["1TH01SW1"], "progress": 0, "time": 37, "status": 0, "WO": "12F46874", "date": 123, "duration": 1800 },
+    { "acId": 11, "acName": "F-HPJT", "partNumbers": ["PKB5D4762938450"], "FINs": ["1TH01SW2"], "progress": 12, "time": 2912, "status": 1, "WO": "12F46874", "date": 123, "duration": 3600 },
+    { "acId": 12, "acName": "F-HPJU", "partNumbers": ["PKB5D4762938450"], "FINs": ["1TH01SW2"], "progress": 86, "time": 302, "status": 1, "WO": "12F46874", "date": 123, "duration": 3600 }
+  ]
+}

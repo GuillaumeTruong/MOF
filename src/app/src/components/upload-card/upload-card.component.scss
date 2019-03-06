@@ -37,12 +37,12 @@
     color: white;
   }
 
-  .connexion {
+  .atLeft {
     position: absolute;
-    right: 5px;
+    left: 0px;
   }
 
-  .timeProgress {
+  .atRight {
     position: absolute;
     right: 0px;
   }
@@ -52,14 +52,8 @@
     font-size: small;
   }
 
-  .PN {
-    position: absolute;
-    left: 5px;
-  }
-
-  .progress {
-    position: absolute;
-    left: 0px;
+  .whiteDot {
+    fill: white;
   }
 
   .blueDot {
