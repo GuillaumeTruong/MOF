@@ -347,45 +347,49 @@
                 .upper-container {
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-rows: 2fr 1fr;
+                    grid-template-areas:
+                        "display note date"
+                        "planning planning date";
                     //height: 200px;
                     grid-column-gap: 20px;
+                    grid-row-gap: 20px;
                     
 
                     .display-note-container {
+                        grid-area: display;
                         width: 100%;
-                        // height: 100%;
+                        height: 100%;
 
                         .display-note-field {
                             width: 100%;
-                            // height: 100%;
+                            height: 100%;
+
+                            textarea {
+                                width: 100%;
+                                height: 100%;
+                            }
                         }
                     }
 
                     .note-container {
+                        grid-area: note;
                         width: 100%;
-                        // height: 100%;
+                        height: 100%;
 
                         .note-field {
                             width: 100%;
-                            // height: 100%;
+                            height: 100%;
+
+                            textarea {
+                                width: 100%;
+                                height: 100%;
+                            }
                         }
                     }
 
-                    // ::ng-deep .mat-form-field-wrapper {
-                    //     height: calc(100% - 1.25em);
-                    //     .mat-form-field-flex {
-                    //         height: 100%;
-                    //         .mat-form-field-infix {
-                    //             height: calc(100% - 0.4375em - 0.84375em);
-                    //             textarea {
-                    //             height: 100%;
-
-                    //             }
-                    //         }
-                    //     }
-                    // }
-
                     .datepicker-container {
+                        grid-area: date;
                         width: 100%;
                         top: -30px;
                         position: relative;
@@ -488,11 +492,150 @@
                             }
                         }
                     }
+
+                    .planning-action {
+                        grid-area: planning;
+                        width: 100%;
+                        height: 100%;
+                        display: grid;
+                        grid-template-columns: 1fr 60px 60px 60px 1fr 1fr;
+                        grid-column-gap: 10px;
+                        justify-items: center;
+                        align-items: center;
+
+                        .action-label {
+                            font-size: 1.1rem;
+                            color: $bleu-airbus;
+                        }
+
+                        .button-planning {
+
+                        }
+
+                        .desc {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 0.9em;
+                            
+                            .color {
+                                margin-left: 5px;
+                                width: 20px;
+                                height: 10px;
+                            }
+
+                            &.ns {
+                                .color {
+                                    background-color: #AEAEAE;
+                                }
+                            }
+
+                            &.tat {
+                                .color {
+                                    background-color: #CCC8FF;
+                                }
+                            }
+
+                            &.check {
+                                .color {
+                                    background-color: #FFF9C8;
+                                }
+                            }
+                        }
+
+                    }
                 }
 
                 .planning-container {
-                    .planning{
+                    .planning {
+                        display: flex;
+                        width: 100%;
+                        flex-direction: column;
 
+                        &>* {
+                            margin-top: 20px;
+                        }
+            
+                        &>*:first-child {
+                            margin-top: 0;
+                        }
+
+                        .panning-aircraft-container {
+                            display: grid;
+                            width: 100%;
+                            grid-template-columns: 70px 1fr;
+                            height: 40px;
+
+                            .aircraft-label {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: $bleu-airbus;
+                            }
+
+                            .area-container {
+                                display: flex;
+                                flex-direction: row;
+                                
+                                .area {
+                                    position: relative;
+
+                                    &.check {
+                                        background-color: #FFF9C8;
+                                    }
+
+                                    &.tat {
+                                        background-color: #CCC8FF;
+                                    }
+
+                                    &.flight {
+                                        background-color: white;
+                                        
+                                        .line-center {
+                                            border-top: dashed 2px #AEAEAE;
+                                        }
+                                    }
+
+                                    &.night-stop {
+                                        background-color: #AEAEAE;
+                                    }
+
+                                    .line-center {
+                                        position: absolute;
+                                        height: 0;
+                                        bottom: calc(50% - 1px);
+                                        width: 100%;
+                                        border-top: solid 2px $bleu-airbus;
+                                    }
+
+                                    .aptArr {
+                                        z-index: 10;
+                                        position: absolute;
+                                        color: $bleu-airbus;
+                                        bottom: 50%;
+                                        right: -4ch;
+                                    }
+
+                                    .start {
+                                        z-index: 10;
+                                        position: absolute;
+                                        font-size: 0.7em;
+                                        color: #444;
+                                        bottom: calc(50% - 13px);
+                                        left: 2px;
+                                    }
+
+                                    .end {
+                                        z-index: 10;
+                                        position: absolute;
+                                        font-size: 0.7em;
+                                        color: #444;
+                                        bottom: 50%;
+                                        right: 2px;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

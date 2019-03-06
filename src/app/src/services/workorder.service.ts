@@ -142,7 +142,7 @@ export class WorkorderService {
   }
 
   generateID(): any {
-    return '' + Math.random().toString(36).substr(2, 15);
+    return '' + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substr(2, 9);
   }
 
   findWoByNumber( woNumber ): any {

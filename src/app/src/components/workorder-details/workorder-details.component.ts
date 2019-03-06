@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd, Event } from '@angular/router';
 import { WorkorderService } from '../../services/workorder.service';
+import { AircraftService } from '../../services/aircraft-service.service';
 import { TimeManagementService } from '../../services/time-management.service';
 
 @Component({
@@ -137,8 +138,12 @@ export class WorkorderDetailsComponent implements OnInit {
   isMouseDown = false;
   firstDaySelected;
   lastDaySelected;
+  monthSelectedArea;
+
+  planningAreaListsInSelectedArea;
 
   constructor(
+    private aircraftService: AircraftService,
     private route: ActivatedRoute,
     private workorderService: WorkorderService,
     private timeManagementService: TimeManagementService,
@@ -153,10 +158,13 @@ export class WorkorderDetailsComponent implements OnInit {
     this.router.events.subscribe( (event: Event) => {
         if (event instanceof NavigationEnd) {
           this.getWo();
+          this.initDayList();
+          this.autoSelectedDate();
         }
     });
     this.getWo();
     this.initDayList();
+    this.autoSelectedDate();
   }
 
   onWorkorderListChange (workorderList): void {
@@ -275,6 +283,8 @@ export class WorkorderDetailsComponent implements OnInit {
       }
     }
     dayselected.selected = true;
+    this.monthSelectedArea = this.selectedMonthIndex;
+    this.setPlanningAreaListsInSelectedArea();
   }
 
   mouseDownHandler(dayselected): void {
@@ -303,6 +313,128 @@ export class WorkorderDetailsComponent implements OnInit {
         d.selected = false;
       }
     }
+    this.monthSelectedArea = this.selectedMonthIndex;
+    this.setPlanningAreaListsInSelectedArea();
+  }
+
+  autoSelectedDate(): void{
+    this.monthList[this.selectedMonthIndex].daySelected[10].selected = true;
+    this.firstDaySelected = { day : 11, selected: true };
+    this.lastDaySelected = { day : 11, selected: true };
+    this.monthSelectedArea = 0;
+    this.setPlanningAreaListsInSelectedArea();
+  }
+
+  setPlanningAreaListsInSelectedArea() {
+    this.planningAreaListsInSelectedArea = []
+
+    const dayStart = this.firstDaySelected.day - 1;
+    const monthStart = this.monthList[this.monthSelectedArea].month;
+    const yearStart = this.yearSelected;
+    const start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+    const dayEnd = this.lastDaySelected.day + 1;
+    const monthEnd = this.monthList[this.monthSelectedArea].month;
+    const yearEnd = this.yearSelected;
+    const end = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+
+    let timeStartArea;
+    let inFlight;
+    let tmpAreaList;
+
+    for ( const a of this.workOrder.aircraftList) {
+      const aircraft = this.aircraftService.findAircraftByName(a.name);
+      tmpAreaList = [];
+      timeStartArea = start;
+      inFlight = false;
+
+      for ( const flight of aircraft.flightsList ) {
+        if (!(flight.timeArr < start || flight.timeDep > end)) {
+          if ( flight.timeDep > start ) {
+            tmpAreaList.push ({
+              start: timeStartArea,
+              end: flight.timeDep,
+              type: 'tat',
+              aptArr: ''
+            });
+            timeStartArea = flight.timeDep;
+            inFlight = true;
+          }
+          if ( flight.timeArr < end) {
+            tmpAreaList.push ({
+              start: timeStartArea,
+              end: flight.timeArr,
+              type: 'flight',
+              aptArr: flight.aptArr
+            });
+            timeStartArea = flight.timeArr;
+            inFlight = false;
+          }
+        }
+      }
+
+      tmpAreaList.push ({
+        start: timeStartArea,
+        end: end,
+        type: (inFlight) ? 'flight' : 'tat',
+        aptArr: ''
+      });
+
+      this.planningAreaListsInSelectedArea.push({
+        acName: a.name,
+        areaList: tmpAreaList
+      });
+    }
+    console.log("PLANNIG AREA");
+    console.log(this.planningAreaListsInSelectedArea);
+  }
+
+  isAreaTat(area): boolean {
+    return area.type === 'tat';
+  }
+
+  isAreaCheck(area): boolean {
+    return area.type === 'check';
+  }
+
+  isAreaFlight(area): boolean {
+    return area.type === 'flight';
+  }
+
+  isAreaNightStop(area): boolean {
+    return area.type === 'nightStop';
+  }
+
+  timeToHour(time): string {
+    const date = new Date(time);
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+
+    let result = '';
+    result = (hour < 10) ? result + '0' + hour : result + hour;
+    result = (minute < 10) ? result + ':0' + minute : result + ':' + minute;
+
+    return result;
+  }
+
+  setWidthArea( area, container ): string {
+    const dayStart = this.firstDaySelected.day - 1;
+    const monthStart = this.monthList[this.monthSelectedArea].month;
+    const yearStart = this.yearSelected;
+    const start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+    const dayEnd = this.lastDaySelected.day + 1;
+    const monthEnd = this.monthList[this.monthSelectedArea].month;
+    const yearEnd = this.yearSelected;
+    const end = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+
+    const time = end - start;
+    const widthContainer = container.offsetWidth;
+    const timeArea = area.end - area.start;
+    const result = (widthContainer * timeArea) / time;
+
+    return result + 'px';
+
   }
 
 }

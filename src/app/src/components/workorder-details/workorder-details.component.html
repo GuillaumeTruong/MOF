@@ -202,10 +202,52 @@
               </div>
             </div>
           </div>
+          <div class="planning-action">
+            <div class="action-label">
+              A/C Planning
+            </div>
+            <div class="desc ns">
+              <span>NS</span>
+              <div class="color"></div>
+            </div>
+            <div class="desc tat">
+                <span>TAT</span>
+                <div class="color"></div>
+            </div>
+            <div class="desc check">
+                <span>CHECK</span>
+                <div class="color"></div>
+            </div>
+            <button mat-raised-button color="primary" class="button-planning">Set All</button>
+            <button mat-raised-button color="primary" class="button-planning">Upload all</button>
+          </div>
         </div>
         <div class="planning-container">
             <div class="planning">
-              
+              <div class="panning-aircraft-container" *ngFor="let areaLists of planningAreaListsInSelectedArea">
+                <div class="aircraft-label">
+                  <span>
+                    {{ areaLists.acName }}
+                  </span>
+                </div>
+                <div #container class="area-container">
+                  <div class="area" *ngFor="let area of areaLists.areaList" [ngStyle]="{'width': setWidthArea( area, container)}"
+                    [ngClass]="{'tat': isAreaTat(area), 'check': isAreaCheck(area), 'flight': isAreaFlight(area), 'night-stop': isAreaNightStop(area)}">
+                    <div class="line-center">
+
+                    </div>
+                    <div class="aptArr" *ngIf="isAreaFlight(area)">
+                      {{ area.aptArr }}
+                    </div>
+                    <div class="start" *ngIf="!isAreaFlight(area)">
+                      {{ timeToHour(area.start) }}
+                    </div>
+                    <div class="end" *ngIf="!isAreaFlight(area)">
+                      {{ timeToHour(area.end) }}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
       </div>
