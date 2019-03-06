@@ -96,7 +96,7 @@
       </div>
     </div>
     -->
-    <mat-list *ngFor="let n of workorders" role="list">
+    <mat-list *ngFor="let n of workorders" role="list" routerLink="/workorder/{{ n.woNumber }}">
       <mat-list-item>
         <app-workorder-card [WorkOrders]="n" class="wo-card"></app-workorder-card>
       </mat-list-item>
