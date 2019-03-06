@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Filters</h1>
+<div mat-dialog-content>
+  <mat-list *ngFor="let f of data" role="list">
+    <mat-list-item>
+      <span>
+        {{f}}
+      </span>
+      <span class="remove-button">
+        <button mat-button (click)="onRemoveClick(f)">
+          <i class="material-icons">
+          close
+          </i>
+        </button>
+      </span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()">Close</button>
+</div>

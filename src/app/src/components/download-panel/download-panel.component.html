@@ -1,27 +1,36 @@
-<mat-tab-group>
+<mat-tab-group animationDuration="0ms" (selectedTabChange)="setSelectedTab($event)">
+  <!-- Imports -->
   <mat-tab>
     <ng-template mat-tab-label>
       <div class="importsLabel">
         <a class="labelName">Imports</a>
-        <div *ngIf="importsContainError(); then dotError else dotElse"></div>
-        <ng-template #dotElse>
-          <div *ngIf="importsContainWarning(); then dotWarning"></div>
+        <div *ngIf="importsContainError(); then dotError else dotElse1"></div>
+        <ng-template #dotElse1>
+          <div *ngIf="importsContainWarning(); then dotWarning else dotElse2"></div>
+        </ng-template>
+        <ng-template #dotElse2>
+          <div *ngIf="importsContainFinished(); then dotFinished"></div>
         </ng-template>
 
         <ng-template #dotError>
-          <p class="errorNB">
-            {{getNbError() + getNbWarning()}}
+          <p class="errorNB" [matTooltip]="getImportsToolTip()" matTooltipPosition="above" matTooltipClass="tooltip">
+            {{getNbError() + getNbWarning() + getNbFinished()}}
           </p>
         </ng-template>
         <ng-template #dotWarning>
           <p class="warningNB">
-            {{getNbWarning()}}
+            {{getNbWarning() + getNbFinished()}}
+          </p>
+        </ng-template>
+        <ng-template #dotFinished>
+          <p class="finishedNB">
+            {{getNbFinished()}}
           </p>
         </ng-template>
 
       </div>
     </ng-template>
-    <mat-list *ngFor="let i of imports | filterPipeImports:filter | filtersPipeImports:filters" role="list">
+    <mat-list *ngFor="let i of imports | filterPipeImports:filter | filtersPipeImports:filters | sortPipeImports:{type: sort, order: order}" role="list">
       <mat-list-item>
         <app-progress-card [importProgress]="i"></app-progress-card>
       </mat-list-item>
@@ -29,8 +38,43 @@
     </mat-list>
   </mat-tab>
 
-  <mat-tab label="Uploads">
-    Uploads
+  <!-- Uploads -->
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <div class="uploadsLabel">
+        <a class="labelName">Uploads</a>
+        <div *ngIf="uploadsContainError(); then dotErrorUp else dotElseUp1"></div>
+        <ng-template #dotElseUp1>
+          <div *ngIf="uploadsContainWarning(); then dotWarningUp else dotElseUp2"></div>
+        </ng-template>
+        <ng-template #dotElseUp2>
+          <div *ngIf="uploadsContainFinished(); then dotFinishedUp"></div>
+        </ng-template>
+
+        <ng-template #dotErrorUp>
+          <p class="errorNB" [matTooltip]="getUploadsToolTip()" matTooltipPosition="above" matTooltipClass="tooltip">
+            {{getNbErrorUploads() + getNbWarningUploads() + getNbFinishedUploads()}}
+          </p>
+        </ng-template>
+        <ng-template #dotWarningUp>
+          <p class="warningNB">
+            {{getNbWarningUploads() + getNbFinishedUploads()}}
+          </p>
+        </ng-template>
+        <ng-template #dotFinishedUp>
+          <p class="finishedNB">
+            {{getNbFinishedUploads()}}
+          </p>
+        </ng-template>
+
+      </div>
+    </ng-template>
+    <mat-list *ngFor="let i of uploads" role="list">
+      <mat-list-item>
+        <app-upload-card [uploadProgress]="i" [imports]="getImports(i.WO, i.acName)"></app-upload-card>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
   </mat-tab>
 </mat-tab-group>
 
@@ -45,7 +89,7 @@
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="3" class="filter-button">
-    <button>
+    <button (click)="openDialog()">
       Filters: {{filters.length}}
     </button>
   </mat-grid-tile>
@@ -61,6 +105,33 @@
     </button>
     <button [ngClass]="{'selected': filter === 'Finished'}" (click)="setFilter('Finished')">
       Finished
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="12" class="right-button">
+    <button (click)="clearAllFinished()">
+      Clear finished
+    </button>
+    <button [matMenuTriggerFor]="menu" yPo>
+      Sorted by: {{sort}}
+    </button>
+    <mat-menu #menu="matMenu" yPosition="above">
+      <button mat-menu-item (click)="setSort('State')">State</button>
+      <button mat-menu-item (click)="setSort('WO')">WO</button>
+      <button mat-menu-item (click)="setSort('AC')">AC</button>
+      <button mat-menu-item (click)="setSort('Deadline')">Deadline</button>
+    </mat-menu>
+    <button class="icon-button" (click)="changeOrder()">
+      <div *ngIf="order; then rightOrder else inverseOrder"></div>
+      <ng-template #rightOrder>
+        <i class="material-icons">
+          arrow_drop_down
+        </i>
+      </ng-template>
+      <ng-template #inverseOrder>
+        <i class="material-icons">
+          arrow_drop_up
+        </i>
+      </ng-template>
     </button>
   </mat-grid-tile>
 </mat-grid-list>

@@ -1,0 +1,19 @@
+@import '../../Css/scrollbar.css';
+
+:host {
+
+  .remove-button {
+    width: 100%;
+    text-align: right;
+  }
+
+  ::ng-deep .mat-list-item-content {
+    min-width: 150px;
+  }
+
+  ::ng-deep .remove-button .mat-button {
+    min-width: 0px;
+    padding: 1px 6px;
+  }
+
+}

@@ -2,6 +2,11 @@
 @import '../../Css/color.scss';
 
 
+::ng-deep .tooltip {
+  white-space: pre-line !important;
+  font-size: 14px !important;
+}
+
 :host {
 
   ::ng-deep .mat-tab-body {
@@ -11,19 +16,22 @@
 
     /* Track */
     ::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: rgba(255,255,255,0.2);
+      //background: #f1f1f1;
       /* border-radius: 3px; */
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #26374C;
+      background: rgba(255,255,255,0.4);
+      //background: #26374C;
       /* border-radius: 3px; */
     }
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: #324864;
+      background: rgba(255,255,255,0.6);
+      //background: #324864;
     }
   }
 
@@ -68,6 +76,13 @@
     padding: 3px 5px;
   }
 
+  .finishedNB {
+    background-color: $vert-online;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 3px 5px;
+  }
+
   .mat-grid-list {
     background: #26374C;
   }
@@ -76,6 +91,11 @@
 
     ::ng-deep .mat-grid-tile.filter-button .mat-figure {
       justify-content: left;
+    }
+
+    ::ng-deep .mat-grid-tile.right-button .mat-figure {
+      justify-content: flex-end;
+      padding-right: 10px;
     }
 
     .download-panel-search-bar {
@@ -125,6 +145,11 @@
       border-radius: 5px;
       border-color: rgba(255, 255, 255, 0);
       border-style: solid;
+      cursor: pointer;
+    }
+
+    button.icon-button {
+      padding: 1px 5px;
     }
 
     button.selected {
