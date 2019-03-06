@@ -2,6 +2,30 @@
 @import '../../Css/scrollbar.css';
 @import '~@angular/material/theming';
 
+:host {
+    /* width */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        /* border-radius: 3px; */
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #00205b;
+        /* border-radius: 3px; */
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #005587;
+    }
+}
+
 .wo-detail-container {
     display: grid;
     grid-template-areas:
