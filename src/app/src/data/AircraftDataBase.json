@@ -1,8 +1,8 @@
 {
     "company": "Air France",
     "AircraftList": {
-        "F-GTAY": {
-            "registration": "F-GTAY",
+        "F-HZAQ": {
+            "registration": "F-HZAQ",
             "acType": "A321",
             "flightsList": [
                 {
@@ -615,8 +615,8 @@
                 }
             ]
         },
-        "F-GKXY": {
-            "registration": "F-GKXY",
+        "F-DKOM": {
+            "registration": "F-DKOM",
             "acType": "A320",
             "flightsList": [
                 {
@@ -1221,8 +1221,8 @@
                 }
             ]
         },
-        "F-GTAZ": {
-            "registration": "F-GTAZ",
+        "F-VYDE": {
+            "registration": "F-VYDE",
             "acType": "A321",
             "flightsList": [
                 {
@@ -1835,8 +1835,8 @@
                 }
             ]
         },
-        "F-GKXZ": {
-            "registration": "F-GKXZ",
+        "F-EUGR": {
+            "registration": "F-EUGR",
             "acType": "A320",
             "flightsList": [
                 {
@@ -2401,8 +2401,8 @@
                 }
             ]
         },
-        "F-GTAX": {
-            "registration": "F-GTAX",
+        "F-MBWX": {
+            "registration": "F-MBWX",
             "acType": "A321",
             "flightsList": [
                 {
@@ -2951,8 +2951,8 @@
                 }
             ]
         },
-        "F-GTAU": {
-            "registration": "F-GTAU",
+        "F-AQEC": {
+            "registration": "F-AQEC",
             "acType": "A321",
             "flightsList": [
                 {
@@ -3597,8 +3597,8 @@
                 }
             ]
         },
-        "F-GKXU": {
-            "registration": "F-GKXU",
+        "F-FHQE": {
+            "registration": "F-FHQE",
             "acType": "A320",
             "flightsList": [
                 {
@@ -4123,8 +4123,8 @@
                 }
             ]
         },
-        "F-GKXV": {
-            "registration": "F-GKXV",
+        "F-MQKI": {
+            "registration": "F-MQKI",
             "acType": "A320",
             "flightsList": [
                 {
@@ -4681,8 +4681,8 @@
                 }
             ]
         },
-        "F-GKXS": {
-            "registration": "F-GKXS",
+        "F-YBAL": {
+            "registration": "F-YBAL",
             "acType": "A320",
             "flightsList": [
                 {
@@ -5303,8 +5303,8 @@
                 }
             ]
         },
-        "F-GTAS": {
-            "registration": "F-GTAS",
+        "F-BNMU": {
+            "registration": "F-BNMU",
             "acType": "A321",
             "flightsList": [
                 {
@@ -5845,8 +5845,8 @@
                 }
             ]
         },
-        "F-GKXT": {
-            "registration": "F-GKXT",
+        "F-BSQM": {
+            "registration": "F-BSQM",
             "acType": "A320",
             "flightsList": [
                 {
@@ -6371,8 +6371,8 @@
                 }
             ]
         },
-        "F-GTAT": {
-            "registration": "F-GTAT",
+        "F-RJMU": {
+            "registration": "F-RJMU",
             "acType": "A321",
             "flightsList": [
                 {
@@ -6921,8 +6921,8 @@
                 }
             ]
         },
-        "F-GKXQ": {
-            "registration": "F-GKXQ",
+        "F-WKTX": {
+            "registration": "F-WKTX",
             "acType": "A320",
             "flightsList": [
                 {
@@ -7335,8 +7335,8 @@
                 }
             ]
         },
-        "F-GTAQ": {
-            "registration": "F-GTAQ",
+        "F-YLCQ": {
+            "registration": "F-YLCQ",
             "acType": "A321",
             "flightsList": [
                 {
@@ -7917,8 +7917,8 @@
                 }
             ]
         },
-        "F-GKXR": {
-            "registration": "F-GKXR",
+        "F-TAPX": {
+            "registration": "F-TAPX",
             "acType": "A320",
             "flightsList": [
                 {
@@ -8499,8 +8499,8 @@
                 }
             ]
         },
-        "F-GKXO": {
-            "registration": "F-GKXO",
+        "F-EBGR": {
+            "registration": "F-EBGR",
             "acType": "A320",
             "flightsList": [
                 {
@@ -8937,8 +8937,8 @@
                 }
             ]
         },
-        "F-GLZP": {
-            "registration": "F-GLZP",
+        "F-PCVR": {
+            "registration": "F-PCVR",
             "acType": "A340-300",
             "flightsList": [
                 {
@@ -9175,8 +9175,8 @@
                 }
             ]
         },
-        "F-GTAP": {
-            "registration": "F-GTAP",
+        "F-QSAC": {
+            "registration": "F-QSAC",
             "acType": "A321",
             "flightsList": [
                 {
@@ -9653,8 +9653,8 @@
                 }
             ]
         },
-        "F-GKXP": {
-            "registration": "F-GKXP",
+        "F-MNMP": {
+            "registration": "F-MNMP",
             "acType": "A320",
             "flightsList": [
                 {
@@ -10067,8 +10067,8 @@
                 }
             ]
         },
-        "F-GKXM": {
-            "registration": "F-GKXM",
+        "F-GKFJ": {
+            "registration": "F-GKFJ",
             "acType": "A320",
             "flightsList": [
                 {
@@ -10729,8 +10729,8 @@
                 }
             ]
         },
-        "F-GLZN": {
-            "registration": "F-GLZN",
+        "F-PKSP": {
+            "registration": "F-PKSP",
             "acType": "A340-300",
             "flightsList": [
                 {
@@ -10863,8 +10863,8 @@
                 }
             ]
         },
-        "F-GTAM": {
-            "registration": "F-GTAM",
+        "F-YKXS": {
+            "registration": "F-YKXS",
             "acType": "A321",
             "flightsList": [
                 {
@@ -11445,8 +11445,8 @@
                 }
             ]
         },
-        "F-GLZO": {
-            "registration": "F-GLZO",
+        "F-VYOZ": {
+            "registration": "F-VYOZ",
             "acType": "A340-300",
             "flightsList": [
                 {
@@ -11635,8 +11635,8 @@
                 }
             ]
         },
-        "F-GRXD": {
-            "registration": "F-GRXD",
+        "F-JBZZ": {
+            "registration": "F-JBZZ",
             "acType": "A319",
             "flightsList": [
                 {
@@ -12297,8 +12297,8 @@
                 }
             ]
         },
-        "F-GRXE": {
-            "registration": "F-GRXE",
+        "F-TKBO": {
+            "registration": "F-TKBO",
             "acType": "A319",
             "flightsList": [
                 {
@@ -12863,8 +12863,8 @@
                 }
             ]
         },
-        "F-GRXB": {
-            "registration": "F-GRXB",
+        "F-DULL": {
+            "registration": "F-DULL",
             "acType": "A319",
             "flightsList": [
                 {
@@ -13325,8 +13325,8 @@
                 }
             ]
         },
-        "F-GRXC": {
-            "registration": "F-GRXC",
+        "F-GDKA": {
+            "registration": "F-GDKA",
             "acType": "A319",
             "flightsList": [
                 {
@@ -13779,8 +13779,8 @@
                 }
             ]
         },
-        "F-GRXA": {
-            "registration": "F-GRXA",
+        "F-HPPX": {
+            "registration": "F-HPPX",
             "acType": "A319",
             "flightsList": [
                 {
@@ -14621,8 +14621,8 @@
                 }
             ]
         },
-        "F-GRHE": {
-            "registration": "F-GRHE",
+        "F-YYJD": {
+            "registration": "F-YYJD",
             "acType": "A319",
             "flightsList": [
                 {
@@ -15075,8 +15075,8 @@
                 }
             ]
         },
-        "F-GRHB": {
-            "registration": "F-GRHB",
+        "F-CBUF": {
+            "registration": "F-CBUF",
             "acType": "A319",
             "flightsList": [
                 {
@@ -15665,8 +15665,8 @@
                 }
             ]
         },
-        "F-GRXL": {
-            "registration": "F-GRXL",
+        "F-XYAT": {
+            "registration": "F-XYAT",
             "acType": "A319",
             "flightsList": [
                 {
@@ -16343,8 +16343,8 @@
                 }
             ]
         },
-        "F-GRXM": {
-            "registration": "F-GRXM",
+        "F-HTIZ": {
+            "registration": "F-HTIZ",
             "acType": "A319",
             "flightsList": [
                 {
@@ -16837,8 +16837,8 @@
                 }
             ]
         },
-        "F-GRXJ": {
-            "registration": "F-GRXJ",
+        "F-CIVT": {
+            "registration": "F-CIVT",
             "acType": "A319",
             "flightsList": [
                 {
@@ -16971,8 +16971,8 @@
                 }
             ]
         },
-        "F-GRXK": {
-            "registration": "F-GRXK",
+        "F-XGUB": {
+            "registration": "F-XGUB",
             "acType": "A319",
             "flightsList": [
                 {
@@ -17545,8 +17545,8 @@
                 }
             ]
         },
-        "F-GRXF": {
-            "registration": "F-GRXF",
+        "F-JKSX": {
+            "registration": "F-JKSX",
             "acType": "A319",
             "flightsList": [
                 {
@@ -18247,8 +18247,8 @@
                 }
             ]
         },
-        "F-HBNL": {
-            "registration": "F-HBNL",
+        "F-AMVY": {
+            "registration": "F-AMVY",
             "acType": "A320",
             "flightsList": [
                 {
@@ -18717,8 +18717,8 @@
                 }
             ]
         },
-        "F-HBNK": {
-            "registration": "F-HBNK",
+        "F-YCYX": {
+            "registration": "F-YCYX",
             "acType": "A320",
             "flightsList": [
                 {
@@ -19371,8 +19371,8 @@
                 }
             ]
         },
-        "F-GRHU": {
-            "registration": "F-GRHU",
+        "F-YMYX": {
+            "registration": "F-YMYX",
             "acType": "A319",
             "flightsList": [
                 {
@@ -19937,8 +19937,8 @@
                 }
             ]
         },
-        "F-HBNJ": {
-            "registration": "F-HBNJ",
+        "F-ZLIE": {
+            "registration": "F-ZLIE",
             "acType": "A320",
             "flightsList": [
                 {
@@ -20591,8 +20591,8 @@
                 }
             ]
         },
-        "F-GRHR": {
-            "registration": "F-GRHR",
+        "F-FCNN": {
+            "registration": "F-FCNN",
             "acType": "A319",
             "flightsList": [
                 {
@@ -21133,8 +21133,8 @@
                 }
             ]
         },
-        "F-HBNI": {
-            "registration": "F-HBNI",
+        "F-BWFD": {
+            "registration": "F-BWFD",
             "acType": "A320",
             "flightsList": [
                 {
@@ -21587,8 +21587,8 @@
                 }
             ]
         },
-        "F-GRHS": {
-            "registration": "F-GRHS",
+        "F-TVFJ": {
+            "registration": "F-TVFJ",
             "acType": "A319",
             "flightsList": [
                 {
@@ -22033,8 +22033,8 @@
                 }
             ]
         },
-        "F-HBNH": {
-            "registration": "F-HBNH",
+        "F-RMZZ": {
+            "registration": "F-RMZZ",
             "acType": "A320",
             "flightsList": [
                 {
@@ -22519,8 +22519,8 @@
                 }
             ]
         },
-        "F-GRHP": {
-            "registration": "F-GRHP",
+        "F-CEXO": {
+            "registration": "F-CEXO",
             "acType": "A319",
             "flightsList": [
                 {
@@ -22965,8 +22965,8 @@
                 }
             ]
         },
-        "F-HBNG": {
-            "registration": "F-HBNG",
+        "F-NPDN": {
+            "registration": "F-NPDN",
             "acType": "A320",
             "flightsList": [
                 {
@@ -23339,8 +23339,8 @@
                 }
             ]
         },
-        "F-GRHQ": {
-            "registration": "F-GRHQ",
+        "F-LQKM": {
+            "registration": "F-LQKM",
             "acType": "A319",
             "flightsList": [
                 {
@@ -23769,8 +23769,8 @@
                 }
             ]
         },
-        "F-GRHN": {
-            "registration": "F-GRHN",
+        "F-OQGZ": {
+            "registration": "F-OQGZ",
             "acType": "A319",
             "flightsList": [
                 {
@@ -24327,8 +24327,8 @@
                 }
             ]
         },
-        "F-HBNF": {
-            "registration": "F-HBNF",
+        "F-LGJC": {
+            "registration": "F-LGJC",
             "acType": "A320",
             "flightsList": [
                 {
@@ -24893,8 +24893,8 @@
                 }
             ]
         },
-        "F-HBNE": {
-            "registration": "F-HBNE",
+        "F-QTDK": {
+            "registration": "F-QTDK",
             "acType": "A320",
             "flightsList": [
                 {
@@ -25507,8 +25507,8 @@
                 }
             ]
         },
-        "F-GRHO": {
-            "registration": "F-GRHO",
+        "F-KUFL": {
+            "registration": "F-KUFL",
             "acType": "A319",
             "flightsList": [
                 {
@@ -25977,8 +25977,8 @@
                 }
             ]
         },
-        "F-GRHM": {
-            "registration": "F-GRHM",
+        "F-RTOG": {
+            "registration": "F-RTOG",
             "acType": "A319",
             "flightsList": [
                 {
@@ -26527,8 +26527,8 @@
                 }
             ]
         },
-        "F-HBNC": {
-            "registration": "F-HBNC",
+        "F-LWMH": {
+            "registration": "F-LWMH",
             "acType": "A320",
             "flightsList": [
                 {
@@ -27141,8 +27141,8 @@
                 }
             ]
         },
-        "F-HBNB": {
-            "registration": "F-HBNB",
+        "F-CWQH": {
+            "registration": "F-CWQH",
             "acType": "A320",
             "flightsList": [
                 {
@@ -27699,8 +27699,8 @@
                 }
             ]
         },
-        "F-GRHJ": {
-            "registration": "F-GRHJ",
+        "F-PFCB": {
+            "registration": "F-PFCB",
             "acType": "A319",
             "flightsList": [
                 {
@@ -28089,8 +28089,8 @@
                 }
             ]
         },
-        "F-GRHK": {
-            "registration": "F-GRHK",
+        "F-BNEH": {
+            "registration": "F-BNEH",
             "acType": "A319",
             "flightsList": [
                 {
@@ -28239,8 +28239,8 @@
                 }
             ]
         },
-        "F-HBNA": {
-            "registration": "F-HBNA",
+        "F-IALX": {
+            "registration": "F-IALX",
             "acType": "A320",
             "flightsList": [
                 {
@@ -28773,8 +28773,8 @@
                 }
             ]
         },
-        "F-GRHH": {
-            "registration": "F-GRHH",
+        "F-NWTF": {
+            "registration": "F-NWTF",
             "acType": "A319",
             "flightsList": [
                 {
@@ -29299,8 +29299,8 @@
                 }
             ]
         },
-        "F-GRHI": {
-            "registration": "F-GRHI",
+        "F-BUMG": {
+            "registration": "F-BUMG",
             "acType": "A319",
             "flightsList": [
                 {
@@ -29753,8 +29753,8 @@
                 }
             ]
         },
-        "F-GRHF": {
-            "registration": "F-GRHF",
+        "F-PAQB": {
+            "registration": "F-PAQB",
             "acType": "A319",
             "flightsList": [
                 {
@@ -30311,8 +30311,8 @@
                 }
             ]
         },
-        "F-GRHG": {
-            "registration": "F-GRHG",
+        "F-VTBQ": {
+            "registration": "F-VTBQ",
             "acType": "A319",
             "flightsList": [
                 {
@@ -30925,8 +30925,8 @@
                 }
             ]
         },
-        "F-HPJJ": {
-            "registration": "F-HPJJ",
+        "F-ESYE": {
+            "registration": "F-ESYE",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -31099,8 +31099,8 @@
                 }
             ]
         },
-        "F-HPJI": {
-            "registration": "F-HPJI",
+        "F-UQIL": {
+            "registration": "F-UQIL",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -31241,8 +31241,8 @@
                 }
             ]
         },
-        "F-GUGA": {
-            "registration": "F-GUGA",
+        "F-KMBA": {
+            "registration": "F-KMBA",
             "acType": "A318",
             "flightsList": [
                 {
@@ -31791,8 +31791,8 @@
                 }
             ]
         },
-        "F-HPJH": {
-            "registration": "F-HPJH",
+        "F-FVWH": {
+            "registration": "F-FVWH",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -31965,8 +31965,8 @@
                 }
             ]
         },
-        "F-HPJG": {
-            "registration": "F-HPJG",
+        "F-CLPP": {
+            "registration": "F-CLPP",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -32099,8 +32099,8 @@
                 }
             ]
         },
-        "F-HPJF": {
-            "registration": "F-HPJF",
+        "F-NKDY": {
+            "registration": "F-NKDY",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -32271,8 +32271,8 @@
                 }
             ]
         },
-        "F-HPJE": {
-            "registration": "F-HPJE",
+        "F-IUZV": {
+            "registration": "F-IUZV",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -32437,8 +32437,8 @@
                 }
             ]
         },
-        "F-HPJD": {
-            "registration": "F-HPJD",
+        "F-FOCZ": {
+            "registration": "F-FOCZ",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -32611,8 +32611,8 @@
                 }
             ]
         },
-        "F-HPJC": {
-            "registration": "F-HPJC",
+        "F-NWQI": {
+            "registration": "F-NWQI",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -32761,8 +32761,8 @@
                 }
             ]
         },
-        "F-GPMF": {
-            "registration": "F-GPMF",
+        "F-DZAH": {
+            "registration": "F-DZAH",
             "acType": "A319",
             "flightsList": [
                 {
@@ -33015,8 +33015,8 @@
                 }
             ]
         },
-        "F-HPJB": {
-            "registration": "F-HPJB",
+        "F-JLVV": {
+            "registration": "F-JLVV",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -33221,8 +33221,8 @@
                 }
             ]
         },
-        "F-HPJA": {
-            "registration": "F-HPJA",
+        "F-OCBJ": {
+            "registration": "F-OCBJ",
             "acType": "A380-800",
             "flightsList": [
                 {
@@ -33419,8 +33419,8 @@
                 }
             ]
         },
-        "F-GRHZ": {
-            "registration": "F-GRHZ",
+        "F-YBSZ": {
+            "registration": "F-YBSZ",
             "acType": "A319",
             "flightsList": [
                 {
@@ -34105,8 +34105,8 @@
                 }
             ]
         },
-        "F-GRHX": {
-            "registration": "F-GRHX",
+        "F-LLJB": {
+            "registration": "F-LLJB",
             "acType": "A319",
             "flightsList": [
                 {
@@ -34647,8 +34647,8 @@
                 }
             ]
         },
-        "F-GRHY": {
-            "registration": "F-GRHY",
+        "F-YARS": {
+            "registration": "F-YARS",
             "acType": "A319",
             "flightsList": [
                 {
@@ -35173,8 +35173,8 @@
                 }
             ]
         },
-        "F-GRHV": {
-            "registration": "F-GRHV",
+        "F-EGIN": {
+            "registration": "F-EGIN",
             "acType": "A319",
             "flightsList": [
                 {
@@ -35763,8 +35763,8 @@
                 }
             ]
         },
-        "F-GUGP": {
-            "registration": "F-GUGP",
+        "F-FAKX": {
+            "registration": "F-FAKX",
             "acType": "A318",
             "flightsList": [
                 {
@@ -36289,8 +36289,8 @@
                 }
             ]
         },
-        "F-GUGQ": {
-            "registration": "F-GUGQ",
+        "F-MJEX": {
+            "registration": "F-MJEX",
             "acType": "A318",
             "flightsList": [
                 {
@@ -36511,8 +36511,8 @@
                 }
             ]
         },
-        "F-GUGN": {
-            "registration": "F-GUGN",
+        "F-PBKK": {
+            "registration": "F-PBKK",
             "acType": "A318",
             "flightsList": [
                 {
@@ -37093,8 +37093,8 @@
                 }
             ]
         },
-        "F-GUGO": {
-            "registration": "F-GUGO",
+        "F-WVFK": {
+            "registration": "F-WVFK",
             "acType": "A318",
             "flightsList": [
                 {
@@ -37635,8 +37635,8 @@
                 }
             ]
         },
-        "F-GUGL": {
-            "registration": "F-GUGL",
+        "F-WEWW": {
+            "registration": "F-WEWW",
             "acType": "A318",
             "flightsList": [
                 {
@@ -38345,8 +38345,8 @@
                 }
             ]
         },
-        "F-GUGM": {
-            "registration": "F-GUGM",
+        "F-ZBRG": {
+            "registration": "F-ZBRG",
             "acType": "A318",
             "flightsList": [
                 {
@@ -39031,8 +39031,8 @@
                 }
             ]
         },
-        "F-GUGJ": {
-            "registration": "F-GUGJ",
+        "F-ALFK": {
+            "registration": "F-ALFK",
             "acType": "A318",
             "flightsList": [
                 {
@@ -39749,8 +39749,8 @@
                 }
             ]
         },
-        "F-GUGK": {
-            "registration": "F-GUGK",
+        "F-YDVG": {
+            "registration": "F-YDVG",
             "acType": "A318",
             "flightsList": [
                 {
@@ -40411,8 +40411,8 @@
                 }
             ]
         },
-        "F-GUGH": {
-            "registration": "F-GUGH",
+        "F-HFKM": {
+            "registration": "F-HFKM",
             "acType": "A318",
             "flightsList": [
                 {
@@ -41033,8 +41033,8 @@
                 }
             ]
         },
-        "F-GUGI": {
-            "registration": "F-GUGI",
+        "F-XAEY": {
+            "registration": "F-XAEY",
             "acType": "A318",
             "flightsList": [
                 {
@@ -41607,8 +41607,8 @@
                 }
             ]
         },
-        "F-GUGF": {
-            "registration": "F-GUGF",
+        "F-IQJC": {
+            "registration": "F-IQJC",
             "acType": "A318",
             "flightsList": [
                 {
@@ -42093,8 +42093,8 @@
                 }
             ]
         },
-        "F-GUGG": {
-            "registration": "F-GUGG",
+        "F-RAFZ": {
+            "registration": "F-RAFZ",
             "acType": "A318",
             "flightsList": [
                 {
@@ -42611,8 +42611,8 @@
                 }
             ]
         },
-        "F-GUGD": {
-            "registration": "F-GUGD",
+        "F-GLTT": {
+            "registration": "F-GLTT",
             "acType": "A318",
             "flightsList": [
                 {
@@ -43249,8 +43249,8 @@
                 }
             ]
         },
-        "F-GUGE": {
-            "registration": "F-GUGE",
+        "F-WKVE": {
+            "registration": "F-WKVE",
             "acType": "A318",
             "flightsList": [
                 {
@@ -43759,8 +43759,8 @@
                 }
             ]
         },
-        "F-GUGB": {
-            "registration": "F-GUGB",
+        "F-DFFY": {
+            "registration": "F-DFFY",
             "acType": "A318",
             "flightsList": [
                 {
@@ -44397,8 +44397,8 @@
                 }
             ]
         },
-        "F-GUGC": {
-            "registration": "F-GUGC",
+        "F-CYSA": {
+            "registration": "F-CYSA",
             "acType": "A318",
             "flightsList": [
                 {
@@ -44939,8 +44939,8 @@
                 }
             ]
         },
-        "F-GUGR": {
-            "registration": "F-GUGR",
+        "F-EAFX": {
+            "registration": "F-EAFX",
             "acType": "A318",
             "flightsList": [
                 {
@@ -45225,8 +45225,8 @@
                 }
             ]
         },
-        "F-GZCH": {
-            "registration": "F-GZCH",
+        "F-WABZ": {
+            "registration": "F-WABZ",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -45439,8 +45439,8 @@
                 }
             ]
         },
-        "F-GZCE": {
-            "registration": "F-GZCE",
+        "F-UXFG": {
+            "registration": "F-UXFG",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -45733,8 +45733,8 @@
                 }
             ]
         },
-        "F-GZCC": {
-            "registration": "F-GZCC",
+        "F-ZNEF": {
+            "registration": "F-ZNEF",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -45987,8 +45987,8 @@
                 }
             ]
         },
-        "F-GZCD": {
-            "registration": "F-GZCD",
+        "F-UQFB": {
+            "registration": "F-UQFB",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -46225,8 +46225,8 @@
                 }
             ]
         },
-        "F-GMZE": {
-            "registration": "F-GMZE",
+        "F-LWBO": {
+            "registration": "F-LWBO",
             "acType": "A321",
             "flightsList": [
                 {
@@ -46607,8 +46607,8 @@
                 }
             ]
         },
-        "F-GZCA": {
-            "registration": "F-GZCA",
+        "F-YWQJ": {
+            "registration": "F-YWQJ",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -46869,8 +46869,8 @@
                 }
             ]
         },
-        "F-GZCB": {
-            "registration": "F-GZCB",
+        "F-COPV": {
+            "registration": "F-COPV",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -47107,8 +47107,8 @@
                 }
             ]
         },
-        "F-GMZC": {
-            "registration": "F-GMZC",
+        "F-IXOT": {
+            "registration": "F-IXOT",
             "acType": "A321",
             "flightsList": [
                 {
@@ -47705,8 +47705,8 @@
                 }
             ]
         },
-        "F-GMZD": {
-            "registration": "F-GMZD",
+        "F-ZIFL": {
+            "registration": "F-ZIFL",
             "acType": "A321",
             "flightsList": [
                 {
@@ -48271,8 +48271,8 @@
                 }
             ]
         },
-        "F-GMZB": {
-            "registration": "F-GMZB",
+        "F-TAOZ": {
+            "registration": "F-TAOZ",
             "acType": "A321",
             "flightsList": [
                 {
@@ -48797,8 +48797,8 @@
                 }
             ]
         },
-        "F-GZCO": {
-            "registration": "F-GZCO",
+        "F-BCAQ": {
+            "registration": "F-BCAQ",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -49051,8 +49051,8 @@
                 }
             ]
         },
-        "F-GZCM": {
-            "registration": "F-GZCM",
+        "F-PUEZ": {
+            "registration": "F-PUEZ",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -49273,8 +49273,8 @@
                 }
             ]
         },
-        "F-GZCN": {
-            "registration": "F-GZCN",
+        "F-OJQL": {
+            "registration": "F-OJQL",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -49479,8 +49479,8 @@
                 }
             ]
         },
-        "F-GZCK": {
-            "registration": "F-GZCK",
+        "F-WZEI": {
+            "registration": "F-WZEI",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -49597,8 +49597,8 @@
                 }
             ]
         },
-        "F-GZCL": {
-            "registration": "F-GZCL",
+        "F-RKJA": {
+            "registration": "F-RKJA",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -49859,8 +49859,8 @@
                 }
             ]
         },
-        "F-GZCJ": {
-            "registration": "F-GZCJ",
+        "F-DAHU": {
+            "registration": "F-DAHU",
             "acType": "A330-200",
             "flightsList": [
                 {
@@ -50105,8 +50105,8 @@
                 }
             ]
         },
-        "F-HEPK": {
-            "registration": "F-HEPK",
+        "F-PMPN": {
+            "registration": "F-PMPN",
             "acType": "A320",
             "flightsList": [
                 {
@@ -50559,8 +50559,8 @@
                 }
             ]
         },
-        "F-HEPJ": {
-            "registration": "F-HEPJ",
+        "F-DQBQ": {
+            "registration": "F-DQBQ",
             "acType": "A320",
             "flightsList": [
                 {
@@ -51085,8 +51085,8 @@
                 }
             ]
         },
-        "F-HEPI": {
-            "registration": "F-HEPI",
+        "F-EUVQ": {
+            "registration": "F-EUVQ",
             "acType": "A320",
             "flightsList": [
                 {
@@ -51547,8 +51547,8 @@
                 }
             ]
         },
-        "F-HEPH": {
-            "registration": "F-HEPH",
+        "F-DTCC": {
+            "registration": "F-DTCC",
             "acType": "A320",
             "flightsList": [
                 {
@@ -51993,8 +51993,8 @@
                 }
             ]
         },
-        "F-HEPG": {
-            "registration": "F-HEPG",
+        "F-CBIA": {
+            "registration": "F-CBIA",
             "acType": "A320",
             "flightsList": [
                 {
@@ -52471,8 +52471,8 @@
                 }
             ]
         },
-        "F-HEPF": {
-            "registration": "F-HEPF",
+        "F-UIXP": {
+            "registration": "F-UIXP",
             "acType": "A320",
             "flightsList": [
                 {
@@ -52893,8 +52893,8 @@
                 }
             ]
         },
-        "F-HEPE": {
-            "registration": "F-HEPE",
+        "F-GIRC": {
+            "registration": "F-GIRC",
             "acType": "A320",
             "flightsList": [
                 {
@@ -53339,8 +53339,8 @@
                 }
             ]
         },
-        "F-HEPD": {
-            "registration": "F-HEPD",
+        "F-MDEP": {
+            "registration": "F-MDEP",
             "acType": "A320",
             "flightsList": [
                 {
@@ -53729,8 +53729,8 @@
                 }
             ]
         },
-        "F-HEPC": {
-            "registration": "F-HEPC",
+        "F-KHTE": {
+            "registration": "F-KHTE",
             "acType": "A320",
             "flightsList": [
                 {
@@ -54375,8 +54375,8 @@
                 }
             ]
         },
-        "F-HEPB": {
-            "registration": "F-HEPB",
+        "F-QRWY": {
+            "registration": "F-QRWY",
             "acType": "A320",
             "flightsList": [
                 {
@@ -54909,8 +54909,8 @@
                 }
             ]
         },
-        "F-HEPA": {
-            "registration": "F-HEPA",
+        "F-IAKD": {
+            "registration": "F-IAKD",
             "acType": "A320",
             "flightsList": [
                 {
@@ -55395,8 +55395,8 @@
                 }
             ]
         },
-        "F-GTAK": {
-            "registration": "F-GTAK",
+        "F-VEFK": {
+            "registration": "F-VEFK",
             "acType": "A321",
             "flightsList": [
                 {
@@ -55985,8 +55985,8 @@
                 }
             ]
         },
-        "F-GKXK": {
-            "registration": "F-GKXK",
+        "F-CYRF": {
+            "registration": "F-CYRF",
             "acType": "A320",
             "flightsList": [
                 {
@@ -56391,8 +56391,8 @@
                 }
             ]
         },
-        "F-GKXL": {
-            "registration": "F-GKXL",
+        "F-UIRB": {
+            "registration": "F-UIRB",
             "acType": "A320",
             "flightsList": [
                 {
@@ -56861,8 +56861,8 @@
                 }
             ]
         },
-        "F-GKXI": {
-            "registration": "F-GKXI",
+        "F-SDFT": {
+            "registration": "F-SDFT",
             "acType": "A320",
             "flightsList": [
                 {
@@ -57315,8 +57315,8 @@
                 }
             ]
         },
-        "F-GLZJ": {
-            "registration": "F-GLZJ",
+        "F-WFFE": {
+            "registration": "F-WFFE",
             "acType": "A340-300",
             "flightsList": [
                 {
@@ -57417,8 +57417,8 @@
                 }
             ]
         },
-        "F-GKXJ": {
-            "registration": "F-GKXJ",
+        "F-VKWA": {
+            "registration": "F-VKWA",
             "acType": "A320",
             "flightsList": [
                 {
@@ -58159,8 +58159,8 @@
                 }
             ]
         },
-        "F-GTAJ": {
-            "registration": "F-GTAJ",
+        "F-JXLR": {
+            "registration": "F-JXLR",
             "acType": "A321",
             "flightsList": [
                 {
@@ -58757,8 +58757,8 @@
                 }
             ]
         },
-        "F-GLZK": {
-            "registration": "F-GLZK",
+        "F-CNWX": {
+            "registration": "F-CNWX",
             "acType": "A340-300",
             "flightsList": [
                 {
@@ -58971,8 +58971,8 @@
                 }
             ]
         },
-        "F-GKXG": {
-            "registration": "F-GKXG",
+        "F-MKZB": {
+            "registration": "F-MKZB",
             "acType": "A320",
             "flightsList": [
                 {
@@ -59545,8 +59545,8 @@
                 }
             ]
         },
-        "F-GTAH": {
-            "registration": "F-GTAH",
+        "F-ORPO": {
+            "registration": "F-ORPO",
             "acType": "A321",
             "flightsList": [
                 {
@@ -60135,8 +60135,8 @@
                 }
             ]
         },
-        "F-GKXH": {
-            "registration": "F-GKXH",
+        "F-TKSM": {
+            "registration": "F-TKSM",
             "acType": "A320",
             "flightsList": [
                 {
@@ -60677,8 +60677,8 @@
                 }
             ]
         },
-        "F-GTAE": {
-            "registration": "F-GTAE",
+        "F-RCTB": {
+            "registration": "F-RCTB",
             "acType": "A321",
             "flightsList": [
                 {
@@ -61331,8 +61331,8 @@
                 }
             ]
         },
-        "F-GKXE": {
-            "registration": "F-GKXE",
+        "F-JGMI": {
+            "registration": "F-JGMI",
             "acType": "A320",
             "flightsList": [
                 {
@@ -61689,8 +61689,8 @@
                 }
             ]
         },
-        "F-GKXC": {
-            "registration": "F-GKXC",
+        "F-BENA": {
+            "registration": "F-BENA",
             "acType": "A320",
             "flightsList": [
                 {
@@ -62295,8 +62295,8 @@
                 }
             ]
         },
-        "F-GTAD": {
-            "registration": "F-GTAD",
+        "F-ITIU": {
+            "registration": "F-ITIU",
             "acType": "A321",
             "flightsList": [
                 {
