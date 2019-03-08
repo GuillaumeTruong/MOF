@@ -114,11 +114,10 @@
     <button [matMenuTriggerFor]="menu" yPo>
       Sorted by: {{sort}}
     </button>
-    <mat-menu #menu="matMenu" yPosition="above">
+    <mat-menu #menu="matMenu" yPosition="above" class="sortMenu">
       <button mat-menu-item (click)="setSort('State')">State</button>
       <button mat-menu-item (click)="setSort('WO')">WO</button>
       <button mat-menu-item (click)="setSort('AC')">AC</button>
-      <button mat-menu-item (click)="setSort('Deadline')">Deadline</button>
     </mat-menu>
     <button class="icon-button" (click)="changeOrder()">
       <div *ngIf="order; then rightOrder else inverseOrder"></div>

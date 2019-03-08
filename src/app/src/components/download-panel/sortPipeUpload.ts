@@ -29,12 +29,6 @@ export class SortPipeUpload implements PipeTransform {
         } else {
           return items.sort((a, b) => -a.WO.localeCompare(b.WO));
         }
-      case 'Deadline':
-        if (filter.order) {
-          return items.sort((a, b) => b.status - a.status);
-        } else {
-          return items.sort((a, b) => a.status - b.status);
-        }
     }
   }
 }

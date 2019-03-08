@@ -7,6 +7,20 @@
   font-size: 14px !important;
 }
 
+::ng-deep .mat-menu-panel.sortMenu {
+  background: #26374C;
+
+  ::ng-deep .mat-menu-item {
+    color: white;
+  }
+
+  ::ng-deep .mat-menu-item:hover {
+    color: white;
+  }
+}
+
+
+
 :host {
 
   ::ng-deep .mat-tab-body {

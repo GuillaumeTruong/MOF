@@ -38,15 +38,22 @@
     </button>
   </mat-grid-tile>
 
-  <!-- Immat de l'avion (2-8, 1) -->
-  <mat-grid-tile [colspan]="7">
+  <!-- Immat de l'avion (2-7, 1) -->
+  <mat-grid-tile [colspan]="6">
     <div class="name">
       {{importProgress.acName}}
     </div>
   </mat-grid-tile>
 
-  <!-- Progress bar (9-24, 1) -->
-  <mat-grid-tile [colspan]="16">
+  <!-- WO (8-12, 1-2) -->
+  <mat-grid-tile [colspan]="5" [rowspan]="2">
+    <div class="text wo">
+      WO: {{importProgress.WO}}
+    </div>
+  </mat-grid-tile>
+
+  <!-- Progress bar (13-26, 1) -->
+  <mat-grid-tile [colspan]="14">
     <mat-progress-bar value="{{importProgress.progress / importProgress.fileSize * 100}}"
                       [mode]="importProgress.status == 0 ? 'buffer' : 'default'"
                       [ngClass]="{'barProgress': importProgress.status == 0,
@@ -56,8 +63,8 @@
     </mat-progress-bar>
   </mat-grid-tile>
 
-  <!-- Status de connexion (25-32, 1-2) -->
-  <mat-grid-tile [colspan]="8" [rowspan]="2">
+  <!-- Status de connexion (27-32, 1-2) -->
+  <mat-grid-tile [colspan]="6" [rowspan]="2">
     <!-- conditions -->
     <div *ngIf="importProgress.status == 0 then progressConnexion else elseConnexion1"></div>
     <ng-template #elseConnexion1>
@@ -112,15 +119,15 @@
     </ng-template>
   </mat-grid-tile>
 
-  <!-- Part Number (2-8, 2) -->
-  <mat-grid-tile [colspan]="7">
+  <!-- Part Number (2-7, 2) -->
+  <mat-grid-tile [colspan]="6">
     <div class="PN text">
       PN: {{importProgress.partNumber}}
     </div>
   </mat-grid-tile>
 
-  <!-- Temps restant (9-17, 2) -->
-  <mat-grid-tile [colspan]="9">
+  <!-- Temps restant (13-20, 2) -->
+  <mat-grid-tile [colspan]="8">
     <div *ngIf="importProgress.status == 0 then thenTime1 else elseTime1"></div>
     <ng-template #thenTime1>
       <div class="timeProgress text">
@@ -142,8 +149,8 @@
     </ng-template>
   </mat-grid-tile>
 
-  <!-- Text d'avancement en Mo (18-24, 2) -->
-  <mat-grid-tile [colspan]="7">
+  <!-- Text d'avancement en Mo (21-26, 2) -->
+  <mat-grid-tile [colspan]="6">
     <div class="progress text">
       {{importProgress.progress}} / {{importProgress.fileSize}} Mo
     </div>
