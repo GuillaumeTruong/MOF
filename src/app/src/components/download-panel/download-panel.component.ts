@@ -192,13 +192,19 @@ export class DownloadPanelComponent implements OnInit {
       }
     }
     if (war !== 0) {
-      res += '\n- ' + war + ' warning';
+      if (res.length !== 0) {
+        res += '\n';
+      }
+      res += '- ' + war + ' warning';
       if (war > 1) {
         res += 's';
       }
     }
     if (fin !== 0) {
-      res += '\n- ' + fin + ' finished';
+      if (res.length !== 0) {
+        res += '\n';
+      }
+      res += '- ' + fin + ' finished';
     }
     return res;
   }
@@ -225,13 +231,19 @@ export class DownloadPanelComponent implements OnInit {
       }
     }
     if (war !== 0) {
-      res += '\n- ' + war + ' warning';
+      if (res.length !== 0) {
+        res += '\n';
+      }
+      res += '- ' + war + ' warning';
       if (war > 1) {
         res += 's';
       }
     }
     if (fin !== 0) {
-      res += '\n- ' + fin + ' finished';
+      if (res.length !== 0) {
+        res += '\n';
+      }
+      res += '- ' + fin + ' finished';
     }
     return res;
   }
@@ -265,6 +277,10 @@ export class FilterDownloadDialogComponent {
 
   onCloseClick(): void {
     this.dialogRef.close();
+  }
+
+  onClearClick(): void {
+    this.data.splice(0, this.data.length);
   }
 
 }

@@ -1,4 +1,4 @@
-<mat-grid-list cols="48" rowHeight="15">
+<mat-grid-list cols="32" rowHeight="15">
 
   <!-- Boutons play, pause, etc (1, 1-2) -->
   <mat-grid-tile [colspan]="1" [rowspan]="2">
@@ -39,14 +39,21 @@
   </mat-grid-tile>
 
   <!-- Immat de l'avion (2-7, 1) -->
-  <mat-grid-tile [colspan]="12">
+  <mat-grid-tile [colspan]="6">
     <div class="name">
       {{importProgress.acName}}
     </div>
   </mat-grid-tile>
 
-  <!-- Progress bar (8-18, 1) -->
-  <mat-grid-tile [colspan]="23">
+  <!-- WO (8-12, 1-2) -->
+  <mat-grid-tile [colspan]="5" [rowspan]="2">
+    <div class="text wo">
+      WO: {{importProgress.WO}}
+    </div>
+  </mat-grid-tile>
+
+  <!-- Progress bar (13-26, 1) -->
+  <mat-grid-tile [colspan]="14">
     <mat-progress-bar value="{{importProgress.progress / importProgress.fileSize * 100}}"
                       [mode]="importProgress.status == 0 ? 'buffer' : 'default'"
                       [ngClass]="{'barProgress': importProgress.status == 0,
@@ -56,8 +63,8 @@
     </mat-progress-bar>
   </mat-grid-tile>
 
-  <!-- Status de connexion (19-24, 1-2) -->
-  <mat-grid-tile [colspan]="12" [rowspan]="2">
+  <!-- Status de connexion (27-32, 1-2) -->
+  <mat-grid-tile [colspan]="6" [rowspan]="2">
     <!-- conditions -->
     <div *ngIf="importProgress.status == 0 then progressConnexion else elseConnexion1"></div>
     <ng-template #elseConnexion1>
@@ -113,21 +120,14 @@
   </mat-grid-tile>
 
   <!-- Part Number (2-7, 2) -->
-  <mat-grid-tile [colspan]="12">
+  <mat-grid-tile [colspan]="6">
     <div class="PN text">
       PN: {{importProgress.partNumber}}
     </div>
   </mat-grid-tile>
 
-  <!-- Text d'avancement en Mo (8-11, 2) -->
+  <!-- Temps restant (13-20, 2) -->
   <mat-grid-tile [colspan]="8">
-    <div class="progress text">
-    {{importProgress.progress}} / {{importProgress.fileSize}} Mo
-    </div>
-  </mat-grid-tile>
-
-  <!-- Temps restant (12-18, 2) -->
-  <mat-grid-tile [colspan]="15">
     <div *ngIf="importProgress.status == 0 then thenTime1 else elseTime1"></div>
     <ng-template #thenTime1>
       <div class="timeProgress text">
@@ -148,4 +148,12 @@
       </ng-template>
     </ng-template>
   </mat-grid-tile>
+
+  <!-- Text d'avancement en Mo (21-26, 2) -->
+  <mat-grid-tile [colspan]="6">
+    <div class="progress text">
+      {{importProgress.progress}} / {{importProgress.fileSize}} Mo
+    </div>
+  </mat-grid-tile>
+
 </mat-grid-list>

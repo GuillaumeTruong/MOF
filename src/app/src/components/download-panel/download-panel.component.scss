@@ -7,6 +7,20 @@
   font-size: 14px !important;
 }
 
+::ng-deep .mat-menu-panel.sortMenu {
+  background: #26374C;
+
+  ::ng-deep .mat-menu-item {
+    color: white;
+  }
+
+  ::ng-deep .mat-menu-item:hover {
+    color: white;
+  }
+}
+
+
+
 :host {
 
   ::ng-deep .mat-tab-body {
@@ -18,7 +32,7 @@
     ::-webkit-scrollbar-track {
       background: rgba(255,255,255,0.2);
       //background: #f1f1f1;
-      /* border-radius: 3px; */
+      // border-radius: 3px; */
     }
 
     /* Handle */
@@ -33,6 +47,10 @@
       background: rgba(255,255,255,0.6);
       //background: #324864;
     }
+  }
+
+  ::ng-deep .mat-list-item-content {
+    padding: 0px 10px !important;
   }
 
   .mat-tab-group {

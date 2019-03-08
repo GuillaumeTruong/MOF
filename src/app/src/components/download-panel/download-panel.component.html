@@ -18,12 +18,12 @@
           </p>
         </ng-template>
         <ng-template #dotWarning>
-          <p class="warningNB">
+          <p class="warningNB" [matTooltip]="getImportsToolTip()" matTooltipPosition="above" matTooltipClass="tooltip">
             {{getNbWarning() + getNbFinished()}}
           </p>
         </ng-template>
         <ng-template #dotFinished>
-          <p class="finishedNB">
+          <p class="finishedNB" [matTooltip]="getImportsToolTip()" matTooltipPosition="above" matTooltipClass="tooltip">
             {{getNbFinished()}}
           </p>
         </ng-template>
@@ -57,19 +57,19 @@
           </p>
         </ng-template>
         <ng-template #dotWarningUp>
-          <p class="warningNB">
+          <p class="warningNB" [matTooltip]="getUploadsToolTip()" matTooltipPosition="above" matTooltipClass="tooltip">
             {{getNbWarningUploads() + getNbFinishedUploads()}}
           </p>
         </ng-template>
         <ng-template #dotFinishedUp>
-          <p class="finishedNB">
+          <p class="finishedNB" [matTooltip]="getUploadsToolTip()" matTooltipPosition="above" matTooltipClass="tooltip">
             {{getNbFinishedUploads()}}
           </p>
         </ng-template>
 
       </div>
     </ng-template>
-    <mat-list *ngFor="let i of uploads" role="list">
+    <mat-list *ngFor="let i of uploads | filterPipeUpload:filter | filtersPipeUpload:filters | sortPipeUpload:{type: sort, order: order}" role="list">
       <mat-list-item>
         <app-upload-card [uploadProgress]="i" [imports]="getImports(i.WO, i.acName)"></app-upload-card>
       </mat-list-item>
@@ -114,11 +114,10 @@
     <button [matMenuTriggerFor]="menu" yPo>
       Sorted by: {{sort}}
     </button>
-    <mat-menu #menu="matMenu" yPosition="above">
+    <mat-menu #menu="matMenu" yPosition="above" class="sortMenu">
       <button mat-menu-item (click)="setSort('State')">State</button>
       <button mat-menu-item (click)="setSort('WO')">WO</button>
       <button mat-menu-item (click)="setSort('AC')">AC</button>
-      <button mat-menu-item (click)="setSort('Deadline')">Deadline</button>
     </mat-menu>
     <button class="icon-button" (click)="changeOrder()">
       <div *ngIf="order; then rightOrder else inverseOrder"></div>

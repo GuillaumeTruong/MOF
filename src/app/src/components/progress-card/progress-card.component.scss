@@ -44,7 +44,7 @@
 
   .timeProgress {
     position: absolute;
-    right: 0px;
+    left: 0px;
   }
 
   .text {
@@ -59,8 +59,14 @@
 
   .progress {
     position: absolute;
+    right: 0px;
+  }
+
+  .wo {
+    position: absolute;
     left: 0px;
   }
+
 
   .blueDot {
     fill: $bleu-progress;

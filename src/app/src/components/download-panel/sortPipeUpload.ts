@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {ImportProgress} from '../../Class/ImportProgress';
+import {UploadProgress} from '../../Class/UploadProgress';
 
 @Pipe({
-  name: 'sortPipeImports',
+  name: 'sortPipeUpload',
   pure: false
 })
-export class SortPipeImports implements PipeTransform {
-  transform(items: ImportProgress[], filter: any): any {
+export class SortPipeUpload implements PipeTransform {
+  transform(items: UploadProgress[], filter: any): any {
     if (!items || !filter) {
       return items;
     }

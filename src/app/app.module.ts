@@ -60,6 +60,9 @@ import { TimeManagementService } from './src/services/time-management.service';
 import {SortPipeImports} from './src/components/download-panel/sortPipeImports';
 import { UploadCardComponent } from './src/components/upload-card/upload-card.component';
 import {UploadsService} from './src/services/uploads.service';
+import {FilterPipeUpload} from './src/components/download-panel/filterPipeUpload';
+import {FiltersPipeUpload} from './src/components/download-panel/filtersPipeUpload';
+import {SortPipeUpload} from './src/components/download-panel/sortPipeUpload';
 
 
 @NgModule({
@@ -74,6 +77,9 @@ import {UploadsService} from './src/services/uploads.service';
     FilterPipeImports,
     FiltersPipeImports,
     SortPipeImports,
+    FilterPipeUpload,
+    FiltersPipeUpload,
+    SortPipeUpload,
     DownloadPanelComponent,
     ProgressCardComponent,
     WorkorderPanelComponent,
