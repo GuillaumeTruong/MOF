@@ -341,6 +341,7 @@ export class WorkorderDetailsComponent implements OnInit {
     let timeStartArea;
     let inFlight;
     let tmpAreaList;
+    let type;
 
     for ( const a of this.workOrder.aircraftList) {
       const aircraft = this.aircraftService.findAircraftByName(a.name);
@@ -351,10 +352,24 @@ export class WorkorderDetailsComponent implements OnInit {
       for ( const flight of aircraft.flightsList ) {
         if (!(flight.timeArr < start || flight.timeDep > end)) {
           if ( flight.timeDep > start ) {
+
+            if (flight.timeDep - timeStartArea >= 86400000) {
+              type = 'check';
+            } else {
+              const tmpDateStart = new Date(timeStartArea);
+              const tmpDateEnd = new Date(flight.timeDep);
+
+              if (flight.timeDep - timeStartArea >= 18000000 && tmpDateStart.getHours() >= 23 && tmpDateEnd.getHours() <= 8) {
+                type = 'nightStop';
+              } else {
+                type = 'tat';
+              }
+            }
+
             tmpAreaList.push ({
               start: timeStartArea,
               end: flight.timeDep,
-              type: 'tat',
+              type: type,
               aptArr: ''
             });
             timeStartArea = flight.timeDep;
@@ -373,10 +388,28 @@ export class WorkorderDetailsComponent implements OnInit {
         }
       }
 
+      if (inFlight) {
+        type = 'flight';
+      } else {
+        if (end - timeStartArea >= 86400000) {
+          type = 'check';
+        } else {
+          const tmpDateStart = new Date(timeStartArea);
+          const tmpDateEnd = new Date(end);
+
+          console.log(end - timeStartArea);
+          if (end - timeStartArea >= 18000000 && tmpDateStart.getHours() >= 23 && tmpDateEnd.getHours() <= 8) {
+            type = 'nightStop';
+          } else {
+            type = 'tat';
+          }
+        }
+      }
+
       tmpAreaList.push ({
         start: timeStartArea,
         end: end,
-        type: (inFlight) ? 'flight' : 'tat',
+        type: type,
         aptArr: ''
       });
 

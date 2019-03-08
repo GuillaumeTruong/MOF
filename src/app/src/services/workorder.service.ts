@@ -82,8 +82,7 @@ export class WorkorderService {
           finSW: this.configurationList.configurations[acType].configuration[hdIndex].soft[swIndex].fin,
           fdSW: this.configurationList.configurations[acType].configuration[hdIndex].soft[swIndex].fd,
           finHW: this.configurationList.configurations[acType].configuration[hdIndex].fin,
-          fdHW: this.configurationList.configurations[acType].configuration[hdIndex].fd,
-          type: Math.floor(Math.random() * Math.floor(4))
+          fdHW: this.configurationList.configurations[acType].configuration[hdIndex].fd
         };
         pn.push(tmp);
       }
@@ -131,7 +130,8 @@ export class WorkorderService {
         woNumber: '' + woNumber,
         deadline: deadline,
         pn: pn,
-        aircraftList: aircraft
+        aircraftList: aircraft,
+        type: Math.floor(Math.random() * Math.floor(4))
       };
 
       woList.push(tmpwo);
