@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject  } from 'rxjs';
 import { AircraftService } from './aircraft-service.service';
 import { TimeManagementService } from './time-management.service';
-import data from '../data/Workorder.json';
+import dataWO from '../data/Workorder.json';
 import dataConfig from '../data/configurationDB.json';
 import { Aircraft } from '../Class/Aircraft';
 
@@ -28,6 +28,7 @@ export class WorkorderService {
     this.configurationList = <any>dataConfig;
 
     this.generatorWoList(30);
+    this.addWoFromJson();
     console.log(this.woList.value);
 
     // this.editWorkOrderList(<any>data);
@@ -137,12 +138,36 @@ export class WorkorderService {
     }
     this.editWorkOrderList(woList);
     this.aircraftService.editAircraftList(acList);
+  }
 
-    // set aircraft list WO
+  addWoFromJson() {
+    const woListToAdd = <any>dataWO;
+    for ( const wo of woListToAdd.WorkorderList ) {
+      this.addWOtoList( wo );
+    }
+  }
+
+  addWOtoList( wo ): void {
+    const acList = this.aircraftService.getAircraftList();
+    const currentWoList = this.woList.value;
+
+    currentWoList.push(wo);
+
+    for ( const a of wo.aircraftList ) {
+      for ( const aircraft of acList.AircraftList ) {
+        if (aircraft.name === a.name) {
+          aircraft.woInProgress.push('' + wo.woNumber);
+          break;
+        }
+      }
+    }
+
+    this.editWorkOrderList(currentWoList);
+    this.aircraftService.editAircraftList(acList);
   }
 
   generateID(): any {
-    return '' + Math.random().toString(36).substr(2, 9) + Math.random().toString(36).substr(2, 9);
+    return 'AAA' + Math.random().toString(36).substr(2, 9).toUpperCase() + Math.random().toString(36).substr(2, 2).toUpperCase();
   }
 
   findWoByNumber( woNumber ): any {
