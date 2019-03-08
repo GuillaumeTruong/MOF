@@ -295,6 +295,11 @@ export class WorkorderDetailsComponent implements OnInit {
   mouseUpHandler(dayselected): void {
     this.isMouseDown = false;
     this.lastDaySelected = dayselected;
+    if (this.firstDaySelected.day > this.lastDaySelected.day) {
+      const tmp = this.firstDaySelected;
+      this.firstDaySelected = this.lastDaySelected;
+      this.lastDaySelected = tmp;
+    }
     this.setSeclectedArea();
   }
 
@@ -307,10 +312,18 @@ export class WorkorderDetailsComponent implements OnInit {
 
   setSeclectedArea(): void {
     for (const d of this.monthList[this.selectedMonthIndex].daySelected) {
-      if (d.day >= this.firstDaySelected.day && d.day <= this.lastDaySelected.day ) {
-        d.selected = true;
+      if (this.firstDaySelected.day <= this.lastDaySelected.day) {
+        if (d.day >= this.firstDaySelected.day && d.day <= this.lastDaySelected.day ) {
+          d.selected = true;
+        } else {
+          d.selected = false;
+        }
       } else {
-        d.selected = false;
+        if (d.day <= this.firstDaySelected.day && d.day >= this.lastDaySelected.day ) {
+          d.selected = true;
+        } else {
+          d.selected = false;
+        }
       }
     }
     this.monthSelectedArea = this.selectedMonthIndex;
@@ -327,16 +340,29 @@ export class WorkorderDetailsComponent implements OnInit {
 
   setPlanningAreaListsInSelectedArea() {
     this.planningAreaListsInSelectedArea = [];
+    let start, end;
 
-    const dayStart = this.firstDaySelected.day - 1;
-    const monthStart = this.monthList[this.monthSelectedArea].month;
-    const yearStart = this.yearSelected;
-    const start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+    if (this.firstDaySelected.day <= this.lastDaySelected.day) {
+      const dayStart = this.firstDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
 
-    const dayEnd = this.lastDaySelected.day + 1;
-    const monthEnd = this.monthList[this.monthSelectedArea].month;
-    const yearEnd = this.yearSelected;
-    const end = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+      const dayEnd = this.lastDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    } else {
+      const dayStart = this.lastDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.firstDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    }
 
     let timeStartArea;
     let inFlight;
@@ -359,7 +385,7 @@ export class WorkorderDetailsComponent implements OnInit {
               const tmpDateStart = new Date(timeStartArea);
               const tmpDateEnd = new Date(flight.timeDep);
 
-              if (flight.timeDep - timeStartArea >= 18000000 && tmpDateStart.getHours() >= 23 && tmpDateEnd.getHours() <= 8) {
+              if (flight.timeDep - timeStartArea >= 18000000 && tmpDateEnd.getHours() <= 8) {
                 type = 'nightStop';
               } else {
                 type = 'tat';
@@ -397,8 +423,7 @@ export class WorkorderDetailsComponent implements OnInit {
           const tmpDateStart = new Date(timeStartArea);
           const tmpDateEnd = new Date(end);
 
-          console.log(end - timeStartArea);
-          if (end - timeStartArea >= 18000000 && tmpDateStart.getHours() >= 23 && tmpDateEnd.getHours() <= 8) {
+          if (end - timeStartArea >= 18000000 && tmpDateEnd.getHours() <= 8) {
             type = 'nightStop';
           } else {
             type = 'tat';
@@ -451,15 +476,29 @@ export class WorkorderDetailsComponent implements OnInit {
   }
 
   setWidthArea( area, container ): string {
-    const dayStart = this.firstDaySelected.day - 1;
-    const monthStart = this.monthList[this.monthSelectedArea].month;
-    const yearStart = this.yearSelected;
-    const start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+    let start, end;
 
-    const dayEnd = this.lastDaySelected.day + 1;
-    const monthEnd = this.monthList[this.monthSelectedArea].month;
-    const yearEnd = this.yearSelected;
-    const end = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    if (this.firstDaySelected.day <= this.lastDaySelected.day) {
+      const dayStart = this.firstDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.lastDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    } else {
+      const dayStart = this.lastDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.firstDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    }
 
     const time = end - start;
     const widthContainer = container.offsetWidth;
@@ -468,6 +507,14 @@ export class WorkorderDetailsComponent implements OnInit {
 
     return result + 'px';
 
+  }
+
+  oneDaySelected(): boolean {
+    return ((this.lastDaySelected.day - this.firstDaySelected.day) === 0);
+  }
+
+  arrayOne(n: number): any[] {
+    return Array(n);
   }
 
 }

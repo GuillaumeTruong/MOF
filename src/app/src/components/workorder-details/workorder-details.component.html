@@ -193,7 +193,7 @@
                 <div class="number-list">
                   <div class="number-container" *ngFor="let dayselected of monthList[selectedMonthIndex].daySelected">
                     <div class="number" [ngClass]="{'selected': dayselected.selected, 'current': isCurrentDate(dayselected.day),
-                      'old': isDayOld(dayselected.day), 'late': isDayLate(dayselected.day)}" (click)="selectDay(dayselected)"
+                      'old': isDayOld(dayselected.day), 'late': isDayLate(dayselected.day)}"
                       (mousedown)="mouseDownHandler(dayselected)" (mouseup)="mouseUpHandler(dayselected)" (mouseenter)="mouseEnterHandler(dayselected)">
                       <span>{{ dayselected.day }}</span>
                     </div>
