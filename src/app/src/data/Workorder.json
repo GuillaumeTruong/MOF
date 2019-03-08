@@ -68,7 +68,7 @@
             ],
             "aircraftList": [
                 {
-                    "name": "XXXXX",
+                    "name": "F-GTAY",
                     "currentStep": "Import",
                     "uploadDate": 1546927200000,
                     "uploadEnd": 1546929000000,
@@ -78,7 +78,7 @@
                     "status": 0
                 },
                 {
-                    "name": "XXXXX",
+                    "name": "F-GKXY",
                     "currentStep": "Prepare",
                     "uploadDate": null,
                     "uploadEnd": null,

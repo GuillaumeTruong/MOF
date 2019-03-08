@@ -317,7 +317,7 @@ export class WorkorderDetailsComponent implements OnInit {
     this.setPlanningAreaListsInSelectedArea();
   }
 
-  autoSelectedDate(): void{
+  autoSelectedDate(): void {
     this.monthList[this.selectedMonthIndex].daySelected[10].selected = true;
     this.firstDaySelected = { day : 11, selected: true };
     this.lastDaySelected = { day : 11, selected: true };
@@ -326,7 +326,7 @@ export class WorkorderDetailsComponent implements OnInit {
   }
 
   setPlanningAreaListsInSelectedArea() {
-    this.planningAreaListsInSelectedArea = []
+    this.planningAreaListsInSelectedArea = [];
 
     const dayStart = this.firstDaySelected.day - 1;
     const monthStart = this.monthList[this.monthSelectedArea].month;
@@ -385,7 +385,7 @@ export class WorkorderDetailsComponent implements OnInit {
         areaList: tmpAreaList
       });
     }
-    console.log("PLANNIG AREA");
+    console.log('PLANNIG AREA');
     console.log(this.planningAreaListsInSelectedArea);
   }
 
