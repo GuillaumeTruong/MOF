@@ -71,7 +71,7 @@ export class WorkorderService {
       const nbAircraftMax = Math.floor(Math.random() * Math.floor(5)) + 1;
 
       for (let nbPn = 0; nbPn < nbPnMax; nbPn++) {
-        
+
         const tmpPrepList = [];
         const tmpVeriList = [];
 

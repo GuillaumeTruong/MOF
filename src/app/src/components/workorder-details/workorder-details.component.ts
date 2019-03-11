@@ -509,6 +509,67 @@ export class WorkorderDetailsComponent implements OnInit {
 
   }
 
+  isMaintenanceShown(dateStart, dateEnd): boolean {
+    let start, end;
+    if (this.firstDaySelected.day <= this.lastDaySelected.day) {
+      const dayStart = this.firstDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.lastDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    } else {
+      const dayStart = this.lastDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.firstDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    }
+    return true;
+  }
+
+  setMaintenanceWidth(dateStart, dateEnd, container) {
+    let start, end;
+
+    if (this.firstDaySelected.day <= this.lastDaySelected.day) {
+      const dayStart = this.firstDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.lastDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    } else {
+      const dayStart = this.lastDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.firstDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    }
+
+    const time = end - start;
+    const widthContainer = container.offsetWidth;
+    const timeArea = dateEnd - dateStart;
+    const result = (widthContainer * timeArea) / time;
+
+    return result + 'px';
+  }
+
+
+
   oneDaySelected(): boolean {
     return ((this.lastDaySelected.day - this.firstDaySelected.day) === 0);
   }
@@ -710,5 +771,7 @@ export class WorkorderDetailsComponent implements OnInit {
       a.uploadEnd = dateEnd;
     }
   }
+
+
 
 }
