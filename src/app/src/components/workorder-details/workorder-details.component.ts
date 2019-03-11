@@ -509,7 +509,13 @@ export class WorkorderDetailsComponent implements OnInit {
 
   }
 
-  isMaintenanceShown(dateStart, dateEnd): boolean {
+  isMaintenanceShown(acName): boolean {
+    const aircraft = this.aircraftService.findAircraftByName(acName);
+
+    if (aircraft.uploadDate === null || aircraft.uploadEnd === null) {
+      return false;
+    }
+
     let start, end;
     if (this.firstDaySelected.day <= this.lastDaySelected.day) {
       const dayStart = this.firstDaySelected.day - 1;
@@ -532,10 +538,11 @@ export class WorkorderDetailsComponent implements OnInit {
       const yearEnd = this.yearSelected;
       end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
     }
-    return true;
+    return (aircraft.uploadDate > start && aircraft.uploadEnd < end);
   }
 
-  setMaintenanceWidth(dateStart, dateEnd, container) {
+  setMaintenanceWidth(acName, container) {
+    const aircraft = this.aircraftService.findAircraftByName(acName);
     let start, end;
 
     if (this.firstDaySelected.day <= this.lastDaySelected.day) {
@@ -562,13 +569,45 @@ export class WorkorderDetailsComponent implements OnInit {
 
     const time = end - start;
     const widthContainer = container.offsetWidth;
-    const timeArea = dateEnd - dateStart;
+    const timeArea = aircraft.uploadEnd - aircraft.uploadDate;
     const result = (widthContainer * timeArea) / time;
 
     return result + 'px';
   }
 
+  setMaintenanceLeft(acName, container) {
+    const aircraft = this.aircraftService.findAircraftByName(acName);
+    let start, end;
 
+    if (this.firstDaySelected.day <= this.lastDaySelected.day) {
+      const dayStart = this.firstDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.lastDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    } else {
+      const dayStart = this.lastDaySelected.day - 1;
+      const monthStart = this.monthList[this.monthSelectedArea].month;
+      const yearStart = this.yearSelected;
+      start = Date.parse(dayStart + ' ' + monthStart + ' ' + yearStart + ' 23:00');
+
+      const dayEnd = this.firstDaySelected.day + 1;
+      const monthEnd = this.monthList[this.monthSelectedArea].month;
+      const yearEnd = this.yearSelected;
+      end  = Date.parse(dayEnd + ' ' + monthEnd + ' ' + yearEnd + ' 01:00');
+    }
+
+    const time = end - start;
+    const widthContainer = container.offsetWidth;
+    const timeFromStart = aircraft.uploadDate - start;
+    const result = (widthContainer * timeFromStart) / time;
+
+    return result + 'px';
+  }
 
   oneDaySelected(): boolean {
     return ((this.lastDaySelected.day - this.firstDaySelected.day) === 0);
@@ -746,7 +785,7 @@ export class WorkorderDetailsComponent implements OnInit {
   }
 
   findPlaceToUpload() {
-    const timeUpload = this.workOrder.pn[0].fileSize * 6000;
+    const timeUpload = this.workOrder.pn[0].fileSize * 9000;
     let dateStart;
     let dateEnd;
 

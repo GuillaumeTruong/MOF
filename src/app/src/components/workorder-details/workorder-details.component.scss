@@ -702,6 +702,14 @@
                             .area-container {
                                 display: flex;
                                 flex-direction: row;
+                                position: relative;
+
+                                .maintenance {
+                                    position: absolute;
+                                    height: 4px;
+                                    bottom: calc(50% - 2px);
+                                    background-color: $vert-online;
+                                }
                                 
                                 .area {
                                     position: relative;

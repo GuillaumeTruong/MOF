@@ -257,6 +257,10 @@
                       {{ timeToHour(area.end) }}
                     </div>
                   </div>
+                  <div *ngIf="isMaintenanceShown(areaLists.acName)" class="maintenance"
+                    [ngStyle]="{'width': setMaintenanceWidth( areaLists.acName, container), 'left': setMaintenanceLeft( areaLists.acName, container)}">
+
+                  </div>
                 </div>
               </div>
             </div>
