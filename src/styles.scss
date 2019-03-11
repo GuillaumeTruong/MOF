@@ -25,20 +25,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /*WO Cards */
 
-.wo-panel .mat-list-base .mat-list-item {
-
-}
-
-.wo-card{
-  padding: 5px;
-}
 .wo-card .mat-card:hover{
   cursor: pointer;
   background:rgba(0,0,0,.04);
-}
-
-.wo-card .mat-card .last-child {
-  margin-bottom: 0;
 }
 
 .wo-panel .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
@@ -46,37 +35,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .wo-panel .mat-list-base .mat-list-item .mat-list-item-content{
-  padding: 0;
+  padding: 0px 5px ;
 }
 
-.wo-card-right{
-  width: 50%;
-  display: inline-block;
 
-}
 
-.wo-card-left{
-  width: 50%;
-  display: inline-block;
-  float: left;
-}
 
-.wo-card-right span{
-  position: relative;
-  float: right;
-  display: table;
-}
-.wo-card-right span p{
-  display: table-cell;
-  vertical-align: middle;
-}
-.wo-card-right span .mat-icon{
-  display: table-cell;
-  vertical-align: middle;
-}
-.mat-card-title {
-  margin-bottom: 0 !important;
-}
-.mat-card-subtitle {
-  margin-bottom: 4px !important;
-}

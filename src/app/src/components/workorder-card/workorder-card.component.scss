@@ -1,4 +1,70 @@
 :host {
   width: 100%;
+
+
+  .mat-card {
+    height: 59px;
+    padding: 5px;
+    border: 1px solid #E3E7ED;
+  }
+
+  .mat-card:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, .07);
+  }
+
+  .mat-card-content {
+    height: 100%;
+  }
+
+  .mat-card-title {
+    font-size: 20px;
+    color: #00205b;
+    height: 40%;
+  }
+
+  .mat-card-subtitle {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #00205b;
+    vertical-align: middle;
+    height: 50%;
+  }
+
+  .wo-card-right {
+    width: 25%;
+    height: 100%;
+    display: inline-block;
+
+  }
+
+  .wo-card-left {
+    width: 75%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+
+  }
+
+  .wo-card-right div {
+    height: 50%;
+    margin: 0;
+  }
+
+  .wo-card-right div p {
+    color: #00205b;
+    display: table-cell;
+    width: 70%;
+    vertical-align: middle;
+    text-align: end;
+  }
+
+  .mat-icon {
+    display: table-cell;
+    color: #00205b;
+  }
+
+
+
 }
 
