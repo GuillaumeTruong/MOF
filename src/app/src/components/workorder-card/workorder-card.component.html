@@ -1,20 +1,20 @@
-<mat-card mat-ripple (click)="OnMatCardClickEvent(WorkOrders)">
-
+<mat-card mat-ripple >
   <mat-card-content class="last-child">
-  <div class="wo-card-left">
-      <mat-card-title>
-        {{WorkOrders.woId}}
-      </mat-card-title>
-      <mat-card-subtitle>
-        {{WorkOrders.operation}}
-      </mat-card-subtitle>
-  </div>
-  <div class="wo-card-right">
-      <span>
-        <p>{{WorkOrders.deadLine}} </p> <mat-icon>alarm_on</mat-icon>
-      </span>
-      <span>
-       <p>{{WorkOrders.nbAc}} </p> <mat-icon>airplanemode_active</mat-icon>
-      </span>
-</div></mat-card-content>
+    <div class="wo-card-left">
+        <mat-card-title>
+          {{WorkOrders.woNumber}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <span>Deadline: </span>{{WorkOrders.deadline}}
+        </mat-card-subtitle>
+    </div>
+    <div class="wo-card-right">
+        <div>
+          <p>{{WorkOrders.aircraftList.length}}</p><mat-icon>airplanemode_active</mat-icon>
+        </div>
+        <div>
+         <p>{{WorkOrders.pn.length}}</p><mat-icon>insert_drive_file</mat-icon>
+        </div>
+    </div>
+  </mat-card-content>
 </mat-card>
