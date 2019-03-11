@@ -686,9 +686,28 @@ export class WorkorderDetailsComponent implements OnInit {
 
   findPlaceToUpload() {
     const timeUpload = this.workOrder.pn[0].fileSize * 6000;
+    let dateStart;
+    let dateEnd;
 
-    for (const a of this.workOrder.aircraftList) {
-      
+    for (const aircraft of this.workOrder.aircraftList) {
+      const a = this.aircraftService.findAircraftByName(aircraft.name);
+      dateStart = 0;
+      dateEnd = 0;
+
+      for (let i = 0; i < a.flightsList.length - 1; i++) {
+        if (a.flightsList[i].timeArr + 600000 >= this.workOrder.deadline - 604800000
+          && a.flightsList[i + 1].timeDep - a.flightsList[i].timeArr + 1200000 >= timeUpload) {
+            dateStart = a.flightsList[i].timeArr + 600000;
+            dateEnd = dateStart + timeUpload;
+            break;
+        }
+      }
+      if (dateStart === 0 && dateEnd === 0) {
+        dateStart = a.flightsList[a.flightsList.length - 1].timeArr + 600000;
+        dateEnd = dateStart + timeUpload;
+      }
+      a.uploadDate = dateStart;
+      a.uploadEnd = dateEnd;
     }
   }
 
