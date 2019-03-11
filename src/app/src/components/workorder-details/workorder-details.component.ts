@@ -16,23 +16,23 @@ export class WorkorderDetailsComponent implements OnInit {
   stepper: number;
   stepList = [{
     name: 'Prepare',
-    completed: false
+    state: 0
   },
   {
     name: 'Import',
-    completed: false
+    state: 0
   },
   {
     name: 'Upload',
-    completed: false
+    state: 0
   },
   {
     name: 'Verify',
-    completed: false
+    state: 0
   },
   {
     name: 'Validate',
-    completed: false
+    state: 0
   }];
   selectedStep = 'Prepare';
 
@@ -515,6 +515,181 @@ export class WorkorderDetailsComponent implements OnInit {
 
   arrayOne(n: number): any[] {
     return Array(n);
+  }
+
+  isPrepareVeriLocked(pn, aircraft): boolean {
+    return this.isAllConfCheckInPn(pn) && aircraft.currentStep !== 'Prepare';
+  }
+
+  isAllConfCheckInPn(pn): boolean {
+    let result = true;
+    for (const b of pn.acListPrepare) {
+      result = result && b;
+    }
+    return result;
+  }
+
+  isAllConfCheck(): boolean {
+    let result = true;
+    for (const pn of this.workOrder.pn) {
+      result = result && this.isAllConfCheckInPn(pn);
+    }
+    return result;
+  }
+
+  isOneConfChecked(): boolean {
+    for (const pn of this.workOrder.pn) {
+      if (this.isAllConfCheckInPn(pn)) {
+        return true;
+      }
+    }
+  }
+
+  checkAllPrepareInPn(pn) {
+    for (let i = 0; i < pn.acListPrepare.length; i++) {
+      pn.acListPrepare[i] = true;
+    }
+    pn.importState = 1;
+  }
+
+  validatePrepare() {
+    if (this.stepList[1].state === 0) {
+      for (const a of this.workOrder.aircraftList) {
+        a.currentStep = 'Import';
+      }
+      this.stepList[0].state = 3;
+      this.stepList[1].state = 1;
+      this.stepList[2].state = 1;
+
+      for (const pn of this.workOrder.pn) {
+        if (this.isAllConfCheckInPn(pn)) {
+          pn.importState = 1;
+        }
+      }
+    }
+
+    this.selectedStep = 'Import';
+  }
+
+  isImportInProgress() {
+
+  }
+
+  startImport(pn) {
+    pn.importState = 2;
+  }
+
+  nextFromImport() {
+    this.selectedStep = 'Upload';
+  }
+
+  allImportEnded() {
+    for (const a of this.workOrder.aircraftList) {
+      a.currentStep = 'Upload';
+    }
+
+    for (const pn of this.workOrder.pn) {
+      if (this.isAllConfCheckInPn(pn)) {
+        pn.importState = 3;
+      }
+    }
+    this.stepList[1].state = 3;
+  }
+
+  isUploadComplete(): boolean {
+    let result = true;
+    for (const a of this.workOrder.aircraftList) {
+      result = result && a.currentStep === 'Verify';
+    }
+    return result;
+  }
+
+  nextFromUpload() {
+    this.selectedStep = 'Verify';
+  }
+
+  allUploadEnded() {
+    for (const a of this.workOrder.aircraftList) {
+      a.currentStep = 'Verify';
+    }
+
+    this.stepList[2].state = 3;
+    this.stepList[3].state = 1;
+  }
+
+  oneAircraftUploadEnded(aircraftName) {
+    for (const a of this.workOrder.aircraftList) {
+      if (a.name === aircraftName) {
+        a.currentStep = 'Verify';
+      }
+    }
+  }
+
+  isVerifyEnded(): boolean {
+    let result = true;
+    for (const a of this.workOrder) {
+      result = result && a.currentStep === 'Validate';
+    }
+    return result;
+  }
+
+  isVerifyVeriLocked(pn, aircraft): boolean {
+    return this.isAllConfCheckInPn(pn) && aircraft.currentStep !== 'Verify';
+  }
+
+  isAllConfCheckInPnVerify(pn): boolean {
+    let result = true;
+    for (const b of pn.acListVerify) {
+      result = result && b;
+    }
+    return result;
+  }
+
+  isAllConfCheckVerify(): boolean {
+    let result = true;
+    for (const pn of this.workOrder.pn) {
+      result = result && this.isAllConfCheckInPnVerify(pn);
+    }
+    return result;
+  }
+
+  isOneConfCheckedVerify(): boolean {
+    for (const pn of this.workOrder.pn) {
+      if (this.isAllConfCheckInPnVerify(pn)) {
+        return true;
+      }
+    }
+  }
+
+  checkAllVerifyInPn(pn) {
+    for (let i = 0; i < pn.acListVerify.length; i++) {
+      pn.acListVerify[i] = true;
+    }
+  }
+
+  validateVerify() {
+    if (this.stepList[1].state === 0) {
+      for (const a of this.workOrder.aircraftList) {
+        a.currentStep = 'Validate';
+      }
+
+      this.stepList[3].state = 3;
+      this.stepList[4].state = 1;
+    }
+
+    this.selectedStep = 'Validate';
+  }
+
+  validateValidate() {
+    this.stepList[4].state = 4;
+  }
+
+  findPlaceToUpload() {
+    const timeUpload = this.workOrder.pn[0].fileSize * 6000;
+
+    for (const a of this.workOrder.aircraftList) {
+      
+    }
   }
 
 }
