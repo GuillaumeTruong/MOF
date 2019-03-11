@@ -146,6 +146,78 @@
                 }
             }
 
+            
+            &.activate {
+                .label{
+                    color: #111;
+                }
+
+                .step {
+
+                    .balise {
+                        border-color: $bleu-airbus;
+                    }
+                }
+            }
+
+            
+            &.inProgress {
+                .label{
+                    color: $bleu-progress;
+                }
+
+                .step {
+
+                    &.tocomplete:after {
+                        background-color: $bleu-progress;
+                    }
+
+                    .balise {
+                        height: 6px;
+                        width: 6px;
+                        border: solid 9px $bleu-progress;
+                    }
+                }
+            }
+
+            &.warning {
+                .label{
+                    color: $orange-warning;
+                }
+
+                .step {
+
+                    &.tocomplete:after {
+                        background-color: $orange-warning;
+                    }
+
+                    .balise {
+                        height: 6px;
+                        width: 6px;
+                        border: solid 9px $orange-warning;
+                    }
+                }
+            }
+
+            &.error {
+                .label{
+                    color: $rouge-error;
+                }
+
+                .step {
+
+                    &.tocomplete:after {
+                        background-color: $rouge-error;
+                    }
+
+                    .balise {
+                        height: 6px;
+                        width: 6px;
+                        border: solid 9px $rouge-error;
+                    }
+                }
+            }
+
             &.selected {
 
                 .label{
@@ -251,6 +323,10 @@
                 margin-top: 0;
             }
 
+            ::ng-deep .mat-raised-button.mat-primary.validate {
+                background-color: $vert-online !important;
+            }
+
             .detail-panel {
                 margin-top: 10px;
                 border: solid 1px #f1f1f1;
@@ -353,6 +429,32 @@
                         border-radius: 50%;
                         margin-right:10px;
                         background-color: $bleu-progress;
+
+                        &.validate{
+                            background-color: $vert-online;
+                        }
+                    }
+                }
+
+                ::ng-deep .mat-raised-button.mat-primary {
+                    &.validate {
+                        background-color: $vert-online !important;
+                    }
+
+                    &.inProgress {
+                        background-color: $vert-online !important;
+                    }
+
+                    &.disabled {
+                        background-color: #ccc !important;
+                    }
+                    
+                    &.warning {
+                        background-color: $orange-warning !important;
+                    }
+                    
+                    &.error {
+                        background-color: $rouge-error !important;
                     }
                 }
 
@@ -670,7 +772,20 @@
         }
 
         .validate-body{
+            .step-body {
+                width: 100%;
+                display: flex;
+                justify-content: center;
 
+
+                .note-field {
+                    width: 100%;
+                }
+            }
+
+            .step-footer {
+                align-items: center;
+            }
         }
     }
 }

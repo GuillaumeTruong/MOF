@@ -13,7 +13,10 @@
                     "fdSW": "XXX",
                     "finHW": "XXX",
                     "fdHW": "XXX",
-                    "type": 0
+                    "type": 0,
+                    "acListPrepare": [true, true],
+                    "acListVerify": [false, false],
+                    "importState": 0
                 },
                 {
                     "oldPN": "XXXXXXXXX",
@@ -24,7 +27,10 @@
                     "fdSW": "XXX",
                     "finHW": "XXX",
                     "fdHW": "XXX",
-                    "type": 0
+                    "type": 0,
+                    "acListPrepare": [true, true],
+                    "acListVerify": [false, false],
+                    "importState": 0
                 }
             ],
             "aircraftList": [
@@ -63,7 +69,10 @@
                     "fdSW": "XXX",
                     "finHW": "XXX",
                     "fdHW": "XXX",
-                    "type": 0
+                    "type": 0,
+                    "acListPrepare": [true, true],
+                    "acListVerify": [false, false],
+                    "importState": 0
                 }
             ],
             "aircraftList": [

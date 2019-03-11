@@ -68,7 +68,17 @@ export class WorkorderService {
       const nbPnMax = Math.floor(Math.random() * Math.floor(3)) + 1;
       const acType = Math.floor(Math.random() * Math.floor(7));
 
+      const nbAircraftMax = Math.floor(Math.random() * Math.floor(5)) + 1;
+
       for (let nbPn = 0; nbPn < nbPnMax; nbPn++) {
+        
+        const tmpPrepList = [];
+        const tmpVeriList = [];
+
+        for (let i = 0; i < nbAircraftMax; i++) {
+          tmpPrepList.push(false);
+          tmpVeriList.push(false);
+        }
 
         const hdIndex = Math.floor(Math.random() * Math.floor(this.configurationList.configurations[acType].configuration.length));
 
@@ -82,7 +92,10 @@ export class WorkorderService {
           finSW: this.configurationList.configurations[acType].configuration[hdIndex].soft[swIndex].fin,
           fdSW: this.configurationList.configurations[acType].configuration[hdIndex].soft[swIndex].fd,
           finHW: this.configurationList.configurations[acType].configuration[hdIndex].fin,
-          fdHW: this.configurationList.configurations[acType].configuration[hdIndex].fd
+          fdHW: this.configurationList.configurations[acType].configuration[hdIndex].fd,
+          acListPrepare: tmpPrepList,
+          acListVerify: tmpVeriList,
+          importState: 0
         };
         pn.push(tmp);
       }
@@ -90,7 +103,6 @@ export class WorkorderService {
       // generate aicraft list
       const aircraft = [];
       const acTypeList = ['A318', 'A319', 'A320', 'A321', 'A330-200', 'A340-300', 'A380-800'];
-      const nbAircraftMax = Math.floor(Math.random() * Math.floor(5)) + 1;
       const aircraftIndexList = [];
       let indexTmp = 0;
 
